@@ -1,7 +1,8 @@
-"""Split the official Codul Fiscal PDFs into retrieval-sized PDF sections.
+"""Split Romanian legal texts into retrieval-sized PDF sections.
 
-The source PDFs overlap at pages 80 and 169.  Keep the first occurrence of
-each page and create ten-page PDFs named with the original document pages.
+The Codul fiscal source PDFs overlap at pages 80 and 169, so the duplicate
+pages are skipped.  Each document is emitted as ten-page PDFs named with the
+original document page numbers.
 """
 
 from pathlib import Path
@@ -10,31 +11,45 @@ from pypdf import PdfReader, PdfWriter
 
 
 ROOT = Path(__file__).resolve().parent
-SOURCES = (
-    ("cod_fiscal-1-80.pdf", 0, 1),
-    ("cod_fiscal-80-169.pdf", 1, 81),
-    ("cod_fiscal-169-228.pdf", 1, 170),
+DOCUMENTS = (
+    (
+        "cod_fiscal",
+        (
+            ("cod_fiscal-1-80.pdf", 0, 1),
+            ("cod_fiscal-80-169.pdf", 1, 81),
+            ("cod_fiscal-169-228.pdf", 1, 170),
+        ),
+        228,
+    ),
+    (
+        "codul_muncii",
+        (("codul_muncii.pdf", 0, 1),),
+        95,
+    ),
 )
 CHUNK_SIZE = 10
 OUTPUT = ROOT / "sources"
 
 
-def main() -> None:
+def build_document(
+    prefix: str, source_files: tuple[tuple[str, int, int], ...], expected_end: int
+) -> None:
     pages: list[tuple[int, object]] = []
-    for filename, skip, original_start in SOURCES:
+    for filename, skip, original_start in source_files:
         reader = PdfReader(str(ROOT / filename))
         for page_index, page in enumerate(reader.pages[skip:]):
             pages.append((original_start + page_index, page))
 
-    expected_pages = list(range(1, 229))
+    expected_pages = list(range(1, expected_end + 1))
     actual_pages = [original_page for original_page, _ in pages]
     if actual_pages != expected_pages:
         raise RuntimeError(
-            f"Expected pages 1-228 once each, found {actual_pages[:3]}...{actual_pages[-3:]}."
+            f"Expected {prefix} pages 1-{expected_end} once each, "
+            f"found {actual_pages[:3]}...{actual_pages[-3:]}."
         )
 
     OUTPUT.mkdir(exist_ok=True)
-    for existing in OUTPUT.glob("cod_fiscal-p*.pdf"):
+    for existing in OUTPUT.glob(f"{prefix}-p*.pdf"):
         existing.unlink()
 
     for start in range(0, len(pages), CHUNK_SIZE):
@@ -45,10 +60,15 @@ def main() -> None:
         for _, page in chunk:
             writer.add_page(page)
 
-        destination = OUTPUT / f"cod_fiscal-p{first_page:03d}-{last_page:03d}.pdf"
+        destination = OUTPUT / f"{prefix}-p{first_page:03d}-{last_page:03d}.pdf"
         with destination.open("wb") as output:
             writer.write(output)
         print(destination.name)
+
+
+def main() -> None:
+    for prefix, source_files, expected_end in DOCUMENTS:
+        build_document(prefix, source_files, expected_end)
 
 
 if __name__ == "__main__":

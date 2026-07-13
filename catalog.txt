@@ -68,3 +68,33 @@ Available documents:
 
 - Codul fiscal (Legea nr. 227/2015) — paginile originale 221-228 — taxe locale, impozitul pe construcții și dispoziții finale. Art. 471-503.
   https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p221-228.pdf
+
+- Codul muncii (Legea nr. 53/2003, actualizată la 17 octombrie 2022) — paginile originale 1-10 — Titlul I: dispoziții generale și principii fundamentale; Titlul II: încheierea contractului individual de muncă și obligația de informare. Art. 1-21.
+  https://balazs230.github.io/avocatel-docs/sources/codul_muncii-p001-010.pdf
+
+- Codul muncii (Legea nr. 53/2003, actualizată la 17 octombrie 2022) — paginile originale 11-20 — clauze speciale, certificatul medical, perioada de probă, registrul salariaților, drepturile și obligațiile părților, modificarea și suspendarea contractului. Art. 21-52.
+  https://balazs230.github.io/avocatel-docs/sources/codul_muncii-p011-020.pdf
+
+- Codul muncii (Legea nr. 53/2003, actualizată la 17 octombrie 2022) — paginile originale 21-30 — suspendarea și încetarea contractului individual de muncă, concedierea individuală și colectivă. Art. 52-73.
+  https://balazs230.github.io/avocatel-docs/sources/codul_muncii-p021-030.pdf
+
+- Codul muncii (Legea nr. 53/2003, actualizată la 17 octombrie 2022) — paginile originale 31-40 — procedura concedierii, demisia, contractul pe durată determinată, munca temporară, contractul cu timp parțial și munca la domiciliu. Art. 73-109.
+  https://balazs230.github.io/avocatel-docs/sources/codul_muncii-p031-040.pdf
+
+- Codul muncii (Legea nr. 53/2003, actualizată la 17 octombrie 2022) — paginile originale 41-50 — timpul de muncă, munca suplimentară și de noapte, repausul, sărbătorile legale și începutul concediilor. Art. 110-146.
+  https://balazs230.github.io/avocatel-docs/sources/codul_muncii-p041-050.pdf
+
+- Codul muncii (Legea nr. 53/2003, actualizată la 17 octombrie 2022) — paginile originale 51-60 — concediul de odihnă și alte concedii, salarizarea, plata și protecția salariului, începutul securității și sănătății în muncă. Art. 146-181.
+  https://balazs230.github.io/avocatel-docs/sources/codul_muncii-p051-060.pdf
+
+- Codul muncii (Legea nr. 53/2003, actualizată la 17 octombrie 2022) — paginile originale 61-70 — securitatea și sănătatea în muncă, medicina muncii, formarea profesională, ucenicia și începutul dialogului social. Art. 181-221.
+  https://balazs230.github.io/avocatel-docs/sources/codul_muncii-p061-070.pdf
+
+- Codul muncii (Legea nr. 53/2003, actualizată la 17 octombrie 2022) — paginile originale 71-80 — reprezentanții salariaților, patronatele, contractele colective, conflictele de muncă, Inspecția Muncii, regulamentul intern și răspunderea disciplinară. Art. 221-254.
+  https://balazs230.github.io/avocatel-docs/sources/codul_muncii-p071-080.pdf
+
+- Codul muncii (Legea nr. 53/2003, actualizată la 17 octombrie 2022) — paginile originale 81-90 — răspunderea patrimonială, contravențională și penală, jurisdicția muncii și începutul dispozițiilor finale. Art. 254-278^1.
+  https://balazs230.github.io/avocatel-docs/sources/codul_muncii-p081-090.pdf
+
+- Codul muncii (Legea nr. 53/2003, actualizată la 17 octombrie 2022) — paginile originale 91-95 — obligațiile de informare, dispozițiile tranzitorii și finale și directivele europene transpuse. Art. 278^1-281.
+  https://balazs230.github.io/avocatel-docs/sources/codul_muncii-p091-095.pdf
