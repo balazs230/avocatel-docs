@@ -1,7 +1,8 @@
 """Split Romanian legal texts into retrieval-sized PDF sections.
 
 The Codul fiscal source PDFs overlap at pages 80 and 169, so the duplicate
-pages are skipped.  Each document is emitted as ten-page PDFs named with the
+pages are skipped.  Source pages beyond a document's configured final page are
+also excluded.  Each document is emitted as ten-page PDFs named with the
 original document page numbers.
 """
 
@@ -46,6 +47,11 @@ DOCUMENTS = (
         (("cod_penal.pdf", 0, 1),),
         105,
     ),
+    (
+        "constitutia_romaniei",
+        (("constitutia_romaniei.pdf", 0, 1),),
+        40,
+    ),
 )
 CHUNK_SIZE = 10
 OUTPUT = ROOT / "sources"
@@ -58,7 +64,10 @@ def build_document(
     for filename, skip, original_start in source_files:
         reader = PdfReader(str(ROOT / filename))
         for page_index, page in enumerate(reader.pages[skip:]):
-            pages.append((original_start + page_index, page))
+            original_page = original_start + page_index
+            if original_page > expected_end:
+                break
+            pages.append((original_page, page))
 
     expected_pages = list(range(1, expected_end + 1))
     actual_pages = [original_page for original_page, _ in pages]

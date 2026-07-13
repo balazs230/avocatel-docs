@@ -551,3 +551,15 @@ Available documents:
 
 - Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 101-105 — infracțiuni militare, genocid, infracțiuni contra umanității și de război și dispoziția finală privind intrarea în vigoare. Art. 426-437.
   https://balazs230.github.io/avocatel-docs/sources/cod_penal-p101-105.pdf
+
+- Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — paginile originale 1-10 — Titlul I: principiile generale; Titlul II: dispoziții comune și drepturile și libertățile fundamentale. Art. 1-43.
+  https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-p001-010.pdf
+
+- Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — paginile originale 11-20 — drepturile și libertățile fundamentale, îndatoririle, Avocatul Poporului și începutul autorităților publice: Parlamentul și Președintele României. Art. 44-81.
+  https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-p011-020.pdf
+
+- Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — paginile originale 21-30 — Președintele României, Guvernul, raporturile Parlamentului cu Guvernul și administrația publică centrală și locală. Art. 82-122.
+  https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-p021-030.pdf
+
+- Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — paginile originale 31-40 — prefectul, autoritatea judecătorească, economia și finanțele, Curtea Constituțională, integrarea euroatlantică, revizuirea și dispozițiile finale. Art. 123-156.
+  https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-p031-040.pdf
