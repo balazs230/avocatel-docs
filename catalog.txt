@@ -671,3 +671,12 @@ Available documents:
 
 - Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 161-167 — norme suplimentare privind raportarea conturilor și raportarea pentru fiecare țară a grupurilor de întreprinderi multinaționale. Anexele nr. 2-3.
   https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p161-167.pdf
+
+- OUG nr. 34/2014 privind drepturile consumatorilor în contractele încheiate cu profesioniștii (forma inițială, M.Of. nr. 427/2014) — paginile originale 1-10 — obiectul, definițiile, domeniul de aplicare, obligațiile de informare pentru contractele obișnuite, la distanță și în afara spațiilor comerciale și începutul dreptului de retragere. Art. 1-12.
+  https://balazs230.github.io/avocatel-docs/sources/oug_34_2014-p001-010.pdf
+
+- OUG nr. 34/2014 privind drepturile consumatorilor în contractele încheiate cu profesioniștii (forma inițială, M.Of. nr. 427/2014) — paginile originale 11-20 — obligațiile după retragere, excepțiile, livrarea, plățile și riscurile, sancțiunile și modificările aduse legislației privind consumatorii și comunicațiile electronice. Art. 13-29.
+  https://balazs230.github.io/avocatel-docs/sources/oug_34_2014-p011-020.pdf
+
+- OUG nr. 34/2014 privind drepturile consumatorilor în contractele încheiate cu profesioniștii (forma inițială, M.Of. nr. 427/2014) — paginile originale 21-27 — continuarea modificărilor privind contractele de comunicații, intrarea în vigoare, aplicarea și abrogările, plus instrucțiunile și formularul-model pentru retragere. Art. 29-32 și anexa.
+  https://balazs230.github.io/avocatel-docs/sources/oug_34_2014-p021-027.pdf

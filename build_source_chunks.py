@@ -67,6 +67,11 @@ DOCUMENTS = (
         (("cod_procedura_fiscala.pdf", 0, 1),),
         167,
     ),
+    (
+        "oug_34_2014",
+        (("oug_34_2014.pdf", 0, 1),),
+        27,
+    ),
 )
 CHUNK_SIZE = 10
 OUTPUT = ROOT / "sources"
