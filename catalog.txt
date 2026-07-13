@@ -620,3 +620,54 @@ Available documents:
 
 - Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 131-134 — arbitrajul internațional, recunoașterea hotărârilor arbitrale străine și dispoziții de aplicare și tranziție. Art. 1.129-1.134 și extrase din Legea nr. 76/2012.
   https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p131-134.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 1-10 — domeniul de aplicare, principiile administrării creanțelor și începutul raportului juridic fiscal. Art. 1-26.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p001-010.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 11-20 — competența organelor fiscale, actele administrative fiscale și începutul regimului probelor. Art. 27-55.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p011-020.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 21-30 — administrarea probelor, termenele, comunicarea electronică și înregistrarea fiscală. Art. 56-86.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p021-030.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 31-40 — înregistrarea fiscală, stabilirea creanțelor, declarațiile fiscale, estimarea, prescripția și începutul inspecției fiscale. Art. 87-119.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p031-040.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 41-50 — inspecția fiscală, controlul inopinat și antifraudă, verificarea situației fiscale personale și verificarea documentară. Art. 120-150.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p041-050.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 51-60 — dispoziții generale privind colectarea, plata, compensarea și restituirea creanțelor fiscale. Art. 151-167.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p051-060.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 61-70 — stingerea creanțelor, dobânzile și penalitățile și începutul înlesnirilor la plată. Art. 168-192.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p061-070.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 71-80 — eșalonarea și modificarea înlesnirilor la plată, pierderea valabilității și garanțiile fiscale. Art. 193-211.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p071-080.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 81-90 — măsurile asigurătorii, prescripția executării, organele și titlurile executorii și regulile generale ale executării silite. Art. 212-235.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p081-090.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 91-100 — poprirea, executarea bunurilor mobile și imobile și valorificarea bunurilor sechestrate. Art. 236-253.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p091-100.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 101-110 — adjudecarea, cheltuielile și distribuirea sumelor, contestația la executare, alte modalități de stingere și începutul contestației administrative. Art. 254-272.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p101-110.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 111-120 — soluționarea contestațiilor, procedura amiabilă pentru dubla impunere și începutul cooperării fiscale internaționale. Art. 273-291.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p111-120.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 121-130 — schimbul automat și spontan de informații, controalele simultane, protecția datelor și începutul asistenței la recuperarea creanțelor. Art. 291^1-312.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p121-130.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 131-140 — asistența reciprocă la recuperarea creanțelor, notificarea și măsurile asigurătorii internaționale și începutul contravențiilor. Art. 313-337.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p131-140.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 141-150 — sancțiuni, dispoziții tranzitorii și finale și începutul normelor de raportare și diligență fiscală din anexa nr. 1. Art. 338-354 și anexa nr. 1, secțiunile I-V.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p141-150.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 151-160 — procedurile de diligență și definițiile aplicabile schimbului automat de informații privind conturile financiare. Anexa nr. 1, secțiunile VI-IX.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p151-160.pdf
+
+- Codul de procedură fiscală (Legea nr. 207/2015, M.Of. nr. 547/2015; forma consolidată la 18.02.2018) — paginile originale 161-167 — norme suplimentare privind raportarea conturilor și raportarea pentru fiecare țară a grupurilor de întreprinderi multinaționale. Anexele nr. 2-3.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-p161-167.pdf
