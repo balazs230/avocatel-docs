@@ -716,3 +716,21 @@ Available documents:
 
 - Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 111-120 — societatea europeană, contravențiile și infracțiunile, dispozițiile finale și tranzitorii și notele de aplicare. Art. 270^3-294 și note.
   https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p111-120.pdf
+
+- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — paginile originale 1-10 — domeniul de aplicare, definițiile, organizarea registrului comerțului, publicitatea și accesul la informații și începutul organizării ONRC. Art. 1-25.
+  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-p001-010.pdf
+
+- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — paginile originale 11-20 — serviciile de asistență, prelucrarea datelor, statutul registratorului și începutul procedurii de înregistrare, inclusiv firma profesionistului. Art. 26-70.
+  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-p011-020.pdf
+
+- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — paginile originale 21-30 — cererile pentru PFA, persoane juridice și sucursale, documentele justificative, datele înregistrate și mențiunile din registrul comerțului. Art. 71-103.
+  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-p021-030.pdf
+
+- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — paginile originale 31-40 — soluționarea cererilor, încheierile registratorului, plângerile, radierea, înregistrarea fiscală și începutul modificărilor aduse Legii societăților. Art. 104-129.
+  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-p031-040.pdf
+
+- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — paginile originale 41-50 — modificările aduse Legii societăților și regimului PFA, dispozițiile tranzitorii, ordinele de aplicare, personalul și abrogările. Art. 129-140.
+  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-p041-050.pdf
+
+- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — paginile originale 51-57 — intrarea în vigoare și procedurile de numire prin concurs sau examen a conducerii ONRC și a registratorilor registrului comerțului. Art. 141-142 și anexele nr. 1-2.
+  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-p051-057.pdf
