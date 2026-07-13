@@ -578,3 +578,45 @@ Available documents:
 
 - Aplicarea Codului fiscal — HG nr. 284/2017 pentru modificarea Normelor metodologice aprobate prin HG nr. 1/2016 — pagina originală 41 — finalul regulilor privind regimul special pentru agricultori și abrogarea punctului 107 din norme. Articolul unic, lit. G pct. 12-13.
   https://balazs230.github.io/avocatel-docs/sources/aplicare_cod_fiscal-p041-041.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 1-10 — principiile procesului civil, acțiunea civilă, participanții, reprezentarea și începutul competenței instanțelor. Art. 1-96.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p001-010.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 11-20 — competența materială și teritorială, conflictele de competență, strămutarea, actele de procedură și citarea. Art. 97-170.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p011-020.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 21-30 — comunicarea actelor, termenele și sancțiunile procedurale, cererile, întâmpinarea și desfășurarea judecății în primă instanță. Art. 171-254.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p021-030.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 31-40 — administrarea probelor, înscrisurile, martorii, expertiza, cercetarea la fața locului, interogatoriul și asigurarea probelor. Art. 255-357.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p031-040.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 41-50 — administrarea probelor de către avocați, dezbaterea fondului, deliberarea, hotărârile judecătorești și cheltuielile de judecată. Art. 358-460.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p041-050.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 51-60 — apelul, recursul, contestația în anulare, revizuirea, mecanismele de unificare a practicii și contestația privind tergiversarea procesului. Art. 461-534.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p051-060.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 61-70 — procedura necontencioasă, arbitrajul intern și internațional și începutul executării silite. Art. 535-636.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p061-070.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 71-80 — titlurile executorii, participanții și instanța de executare, încuviințarea, prescripția, suspendarea și încetarea executării silite. Art. 637-713.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p071-080.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 81-90 — contestația la executare, urmărirea bunurilor mobile, sechestrul și valorificarea bunurilor. Art. 714-780.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p081-090.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 91-100 — poprirea, urmărirea fructelor și veniturilor imobilelor și începutul urmăririi imobiliare. Art. 781-846.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p091-100.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 101-110 — licitația și adjudecarea imobilelor, distribuirea sumelor, executarea directă, predarea minorilor și începutul procedurii divorțului. Art. 847-934.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p101-110.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 111-120 — divorțul, declararea morții, măsurile provizorii, partajul judiciar, oferta de plată și ordonanța de plată. Art. 935-1.030.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p111-120.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 121-130 — cererile cu valoare redusă, evacuarea, înscrierile funciare, refacerea dosarelor și procesul civil internațional. Art. 1.031-1.128.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p121-130.pdf
+
+- Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — paginile originale 131-134 — arbitrajul internațional, recunoașterea hotărârilor arbitrale străine și dispoziții de aplicare și tranziție. Art. 1.129-1.134 și extrase din Legea nr. 76/2012.
+  https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-p131-134.pdf

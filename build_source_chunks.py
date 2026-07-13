@@ -57,6 +57,11 @@ DOCUMENTS = (
         (("aplicare_cod_fiscal.pdf", 0, 1),),
         41,
     ),
+    (
+        "cod_procedura_civila",
+        (("cod_procedura_civila.pdf", 0, 1),),
+        134,
+    ),
 )
 CHUNK_SIZE = 10
 OUTPUT = ROOT / "sources"
