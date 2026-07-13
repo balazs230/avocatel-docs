@@ -1,0 +1,10 @@
+Available documents:
+
+- Codul Fiscal (Legea 227/2015) — Partea 1 (paginile originale 1-80) — Titlurile I-IV: dispoziții generale și definiții (art. 1-12), impozitul pe profit (art. 13-46), impozitul pe veniturile microîntreprinderilor (art. 47-57) și impozitul pe venit (art. 58-130): salarii, activități independente/PFA, drepturi de autor, chirii, investiții și dividende, pensii, venituri agricole, premii, transferul imobilelor, venitul net anual și declarația unică.
+  https://balazs230.github.io/avocatel-docs/cod_fiscal-1-80.pdf
+
+- Codul Fiscal (Legea 227/2015) — Partea 2 (paginile originale 80-169) — Finalul impozitului pe venit (aspecte fiscale internaționale, art. 125-134), Titlul V: contribuțiile sociale obligatorii (CAS, CASS, contribuția asiguratorie pentru muncă, art. 135-220), Titlul VI: impozitul pe veniturile nerezidenților (art. 221+) și Titlul VII: TVA (art. 265-334): cote de TVA, scutiri, drept de deducere, înregistrarea în scopuri de TVA.
+  https://balazs230.github.io/avocatel-docs/cod_fiscal-80-169.pdf
+
+- Codul Fiscal (Legea 227/2015) — Partea 3 (paginile originale 169-228) — Titlul VIII: accizele și alte taxe speciale (alcool, tutun, produse energetice, art. 335+), Titlul IX: impozitele și taxele locale (impozitul pe clădiri, impozitul pe teren, impozitul pe mijloacele de transport, taxe pentru eliberarea autorizațiilor, art. 453+), Titlul X: impozitul pe construcții și dispozițiile finale.
+  https://balazs230.github.io/avocatel-docs/cod_fiscal-169-228.pdf
