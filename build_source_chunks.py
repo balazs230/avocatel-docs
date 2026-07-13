@@ -36,6 +36,11 @@ DOCUMENTS = (
         (("codul_civil.pdf", 0, 1),),
         843,
     ),
+    (
+        "cod_rutier",
+        (("cod_rutier.pdf", 0, 1),),
+        80,
+    ),
 )
 CHUNK_SIZE = 10
 OUTPUT = ROOT / "sources"
