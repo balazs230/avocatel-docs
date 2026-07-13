@@ -563,3 +563,18 @@ Available documents:
 
 - Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — paginile originale 31-40 — prefectul, autoritatea judecătorească, economia și finanțele, Curtea Constituțională, integrarea euroatlantică, revizuirea și dispozițiile finale. Art. 123-156.
   https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-p031-040.pdf
+
+- Aplicarea Codului fiscal — HG nr. 284/2017 pentru modificarea Normelor metodologice aprobate prin HG nr. 1/2016 — paginile originale 1-10 — reguli generale privind reînregistrarea în scopuri de TVA și ajustările după anularea codului; începutul modificărilor privind impozitul pe profit. Articolul unic, lit. A și lit. B pct. 1-5.
+  https://balazs230.github.io/avocatel-docs/sources/aplicare_cod_fiscal-p001-010.pdf
+
+- Aplicarea Codului fiscal — HG nr. 284/2017 pentru modificarea Normelor metodologice aprobate prin HG nr. 1/2016 — paginile originale 11-20 — impozitul pe profit, veniturile microîntreprinderilor, impozitul pe venit și contribuțiile sociale obligatorii. Articolul unic, lit. B-E.
+  https://balazs230.github.io/avocatel-docs/sources/aplicare_cod_fiscal-p011-020.pdf
+
+- Aplicarea Codului fiscal — HG nr. 284/2017 pentru modificarea Normelor metodologice aprobate prin HG nr. 1/2016 — paginile originale 21-30 — veniturile nerezidenților și modificări TVA privind operațiunile, baza de impozitare, deducerea, ajustările și facturarea. Articolul unic, lit. F și lit. G pct. 1-9.
+  https://balazs230.github.io/avocatel-docs/sources/aplicare_cod_fiscal-p021-030.pdf
+
+- Aplicarea Codului fiscal — HG nr. 284/2017 pentru modificarea Normelor metodologice aprobate prin HG nr. 1/2016 — paginile originale 31-40 — TVA: înregistrare, ajustări, regimuri speciale și introducerea regimului special pentru agricultori. Articolul unic, lit. G pct. 10-12.
+  https://balazs230.github.io/avocatel-docs/sources/aplicare_cod_fiscal-p031-040.pdf
+
+- Aplicarea Codului fiscal — HG nr. 284/2017 pentru modificarea Normelor metodologice aprobate prin HG nr. 1/2016 — pagina originală 41 — finalul regulilor privind regimul special pentru agricultori și abrogarea punctului 107 din norme. Articolul unic, lit. G pct. 12-13.
+  https://balazs230.github.io/avocatel-docs/sources/aplicare_cod_fiscal-p041-041.pdf
