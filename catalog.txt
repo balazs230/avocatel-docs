@@ -518,3 +518,36 @@ Available documents:
 
 - Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — paginile originale 71-80 — restituirea permisului și plăcuțelor, căile de atac, atribuțiile autorităților, dispozițiile finale și categoriile de vehicule pentru permis. Art. 116-137 și anexa nr. 1.
   https://balazs230.github.io/avocatel-docs/sources/cod_rutier-p071-080.pdf
+
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 1-10 — coperta și cuprinsul; principiile și aplicarea legii penale, noțiunea de infracțiune, cauzele justificative și începutul cauzelor de neimputabilitate. Art. 1-25.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p001-010.pdf
+
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 11-20 — cauzele de neimputabilitate, tentativa, unitatea și pluralitatea de infracțiuni, participanții și categoriile pedepselor. Art. 26-69.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p011-020.pdf
+
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 21-30 — calculul și individualizarea pedepselor, circumstanțele, renunțarea și amânarea aplicării, suspendarea sub supraveghere și liberarea condiționată. Art. 70-101.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p021-030.pdf
+
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 31-40 — liberarea condiționată, măsurile de siguranță, răspunderea penală a minorului, măsurile educative și începutul răspunderii persoanei juridice. Art. 102-138.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p031-040.pdf
+
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 41-50 — pedepsele persoanei juridice, cauzele care înlătură răspunderea, executarea ori consecințele condamnării și înțelesul termenilor legali. Art. 139-185.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p041-050.pdf
+
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 51-60 — infracțiuni contra vieții, integrității, familiei, libertății, libertății sexuale și vieții private; începutul infracțiunilor contra patrimoniului. Art. 186-228.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p051-060.pdf
+
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 61-70 — tâlhăria, frauda, distrugerea și alte infracțiuni patrimoniale; infracțiuni contra autorității, frontierei și înfăptuirii justiției. Art. 229-278.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p061-070.pdf
+
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 71-80 — infracțiuni contra justiției, de corupție și de serviciu, împotriva intereselor financiare europene și falsificarea monedelor și instrumentelor de autentificare. Art. 279-323.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p071-080.pdf
+
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 81-90 — falsuri în înscrisuri; infracțiuni privind siguranța feroviară și rutieră, armele și explozivii, activitățile reglementate, sănătatea și ordinea publică. Art. 324-367.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p081-090.pdf
+
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 91-100 — infracțiuni contra ordinii publice, familiei și libertății religioase, infracțiuni electorale, contra securității naționale și contra capacității de luptă. Art. 368-425.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p091-100.pdf
+
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 101-105 — infracțiuni militare, genocid, infracțiuni contra umanității și de război și dispoziția finală privind intrarea în vigoare. Art. 426-437.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p101-105.pdf

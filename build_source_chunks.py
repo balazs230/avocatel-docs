@@ -41,6 +41,11 @@ DOCUMENTS = (
         (("cod_rutier.pdf", 0, 1),),
         80,
     ),
+    (
+        "cod_penal",
+        (("cod_penal.pdf", 0, 1),),
+        105,
+    ),
 )
 CHUNK_SIZE = 10
 OUTPUT = ROOT / "sources"
@@ -83,6 +88,14 @@ def build_document(
 
 def main() -> None:
     for prefix, source_files, expected_end in DOCUMENTS:
+        missing = [
+            filename
+            for filename, _, _ in source_files
+            if not (ROOT / filename).is_file()
+        ]
+        if missing:
+            print(f"Skipping {prefix}: missing source file(s): {', '.join(missing)}")
+            continue
         build_document(prefix, source_files, expected_end)
 
 
