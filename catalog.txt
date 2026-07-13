@@ -1,10 +1,70 @@
 Available documents:
 
-- Codul Fiscal (Legea 227/2015) — Partea 1 (paginile originale 1-80) — Titlurile I-IV: dispoziții generale și definiții (art. 1-12), impozitul pe profit (art. 13-46), impozitul pe veniturile microîntreprinderilor (art. 47-57) și impozitul pe venit (art. 58-130): salarii, activități independente/PFA, drepturi de autor, chirii, investiții și dividende, pensii, venituri agricole, premii, transferul imobilelor, venitul net anual și declarația unică.
-  https://balazs230.github.io/avocatel-docs/cod_fiscal-1-80.pdf
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 1-10 — Titlul I: dispoziții generale și definiții; Titlul II: impozit pe profit, inclusiv art. 17 privind cota de impozitare. Art. 1-22.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p001-010.pdf
 
-- Codul Fiscal (Legea 227/2015) — Partea 2 (paginile originale 80-169) — Finalul impozitului pe venit (aspecte fiscale internaționale, art. 125-134), Titlul V: contribuțiile sociale obligatorii (CAS, CASS, contribuția asiguratorie pentru muncă, art. 135-220), Titlul VI: impozitul pe veniturile nerezidenților (art. 221+) și Titlul VII: TVA (art. 265-334): cote de TVA, scutiri, drept de deducere, înregistrarea în scopuri de TVA.
-  https://balazs230.github.io/avocatel-docs/cod_fiscal-80-169.pdf
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 11-20 — impozit pe profit: cheltuieli, deduceri, amortizare și alte reguli de calcul. Art. 22-33.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p011-020.pdf
 
-- Codul Fiscal (Legea 227/2015) — Partea 3 (paginile originale 169-228) — Titlul VIII: accizele și alte taxe speciale (alcool, tutun, produse energetice, art. 335+), Titlul IX: impozitele și taxele locale (impozitul pe clădiri, impozitul pe teren, impozitul pe mijloacele de transport, taxe pentru eliberarea autorizațiilor, art. 453+), Titlul X: impozitul pe construcții și dispozițiile finale.
-  https://balazs230.github.io/avocatel-docs/cod_fiscal-169-228.pdf
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 21-30 — impozit pe profit: reguli speciale, prețuri de transfer și grup fiscal. Art. 34-42^9.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p021-030.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 31-40 — finalul impozitului pe profit; Titlul III: impozitul pe veniturile microîntreprinderilor. Art. 42^10-60.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p031-040.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 41-50 — Titlul IV: impozitul pe venit, activități independente, drepturi de proprietate intelectuală și începutul regulilor pentru salarii. Art. 60-76.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p041-050.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 51-60 — venituri din salarii și asimilate salariilor, avantaje, deduceri și obligații declarative. Art. 76-85.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p051-060.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 61-70 — venituri din investiții, pensii, premii, jocuri de noroc și activități agricole. Art. 85-113.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p061-070.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 71-80 — transferul proprietăților imobiliare, alte surse de venit, venit anual și declarația unică. Art. 113-130.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p071-080.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 81-90 — finalul impozitului pe venit și începutul Titlului V privind contribuțiile sociale obligatorii. Art. 130-142.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p081-090.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 91-100 — contribuția de asigurări sociale (CAS): contribuabili, baze de calcul și declarare. Art. 142-154.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p091-100.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 101-110 — CAS și contribuția de asigurări sociale de sănătate (CASS): contribuabili, baze și obligații. Art. 154-174.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p101-110.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 111-120 — CASS, contribuția asiguratorie pentru muncă și începutul impozitării nerezidenților. Art. 174-228.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p111-120.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 121-130 — impozitarea nerezidenților și începutul Titlului VII: taxa pe valoarea adăugată (TVA). Art. 228-270^1.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p121-130.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 131-140 — TVA: operațiuni impozabile, livrări, achiziții, locul operațiunilor și cote de TVA. Art. 271-291.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p131-140.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 141-150 — TVA: scutiri, dreptul de deducere și ajustări. Art. 292-312.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p141-150.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 151-160 — TVA: înregistrare, regimuri speciale, declarare și plată. Art. 313-319.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p151-160.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 161-170 — finalul TVA (inclusiv art. 320+) și începutul Titlului VIII: accize. Art. 320-336.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p161-170.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 171-180 — accize: definiții, produse accizabile și reguli generale. Art. 337-364.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p171-180.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 181-190 — accize: niveluri, exigibilitate, antrepozite fiscale și circulația produselor accizabile. Art. 364-405.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p181-190.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 191-200 — accize: obligații, autorizare, control și sancțiuni. Art. 406-419.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p191-200.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 201-210 — finalul accizelor și începutul Titlului IX: impozite și taxe locale. Art. 419-457.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p201-210.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 211-220 — impozite și taxe locale: clădiri, terenuri, mijloace de transport și taxe locale. Art. 458-471.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p211-220.pdf
+
+- Codul fiscal (Legea nr. 227/2015) — paginile originale 221-228 — taxe locale, impozitul pe construcții și dispoziții finale. Art. 471-503.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p221-228.pdf
