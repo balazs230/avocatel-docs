@@ -680,3 +680,39 @@ Available documents:
 
 - OUG nr. 34/2014 privind drepturile consumatorilor în contractele încheiate cu profesioniștii (forma inițială, M.Of. nr. 427/2014) — paginile originale 21-27 — continuarea modificărilor privind contractele de comunicații, intrarea în vigoare, aplicarea și abrogările, plus instrucțiunile și formularul-model pentru retragere. Art. 29-32 și anexa.
   https://balazs230.github.io/avocatel-docs/sources/oug_34_2014-p021-027.pdf
+
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 1-10 — formele societare, actul constitutiv și constituirea societății pe acțiuni prin subscripție publică. Art. 1-27.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p001-010.pdf
+
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 11-20 — adunarea constitutivă, înmatricularea, neregularitățile constituirii, dispozițiile procedurale și începutul funcționării societăților. Art. 28-67.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p011-020.pdf
+
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 21-30 — administrarea și aporturile, societățile în nume colectiv și în comandită simplă și regimul acțiunilor societăților pe acțiuni. Art. 68-106.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p021-030.pdf
+
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 31-40 — acțiunile proprii, registrele societății, adunările generale, hotărârile acționarilor și dreptul de retragere. Art. 107-136.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p031-040.pdf
+
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 41-50 — exercitarea drepturilor acționarilor și administrarea societăților pe acțiuni în sistem unitar și dualist. Art. 136^1-153^3.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p041-050.pdf
+
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 51-60 — directoratul și consiliul de supraveghere, răspunderea administratorilor, situațiile financiare, cenzorii și auditul financiar. Art. 153^4-160.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p051-060.pdf
+
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 61-70 — cenzorii, obligațiunile, registrele și situațiile financiare, societățile în comandită pe acțiuni și societățile cu răspundere limitată. Art. 160^1-198.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p061-070.pdf
+
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 71-80 — părțile sociale, modificarea actului constitutiv și a capitalului, excluderea și retragerea asociaților și începutul dizolvării. Art. 199-231.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p071-080.pdf
+
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 81-90 — efectele dizolvării și procedura fuziunii și divizării societăților. Art. 232-246.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p081-090.pdf
+
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 91-100 — efectele fuziunii și divizării și procedura fuziunii transfrontaliere. Art. 247-251^15.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p091-100.pdf
+
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 101-110 — încheierea și nulitatea fuziunii transfrontaliere, lichidarea societăților și începutul regimului societății europene. Art. 251^16-270^2.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p101-110.pdf
+
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 111-120 — societatea europeană, contravențiile și infracțiunile, dispozițiile finale și tranzitorii și notele de aplicare. Art. 270^3-294 și note.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p111-120.pdf

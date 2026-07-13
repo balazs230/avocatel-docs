@@ -72,6 +72,11 @@ DOCUMENTS = (
         (("oug_34_2014.pdf", 0, 1),),
         27,
     ),
+    (
+        "legea_31_1990",
+        (("legea_31_1990.pdf", 0, 1),),
+        120,
+    ),
 )
 CHUNK_SIZE = 10
 OUTPUT = ROOT / "sources"
