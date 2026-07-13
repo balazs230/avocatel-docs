@@ -239,3 +239,258 @@ Available documents:
 
 - Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 461-468 — finalizarea evaluării funcționarilor debutanți și tabelele criteriilor de performanță și evaluare. Anexa nr. 6.
   https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p461-468.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 1-10 — legea civilă, aplicarea, interpretarea și publicitatea drepturilor; începutul dispozițiilor despre persoane. Art. 1-26.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p001-010.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 11-20 — patrimoniul, persoana fizică, capacitatea civilă și începutul drepturilor inerente ființei umane. Art. 27-62.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p011-020.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 21-30 — respectul vieții private și demnității, intervențiile medicale și identificarea persoanei fizice. Art. 63-97.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p021-030.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 31-40 — actele de stare civilă, măsurile de ocrotire și începutul tutelei minorului. Art. 98-125.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p031-040.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 41-50 — consiliul de familie, exercitarea și controlul tutelei minorului. Art. 126-155.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p041-050.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 51-60 — încetarea tutelei, ocrotirea interzisului judecătoresc, curatela și începutul regimului persoanei juridice. Art. 156-193.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p051-060.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 61-70 — înființarea, durata și capacitatea civilă a persoanei juridice. Art. 194-218.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p061-070.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 71-80 — organele, identificarea, reorganizarea și încetarea persoanei juridice. Art. 219-249.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p071-080.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 81-90 — apărarea drepturilor nepatrimoniale; dispoziții despre familie, logodnă și începutul căsătoriei. Art. 250-274.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p081-090.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 91-100 — condițiile și formalitățile căsătoriei, nulitatea și drepturile personale ale soților. Art. 275-311.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p091-100.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 101-110 — regimurile matrimoniale, convenția matrimonială și comunitatea legală. Art. 312-341.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p101-110.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 111-120 — bunurile comune și proprii, lichidarea comunității, separația de bunuri și începutul divorțului. Art. 342-372.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p111-120.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 121-130 — cazurile și procedura divorțului și efectele desfacerii căsătoriei. Art. 373-400.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p121-130.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 131-140 — efectele divorțului asupra copiilor, rudenia și începutul filiației. Art. 401-431.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p131-140.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 141-150 — stabilirea și contestarea filiației, reproducerea asistată și începutul adopției. Art. 432-468.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p141-150.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 151-160 — efectele și încetarea adopției; dispoziții generale și drepturi privind autoritatea părintească. Art. 469-502.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p151-160.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 161-170 — exercitarea autorității părintești, decăderea, obligația de întreținere și începutul regimului bunurilor. Art. 503-538.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p161-170.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 171-180 — clasificarea bunurilor și drepturilor reale și dispozițiile generale privind proprietatea privată. Art. 539-566.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p171-180.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 181-190 — dobândirea proprietății și accesiunea imobiliară naturală și artificială. Art. 567-596.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p181-190.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 191-200 — accesiunea mobiliară și limitele juridice ale proprietății private. Art. 597-628.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p191-200.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 201-210 — proprietatea comună, coproprietatea și condominiul. Art. 629-658.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p201-210.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 211-220 — coproprietatea forțată, partajul și proprietatea periodică. Art. 659-692.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p211-220.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 221-230 — superficia și uzufructul. Art. 693-724.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p221-230.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 231-240 — obligațiile uzufructuarului, uzul, abitația și servituțile. Art. 725-761.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p231-240.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 241-250 — exercitarea și stingerea servituților, fiducia și începutul administrării bunurilor altuia. Art. 762-791.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p241-250.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 251-260 — formele și regimul juridic al administrării bunurilor altuia. Art. 792-824.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p251-260.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 261-270 — administrarea colectivă, delegarea atribuțiilor și încetarea administrării. Art. 825-853.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p261-270.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 271-280 — proprietatea publică și începutul regimului cărții funciare. Art. 854-884.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p271-280.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 281-290 — înscrierea drepturilor tabulare și notarea drepturilor, faptelor și raporturilor juridice. Art. 885-906.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p281-290.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 291-300 — rectificarea cărții funciare și regimul general al posesiei. Art. 907-934.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p291-300.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 301-310 — efectele și acțiunile posesorii; deschiderea moștenirii și nedemnitatea succesorală. Art. 935-959.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p301-310.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 311-320 — moștenirea legală, reprezentarea, clasele de moștenitori și începutul liberalităților. Art. 960-985.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p311-320.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 321-330 — capacitatea în materie de liberalități, substituțiile fideicomisare și începutul donației. Art. 986-1.019.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p321-330.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 331-340 — donația și dispozițiile generale privind testamentul. Art. 1.020-1.050.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p331-340.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 341-350 — legatele, dezmoștenirea și execuțiunea testamentară. Art. 1.051-1.080.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p341-350.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 351-360 — rezerva succesorală, reducțiunea liberalităților și începutul transmisiunii moștenirii. Art. 1.081-1.109.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p351-360.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 361-370 — opțiunea succesorală, acceptarea, renunțarea și moștenirea vacantă. Art. 1.110-1.138.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p361-370.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 371-380 — amintirile de familie, partajul și raportul donațiilor; începutul dispozițiilor generale despre obligații. Art. 1.139-1.163.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p371-380.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 381-390 — izvoarele obligațiilor și formarea contractului. Art. 1.164-1.202.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p381-390.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 391-400 — validitatea, capacitatea, consimțământul, obiectul, cauza și forma contractului. Art. 1.203-1.240.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p391-400.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 401-410 — forma electronică, nulitatea, interpretarea și efectele contractului. Art. 1.241-1.273.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p401-410.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 411-420 — durata, încetarea și opozabilitatea contractului, stipulația pentru altul, promisiunea faptei altuia și simulația. Art. 1.274-1.311.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p411-420.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 421-430 — cesiunea contractului, actul juridic unilateral, gestiunea de afaceri, plata nedatorată și îmbogățirea fără justă cauză. Art. 1.312-1.348.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p421-430.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 431-440 — răspunderea civilă contractuală și delictuală, fapta proprie și răspunderea pentru fapta altuia. Art. 1.349-1.384.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p431-440.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 441-450 — repararea prejudiciului și modalitățile obligațiilor: condiția și termenul. Art. 1.385-1.417.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p441-450.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 451-460 — obligațiile divizibile, indivizibile și solidare. Art. 1.418-1.454.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p451-460.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 461-470 — efectele solidarității, obligațiile alternative și facultative și începutul executării obligațiilor. Art. 1.455-1.492.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p461-470.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 471-480 — plata, imputația, punerea în întârziere și oferta de plată. Art. 1.493-1.524.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p471-480.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 481-490 — executarea silită în natură, daunele-interese, rezoluțiunea, rezilierea și reducerea prestațiilor. Art. 1.525-1.557.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p481-490.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 491-500 — măsurile conservatorii, acțiunea oblică și revocatorie și cesiunea de creanță. Art. 1.558-1.590.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p491-500.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 501-510 — subrogația, preluarea datoriei, novația, compensația și confuziunea. Art. 1.591-1.625.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p501-510.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 511-520 — remiterea de datorie, imposibilitatea fortuită, restituirea prestațiilor și începutul contractului de vânzare. Art. 1.626-1.658.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p511-520.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 521-530 — capacitatea, obiectul și prețul vânzării și obligațiile vânzătorului. Art. 1.659-1.693.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p521-530.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 531-540 — predarea, garanția contra evicțiunii și viciilor și obligațiile cumpărătorului. Art. 1.694-1.726.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p531-540.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 541-550 — varietăți de vânzare, dreptul de preempțiune și vânzarea cu opțiune de răscumpărare. Art. 1.727-1.760.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p541-550.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 551-560 — schimbul, furnizarea, reportul și începutul locațiunii. Art. 1.761-1.794.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p551-560.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 561-570 — obligațiile locatarului, sublocațiunea, cesiunea și încetarea locațiunii. Art. 1.795-1.826.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p561-570.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 571-580 — închirierea locuințelor, arendarea și începutul contractului de antrepriză. Art. 1.827-1.860.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p571-580.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 581-590 — contractul de antrepriză și începutul contractului de societate. Art. 1.861-1.889.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p581-590.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 591-600 — încheierea, aporturile și raporturile dintre asociați în contractul de societate. Art. 1.890-1.918.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p591-600.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 601-610 — raporturile cu terții, pierderea calității de asociat, încetarea societății și asocierea în participație. Art. 1.919-1.950.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p601-610.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 611-620 — asocierea în participație și contractul de transport: dispoziții generale și transportul de persoane. Art. 1.951-1.979.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p611-620.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 621-630 — transportul de bunuri, documentele de transport, obligațiile și răspunderea transportatorului. Art. 1.980-2.006.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p621-630.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 631-640 — contractul de mandat, reprezentarea și obligațiile mandatarului și mandantului. Art. 2.007-2.040.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p631-640.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 641-650 — mandatul fără reprezentare, încetarea mandatului și începutul contractului de agenție. Art. 2.041-2.071.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p641-650.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 651-660 — contractul de agenție: exclusivitate, remunerație, obligații și încetare. Art. 2.072-2.095.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p651-660.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 661-670 — contractul de intermediere și contractul de depozit. Art. 2.096-2.129.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p661-670.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 671-680 — depozitul hotelier, sechestrul convențional și contractele de împrumut. Art. 2.130-2.169.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p671-680.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 681-690 — contul curent, contul bancar și începutul contractului de asigurare. Art. 2.170-2.200.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p681-690.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 691-700 — asigurarea de bunuri, de răspundere civilă și de persoane. Art. 2.201-2.233.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p691-700.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 701-710 — asigurarea, renta viageră, întreținerea și jocul și pariul. Art. 2.234-2.264.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p701-710.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 711-720 — tranzacția, garanțiile personale și fideiusiunea. Art. 2.265-2.307.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p711-720.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 721-730 — efectele fideiusiunii, garanțiile autonome, privilegiile și începutul ipotecii. Art. 2.308-2.342.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p721-730.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 731-740 — ipoteca: dispoziții generale, ipoteca imobiliară și ipoteca mobiliară. Art. 2.343-2.383.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p731-740.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 741-750 — drepturile și obligațiile părților și publicitatea ipotecilor mobiliare. Art. 2.384-2.412.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p741-750.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 751-760 — înscrierea, rangul și executarea ipotecilor mobiliare. Art. 2.413-2.445.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p751-760.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 761-770 — vânzarea bunurilor ipotecate, distribuirea sumelor și executarea ipotecilor imobiliare. Art. 2.446-2.476.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p761-770.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 771-780 — gajul, dreptul de retenție și începutul prescripției extinctive. Art. 2.477-2.514.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p771-780.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 781-790 — termenele, cursul, suspendarea și întreruperea prescripției extinctive. Art. 2.515-2.538.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p781-790.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 791-800 — împlinirea prescripției, termenele de decădere, calculul termenelor și dispoziții generale de drept internațional privat. Art. 2.539-2.570.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p791-800.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 801-810 — conflicte de legi privind persoanele, ocrotirea majorului, numele, persoana juridică și familia. Art. 2.571-2.596.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p801-810.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 811-820 — conflicte de legi privind divorțul, filiația, adopția și bunurile. Art. 2.597-2.627.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p811-820.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 821-830 — conflicte de legi privind ipotecile mobiliare, moștenirea, actele juridice, obligațiile și titlurile de credit. Art. 2.628-2.657.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p821-830.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 831-840 — conflicte de legi privind fiducia și prescripția, dispozițiile finale și dispoziții de punere în aplicare din Legea nr. 71/2011. Art. 2.658-2.664; art. 211-230 din Legea nr. 71/2011.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p831-840.pdf
+
+- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — paginile originale 841-843 — continuarea listei actelor normative abrogate la intrarea în vigoare a Codului civil. Legea nr. 71/2011, art. 230.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-p841-843.pdf
