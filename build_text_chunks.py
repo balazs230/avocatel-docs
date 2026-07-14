@@ -235,6 +235,33 @@ PROCEDURE_CIVIL_EXTRACT_ARTICLE = re.compile(
     r"^- Art\.\s*(?P<number>[IVXLCDM]+|\d+)(?:\s|$)"
 )
 
+FISCAL_SOURCE = ROOT / "codul_fiscal.md"
+FISCAL_LEGACY_TEXT_SOURCES = (ROOT / "cod_fiscal.txt", ROOT / "codul_fiscal.txt")
+FISCAL_TITLE = re.compile(
+    r"^(?P<label>TITLUL\s+(?P<roman>[IVXLCDM]+)(?P<inserted>\d+)?)"
+    r"(?:\s*-\s*(?P<title>.*))?$"
+)
+FISCAL_CHAPTER = re.compile(
+    r"^(?P<label>CAPITOLUL\s+[^-]+?)(?:\s*-\s*(?P<title>.*))?$"
+)
+FISCAL_SECTION = re.compile(
+    r"^(?P<label>SEC[\u0162\u0163\u021a\u021bT]IUNEA\s+[^-]+?)"
+    r"(?:\s*-\s*(?P<title>.*))?$",
+)
+FISCAL_SUBSECTION = re.compile(
+    r"^(?P<label>SUBSEC[\u0162\u0163\u021a\u021bT]IUNEA\s+[^-]+?)"
+    r"(?:\s*-\s*(?P<title>.*))?$",
+)
+FISCAL_ARTICLE = re.compile(
+    r"^ART\.\s*(?P<raw_number>\d+)\s*(?:\*)?\s*"
+    r"(?:-\s*(?P<title>.*))?$"
+)
+FISCAL_MARKDOWN_ARTICLE = re.compile(
+    r"(?m)^###### Articolul (?P<number>\d+(?:\^\d+)?)"
+    r"(?: \u2014 .+)?$"
+)
+FISCAL_ANNEX = re.compile(r"^ANEXA\s+(?P<label>.+)$")
+
 PAGE_FOOTER = re.compile(
     r"(?m)^Codul Muncii actualizat Legislatie Protectia Muncii\r?\n\d+\r?\n?"
 )
@@ -2967,6 +2994,552 @@ def build_procedure_civil_document(raw_source: str) -> None:
             legacy_text.unlink()
 
 
+@dataclass(frozen=True)
+class FiscalBuiltChunk:
+    path: Path
+    kind: str
+    description: str
+    first_article: str | None = None
+    last_article: str | None = None
+    part: int | None = None
+
+
+def reverse_mojibake_line(line: str) -> str | None:
+    encoded = bytearray()
+    for character in line:
+        try:
+            encoded.extend(character.encode("cp1252"))
+        except UnicodeEncodeError:
+            if ord(character) <= 255:
+                encoded.append(ord(character))
+            else:
+                return None
+    try:
+        return encoded.decode("utf-8")
+    except UnicodeDecodeError:
+        return None
+
+
+def repair_fiscal_mojibake(line: str) -> str:
+    replacements = {
+        "È™": "ș",
+        "È˜": "Ș",
+        "È›": "ț",
+        "Èš": "Ț",
+        "Äƒ": "ă",
+        "Ä‚": "Ă",
+        "Ã®": "î",
+        "ÃŽ": "Î",
+        "Ã¢": "â",
+        "Ã‚": "Â",
+        "ÅŸ": "ş",
+        "Åž": "Ş",
+        "Å£": "ţ",
+        "Å¢": "Ţ",
+        "Â«": "«",
+        "Â»": "»",
+    }
+    for damaged, repaired in replacements.items():
+        line = line.replace(damaged, repaired)
+    for _ in range(2):
+        candidate = reverse_mojibake_line(line)
+        if candidate is None or candidate == line:
+            break
+        line = candidate
+    return line
+
+
+def clean_fiscal_source(text: str) -> str:
+    text = text.removeprefix("\ufeff").replace("\r\n", "\n").replace("\r", "\n")
+    if text.startswith("# Codul fiscal\n"):
+        return text.rstrip() + "\n"
+    lines = []
+    for raw_line in text.splitlines():
+        line = repair_fiscal_mojibake(raw_line)
+        line = re.sub(
+            r"^(SEC[\u0162\u0163\u021a\u021bT]IUNEA\s+\d+)([A-Z].+)$",
+            r"\1 - \2",
+            line,
+        )
+        if (
+            lines
+            and line.strip().startswith("ART.")
+            and line.strip() == lines[-1].strip()
+        ):
+            continue
+        lines.append(line)
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def fiscal_structure(line: str) -> tuple[str, re.Match[str]] | None:
+    for kind, pattern in (
+        ("title", FISCAL_TITLE),
+        ("chapter", FISCAL_CHAPTER),
+        ("section", FISCAL_SECTION),
+        ("subsection", FISCAL_SUBSECTION),
+    ):
+        match = pattern.fullmatch(line)
+        if match:
+            return kind, match
+    return None
+
+
+def fiscal_heading_continuation_stops(line: str, norms: bool) -> bool:
+    stripped = line.strip()
+    if not stripped:
+        return True
+    if fiscal_structure(stripped) or FISCAL_ARTICLE.fullmatch(stripped):
+        return True
+    if FISCAL_ANNEX.fullmatch(stripped) or stripped.startswith("ART. II"):
+        return True
+    if stripped.startswith(("(", "[", "*)", "---------------")):
+        return True
+    if re.match(r"^[a-zăâîșț]\)\s", stripped, re.IGNORECASE):
+        return True
+    if norms and (
+        re.match(r"^\d+(?:\.\d+)*\.\s", stripped)
+        or re.match(r"^[\d ]+\.\s", stripped)
+        or re.fullmatch(r"\d+", stripped)
+    ):
+        return True
+    return False
+
+
+def format_fiscal_markdown(text: str) -> str:
+    if text.startswith("# Codul fiscal\n"):
+        return normalize_heading_spacing(text)
+
+    lines = text.splitlines()
+    title_starts = [
+        index
+        for index, line in enumerate(lines)
+        if line.startswith("TITLUL I - Dispozi")
+    ]
+    if len(title_starts) < 2:
+        raise RuntimeError("Could not locate the start of Codul fiscal")
+    start = title_starts[1]
+    try:
+        norms_start = next(
+            index
+            for index in range(start, len(lines))
+            if lines[index].startswith("NORME METODOLOGICE")
+            and lines[index].isupper()
+        )
+    except StopIteration as error:
+        raise RuntimeError("Could not locate the methodological norms") from error
+
+    rendered = [
+        "# Codul fiscal",
+        "Legea nr. 227/2015 privind Codul fiscal",
+        "Forma consolidată: O.U.G. nr. 8/2026",
+        "Ediție adnotată cu Normele metodologice aprobate prin H.G. nr. 1/2016",
+        "Norme actualizate prin H.G. nr. 602/2025",
+        "Text furnizat în scop documentar; nu reprezintă o republicare oficială.",
+    ]
+    current_article = 0
+    inserted_articles: list[str] = []
+    index = start
+    norms = False
+
+    while index < len(lines):
+        raw_line = lines[index].rstrip()
+        line = raw_line.strip()
+
+        if index == norms_start:
+            subtitle = lines[index + 1].strip() if index + 1 < len(lines) else ""
+            rendered.append(
+                "## Norme metodologice"
+                + (f" — {subtitle}" if subtitle else "")
+            )
+            norms = True
+            index += 2 if subtitle else 1
+            continue
+
+        if not norms and line in {"ACTE", "NORMATIVE", "Norme metodologice"}:
+            index += 1
+            continue
+
+        article = FISCAL_ARTICLE.fullmatch(line) if not norms else None
+        if article:
+            raw_number = article.group("raw_number")
+            number = int(raw_number)
+            if number == current_article + 1:
+                label = raw_number
+                current_article = number
+            elif (
+                current_article
+                and raw_number.startswith(str(current_article))
+                and len(raw_number) > len(str(current_article))
+            ):
+                label = f"{current_article}^{raw_number[len(str(current_article)):]}"
+                inserted_articles.append(label)
+            elif current_article < number <= 503:
+                for missing in range(current_article + 1, number):
+                    rendered.append(f"###### Articolul {missing}")
+                    rendered.append("_Articol omis din ediția consolidată furnizată._")
+                label = raw_number
+                current_article = number
+            else:
+                raise RuntimeError(
+                    f"Unexpected fiscal article {raw_number} after {current_article}"
+                )
+
+            title = (article.group("title") or "").strip()
+            if not title and index + 1 < len(lines):
+                continued = lines[index + 1].strip()
+                if continued.startswith("-"):
+                    title = continued[1:].strip()
+                    index += 1
+            rendered.append(
+                f"###### Articolul {label}" + (f" — {title}" if title else "")
+            )
+            index += 1
+            continue
+
+        structure = fiscal_structure(line)
+        if structure:
+            kind, match = structure
+            label = match.group("label").strip()
+            title = (match.group("title") or "").strip()
+            if kind == "title" and match.group("inserted"):
+                label = (
+                    f"TITLUL {match.group('roman')}^{match.group('inserted')}"
+                )
+            if not title and index + 1 < len(lines):
+                continued = lines[index + 1].strip()
+                if continued.startswith("-"):
+                    title = continued[1:].strip()
+                    index += 1
+
+            continuations = []
+            while index + 1 < len(lines) and len(continuations) < 6:
+                candidate = lines[index + 1].strip()
+                if fiscal_heading_continuation_stops(candidate, norms):
+                    break
+                continuations.append(candidate)
+                index += 1
+            full_title = " ".join(
+                part for part in [title, *continuations] if part
+            )
+            if not full_title:
+                raise RuntimeError(f"Missing fiscal heading title after {label}")
+            chapter_inserted = re.fullmatch(
+                r"CAPITOLUL\s+([IVXLCDM]+)(\d+)", label
+            )
+            if kind == "chapter" and chapter_inserted:
+                label = (
+                    f"CAPITOLUL {chapter_inserted.group(1)}^"
+                    f"{chapter_inserted.group(2)}"
+                )
+            ordinal = re.fullmatch(
+                r"(?P<prefix>(?:SUB)?SEC[\u0162\u0163\u021a\u021bT]IUNEA)"
+                r"\s+a\s+(?P<number>\d+)",
+                label,
+            )
+            if ordinal and re.match(r"^a\s*-\s*", full_title):
+                label = (
+                    f"{ordinal.group('prefix')} a {ordinal.group('number')}-a"
+                )
+                full_title = re.sub(r"^a\s*-\s*", "", full_title)
+            if norms:
+                levels = {"title": 3, "chapter": 4, "section": 5, "subsection": 6}
+            else:
+                levels = {"title": 2, "chapter": 3, "section": 4, "subsection": 5}
+            rendered.append(
+                f"{'#' * levels[kind]} {label} — {full_title}"
+            )
+            index += 1
+            continue
+
+        annex = FISCAL_ANNEX.fullmatch(line)
+        if annex:
+            level = 4 if norms else 3
+            rendered.append(f"{'#' * level} ANEXA {annex.group('label').strip()}")
+            index += 1
+            continue
+
+        if norms and line == "ART. II":
+            rendered.append("### Articolul II — Dispoziție tranzitorie")
+            index += 1
+            continue
+
+        if line == "---------------":
+            index += 1
+            continue
+        rendered.append(raw_line)
+        index += 1
+
+    if current_article != 503:
+        raise RuntimeError(f"Codul fiscal ended at article {current_article}")
+    if len(inserted_articles) != 118:
+        raise RuntimeError(
+            f"Expected 118 inserted fiscal articles, found {len(inserted_articles)}"
+        )
+    return normalize_heading_spacing("\n".join(rendered))
+
+
+def validate_fiscal_document(markdown: str) -> None:
+    marker = "## Norme metodologice"
+    if marker not in markdown:
+        raise RuntimeError("Missing methodological norms")
+    code, norms = markdown.split(marker, 1)
+    labels = [
+        match.group("number") for match in FISCAL_MARKDOWN_ARTICLE.finditer(code)
+    ]
+    base_articles = [int(label) for label in labels if "^" not in label]
+    inserted = [label for label in labels if "^" in label]
+    if base_articles != list(range(1, 504)):
+        raise RuntimeError("Codul fiscal articles are incomplete or reordered")
+    if len(inserted) != 118 or len(set(inserted)) != 118:
+        raise RuntimeError("Unexpected inserted fiscal articles")
+    if code.count("_Articol omis din ediția consolidată furnizată._") != 4:
+        raise RuntimeError("Unexpected count of omitted-article markers")
+
+    expected_code = {
+        r"(?m)^## TITLUL ": 13,
+        r"(?m)^### CAPITOLUL ": 74,
+        r"(?m)^#### SEC": 54,
+        r"(?m)^##### SUBSEC": 5,
+        r"(?m)^### ANEXA ": 6,
+    }
+    expected_norms = {
+        r"(?m)^### TITLUL ": 10,
+        r"(?m)^#### CAPITOLUL ": 59,
+        r"(?m)^##### SEC": 233,
+        r"(?m)^###### SUBSEC": 75,
+        r"(?m)^#### ANEXA ": 60,
+    }
+    for part, expected in ((code, expected_code), (norms, expected_norms)):
+        for pattern, count in expected.items():
+            actual = len(re.findall(pattern, part))
+            if actual != count:
+                raise RuntimeError(
+                    f"Unexpected fiscal structure count for {pattern}: "
+                    f"{actual}, expected {count}"
+                )
+    for artifact in ("È™", "È›", "Äƒ", "Ã®", "Ã¢"):
+        if artifact in markdown:
+            raise RuntimeError(f"Encoding artifact remains: {artifact}")
+
+
+def fiscal_part_boundaries(part: str) -> list[int]:
+    headings = [
+        (match.start(), len(match.group(1)))
+        for match in re.finditer(r"(?m)^(#{2,6}) .+$", part)
+    ]
+    point_boundaries = [
+        match.start() for match in re.finditer(r"(?m)^\d+(?:\.\d+)*\.\s", part)
+    ]
+    if not headings or headings[0][0] != 0:
+        raise RuntimeError("Fiscal document part does not start with a heading")
+
+    minimum = 30_500
+    maximum = 58_800
+    boundaries = [0]
+    position = 0
+    while len(part) - position > maximum:
+        remaining = len(part) - position
+        target = remaining / 2 if remaining <= 2 * maximum else 56_000
+
+        preferred = [
+            heading
+            for heading in headings
+            if heading[1] <= 5
+            and position + minimum <= heading[0] <= position + maximum
+            and (
+                remaining > 2 * maximum
+                or len(part) - heading[0] >= minimum
+            )
+        ]
+        candidates = preferred or [
+            heading
+            for heading in headings
+            if position + minimum <= heading[0] <= position + maximum
+            and (
+                remaining > 2 * maximum
+                or len(part) - heading[0] >= minimum
+            )
+        ]
+        if candidates:
+            next_position, _ = min(
+                candidates,
+                key=lambda heading: abs((heading[0] - position) - target)
+                + max(0, heading[1] - 3) * 650,
+            )
+        else:
+            points = [
+                point
+                for point in point_boundaries
+                if position + minimum <= point <= position + maximum
+                and (
+                    remaining > 2 * maximum
+                    or len(part) - point >= minimum
+                )
+            ]
+            if not points:
+                raise RuntimeError(
+                    f"No fiscal chunk boundary near character {position:,}"
+                )
+            next_position = min(
+                points, key=lambda point: abs((point - position) - target)
+            )
+        boundaries.append(next_position)
+        position = next_position
+    boundaries.append(len(part))
+    return boundaries
+
+
+def fiscal_chunk_description(body: str, kind: str) -> str:
+    headings = []
+    for match in re.finditer(r"(?m)^#{2,6} (.+)$", body):
+        heading = match.group(1).strip()
+        if heading.startswith("Norme metodologice"):
+            continue
+        if heading.startswith("Articolul") and headings:
+            continue
+        if heading not in headings:
+            headings.append(heading)
+        if len(headings) == 3:
+            break
+    if not headings:
+        return "continuarea dispozițiilor fiscale" if kind == "code" else "continuarea normelor metodologice"
+    description = "; ".join(headings)
+    return description if len(description) <= 280 else description[:277].rstrip() + "..."
+
+
+def build_fiscal_chunks(markdown: str) -> list[FiscalBuiltChunk]:
+    validate_fiscal_document(markdown)
+    first_heading = markdown.index("## TITLUL ")
+    norms_heading = markdown.index("## Norme metodologice")
+    preamble = markdown[:first_heading].rstrip()
+    parts = (
+        ("code", markdown[first_heading:norms_heading]),
+        ("norms", markdown[norms_heading:]),
+    )
+    expected_names: set[str] = set()
+    built: list[FiscalBuiltChunk] = []
+
+    for kind, part_text in parts:
+        boundaries = fiscal_part_boundaries(part_text)
+        for ordinal, (start, end) in enumerate(
+            zip(boundaries, boundaries[1:]), 1
+        ):
+            body = part_text[start:end].strip() + "\n"
+            description = fiscal_chunk_description(body, kind)
+            if kind == "code":
+                labels = [
+                    match.group("number")
+                    for match in FISCAL_MARKDOWN_ARTICLE.finditer(body)
+                ]
+                if not labels:
+                    raise RuntimeError("Fiscal code chunk contains no article")
+                first_article, last_article = labels[0], labels[-1]
+
+                def filename_label(label: str) -> str:
+                    base, *inserted = label.split("^", 1)
+                    suffix = f"bis{inserted[0]}" if inserted else ""
+                    return f"{int(base):04d}{suffix}"
+
+                filename = (
+                    f"cod_fiscal-art{filename_label(first_article)}-"
+                    f"{filename_label(last_article)}.md"
+                )
+                fragment = f"Art. {first_article}-{last_article}"
+                record = FiscalBuiltChunk(
+                    OUTPUT / filename,
+                    kind,
+                    description,
+                    first_article,
+                    last_article,
+                )
+            else:
+                filename = f"cod_fiscal-norme-part{ordinal:02d}.md"
+                fragment = f"Norme metodologice — partea {ordinal}"
+                record = FiscalBuiltChunk(
+                    OUTPUT / filename,
+                    kind,
+                    description,
+                    part=ordinal,
+                )
+
+            content = (
+                f"{preamble}\n"
+                f"**Fragment:** {fragment}\n"
+                f"**Cuprins:** {description}.\n\n"
+                f"{body}"
+            )
+            if not MIN_CHUNK_CHARACTERS <= len(content) <= MAX_CHUNK_CHARACTERS:
+                raise RuntimeError(
+                    f"{filename} has {len(content):,} characters; expected "
+                    f"{MIN_CHUNK_CHARACTERS:,}-{MAX_CHUNK_CHARACTERS:,}"
+                )
+            record.path.write_text(content, encoding="utf-8", newline="\n")
+            expected_names.add(filename)
+            built.append(record)
+            print(f"{filename}: {record.path.stat().st_size:,} bytes")
+
+    for stale in OUTPUT.glob("cod_fiscal-*.md"):
+        if stale.name not in expected_names:
+            stale.unlink()
+    return built
+
+
+def fiscal_catalog_block(built: list[FiscalBuiltChunk]) -> str:
+    entries = []
+    for chunk in built:
+        if chunk.kind == "code":
+            prefix = (
+                "- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. "
+                "nr. 8/2026)"
+            )
+            range_label = f"Art. {chunk.first_article}-{chunk.last_article}."
+        else:
+            prefix = (
+                "- Codul fiscal — Normele metodologice aprobate prin H.G. "
+                "nr. 1/2016, actualizate prin H.G. nr. 602/2025"
+            )
+            range_label = f"Partea {chunk.part}."
+        entries.append(
+            f"{prefix} — {chunk.description}. {range_label}\n"
+            f"  {PUBLIC_BASE_URL}/{chunk.path.name}\n"
+        )
+    return "\n".join(entries) + "\n"
+
+
+def update_fiscal_catalog(built: list[FiscalBuiltChunk]) -> None:
+    data = CATALOG.read_text(encoding="utf-8")
+    entry_pattern = re.compile(
+        r"(?m)^- Codul fiscal [^\n]*\n"
+        r"  https://[^\n]*/sources/cod_fiscal-[^\n]*\n(?:\n)?"
+    )
+    matches = list(entry_pattern.finditer(data))
+    if not matches:
+        raise RuntimeError("No existing Codul fiscal catalog entries found")
+    start, end = matches[0].start(), matches[-1].end()
+    if entry_pattern.sub("", data[start:end]).strip():
+        raise RuntimeError("Codul fiscal catalog entries are not contiguous")
+    CATALOG.write_text(
+        data[:start] + fiscal_catalog_block(built) + data[end:],
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
+def build_fiscal_document(raw_source: str) -> None:
+    markdown = format_fiscal_markdown(clean_fiscal_source(raw_source))
+    FISCAL_SOURCE.write_text(markdown, encoding="utf-8", newline="\n")
+    built = build_fiscal_chunks(markdown)
+    update_fiscal_catalog(built)
+
+    for legacy_chunk in OUTPUT.glob("cod_fiscal-p*.pdf"):
+        legacy_chunk.unlink()
+    for legacy_source in ROOT.glob("cod_fiscal-*.pdf"):
+        legacy_source.unlink()
+    for legacy_text in FISCAL_LEGACY_TEXT_SOURCES:
+        if legacy_text.exists():
+            legacy_text.unlink()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -3003,6 +3576,11 @@ def parse_args() -> argparse.Namespace:
         "--import-civil-procedure-source",
         type=Path,
         help="import a supplied Codul de procedură civilă TXT before building",
+    )
+    parser.add_argument(
+        "--import-fiscal-source",
+        type=Path,
+        help="import a supplied Codul fiscal TXT before building",
     )
     return parser.parse_args()
 
@@ -3167,6 +3745,23 @@ def main() -> None:
 
     if procedure_civil_raw_source is not None:
         build_procedure_civil_document(procedure_civil_raw_source)
+
+    fiscal_raw_source = None
+    if args.import_fiscal_source:
+        if not args.import_fiscal_source.is_file():
+            raise FileNotFoundError(args.import_fiscal_source)
+        fiscal_raw_source = args.import_fiscal_source.read_text(encoding="utf-8-sig")
+    elif FISCAL_SOURCE.is_file():
+        fiscal_raw_source = FISCAL_SOURCE.read_text(encoding="utf-8-sig")
+    else:
+        fiscal_legacy = next(
+            (path for path in FISCAL_LEGACY_TEXT_SOURCES if path.is_file()), None
+        )
+        if fiscal_legacy:
+            fiscal_raw_source = fiscal_legacy.read_text(encoding="utf-8-sig")
+
+    if fiscal_raw_source is not None:
+        build_fiscal_document(fiscal_raw_source)
 
 
 if __name__ == "__main__":

@@ -1,73 +1,226 @@
 Available documents:
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 1-10 — Titlul I: dispoziții generale și definiții; Titlul II: impozit pe profit, inclusiv art. 17 privind cota de impozitare. Art. 1-22.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p001-010.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — TITLUL I — Dispoziții generale; CAPITOLUL I — Scopul și sfera de cuprindere a Codului fiscal; CAPITOLUL II — Aplicarea și modificarea Codului fiscal. Art. 1-8^1.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0001-0008bis1.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 11-20 — impozit pe profit: cheltuieli, deduceri, amortizare și alte reguli de calcul. Art. 22-33.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p011-020.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL IV — Reguli de aplicare generală; TITLUL II — Impozitul pe profit; CAPITOLUL I — Dispoziții generale. Art. 9-18^3.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0009-0018bis3.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 21-30 — impozit pe profit: reguli speciale, prețuri de transfer și grup fiscal. Art. 34-42^9.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p021-030.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL II — Calculul rezultatului fiscal. Art. 19-24.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0019-0024.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 31-40 — finalul impozitului pe profit; Titlul III: impozitul pe veniturile microîntreprinderilor. Art. 42^10-60.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p031-040.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — Articolul 25 — Cheltuieli. Art. 25-27.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0025-0027.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 41-50 — Titlul IV: impozitul pe venit, activități independente, drepturi de proprietate intelectuală și începutul regulilor pentru salarii. Art. 60-76.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p041-050.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — Articolul 28 — Amortizarea fiscală. Art. 28-35.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0028-0035.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 51-60 — venituri din salarii și asimilate salariilor, avantaje, deduceri și obligații declarative. Art. 76-85.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p051-060.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL III — Aspecte fiscale internaționale; CAPITOLUL III^1 — Norme împotriva practicilor de evitare a obligațiilor fiscale care au incidență directă asupra funcționării pieței interne. Art. 36-40^10.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0036-0040bis10.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 61-70 — venituri din investiții, pensii, premii, jocuri de noroc și activități agricole. Art. 85-113.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p061-070.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL IV — Plata impozitului și depunerea declarațiilor fiscale; CAPITOLUL IV^1 — Reguli privind consolidarea fiscală în domeniul impozitului pe profit; CAPITOLUL V — Impozitul pe dividende. Art. 41-46.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0041-0046.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 71-80 — transferul proprietăților imobiliare, alte surse de venit, venit anual și declarația unică. Art. 113-130.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p071-080.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — ANEXA 1 - LISTA SOCIETĂȚILOR la care se face referire la art. 24 alin. (1) lit. b) pct.; ANEXA 2; ANEXA 3. Art. 46^1-46^2.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0046bis1-0046bis2.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 81-90 — finalul impozitului pe venit și începutul Titlului V privind contribuțiile sociale obligatorii. Art. 130-142.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p081-090.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — TITLUL III — Impozitul pe veniturile microîntreprinderilor; TITLUL IV — Impozitul pe venit; CAPITOLUL I — Dispoziții generale. Art. 47-66.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0047-0066.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 91-100 — contribuția de asigurări sociale (CAS): contribuabili, baze de calcul și declarare. Art. 142-154.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p091-100.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL II — Venituri din activități independente; CAPITOLUL II^1 — Venituri din drepturi de proprietate intelectuală. Art. 67-75.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0067-0075.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 101-110 — CAS și contribuția de asigurări sociale de sănătate (CASS): contribuabili, baze și obligații. Art. 154-174.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p101-110.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL III — Venituri din salarii și asimilate salariilor. Art. 76-82.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0076-0082.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 111-120 — CASS, contribuția asiguratorie pentru muncă și începutul impozitării nerezidenților. Art. 174-228.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p111-120.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL IV — Venituri din cedarea folosinței bunurilor; CAPITOLUL V — Venituri din investiții; CAPITOLUL VI — Venituri din pensii. Art. 83-102.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0083-0102.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 121-130 — impozitarea nerezidenților și începutul Titlului VII: taxa pe valoarea adăugată (TVA). Art. 228-270^1.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p121-130.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL VII — Venituri din activități agricole, silvicultură și piscicultură; CAPITOLUL VIII — Venituri din premii și din jocuri de noroc; CAPITOLUL IX — Venituri din transferul proprietăților imobiliare din patrimoniul personal. Art. 103-117.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0103-0117.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 131-140 — TVA: operațiuni impozabile, livrări, achiziții, locul operațiunilor și cote de TVA. Art. 271-291.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p131-140.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL XI — Venitul net anual impozabil; CAPITOLUL XII — Proprietatea comună și asociațiile fără personalitate juridică; CAPITOLUL XIII — Aspecte fiscale internaționale. Art. 118-135^2.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0118-0135bis2.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 141-150 — TVA: scutiri, dreptul de deducere și ajustări. Art. 292-312.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p141-150.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL II — Contribuțiile de asigurări sociale datorate bugetului asigurărilor sociale de stat; SECȚIUNEA 1 — Contribuabilii/Plătitorii de venit la sistemul public de pensii; SECȚIUNEA a 2-a — Veniturile pentru care se datorează contribuția și cotele de contribuții. Art. 136-145.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0136-0145.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 151-160 — TVA: înregistrare, regimuri speciale, declarare și plată. Art. 313-319.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p151-160.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — SECȚIUNEA a 4-a — Stabilirea, plata și declararea contribuțiilor de asigurări sociale în cazul persoanelor fizice și juridice care au calitatea de angajatori sau sunt asimilate acestora, instituțiilor prevăzute la art. 136 lit. d) - f), precum și în cazul persoanelor fizice ca.... Art. 146-156.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0146-0156.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 161-170 — finalul TVA (inclusiv art. 320+) și începutul Titlului VIII: accize. Art. 320-336.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p161-170.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — SECȚIUNEA a 3-a — Baza de calcul al contribuției de asigurări sociale de sănătate datorate în cazul persoanelor care realizează venituri din salarii sau asimilate salariilor, venituri din pensii, precum și în cazul persoanelor aflate sub protecția sau în custodia statului; SEC.... Art. 157-183.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0157-0183.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 171-180 — accize: definiții, produse accizabile și reguli generale. Art. 337-364.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p171-180.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL IV — *** A B R O G A T ***; SECȚIUNEA 1 — *** A B R O G A T Ă ***; SECȚIUNEA a 2-a — *** A B R O G A T Ă ***. Art. 184-229.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0184-0229.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 181-190 — accize: niveluri, exigibilitate, antrepozite fiscale și circulația produselor accizabile. Art. 364-405.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p181-190.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — Articolul 230 — Coroborarea prevederilor Codului fiscal cu cele ale; CAPITOLUL II — Asocieri/Entități care desfășoară activitate/obține venituri în/din România; CAPITOLUL III — Impozitul pe reprezentanțe. Art. 230-267.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0230-0267.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 191-200 — accize: obligații, autorizare, control și sancțiuni. Art. 406-419.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p191-200.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL II — Operațiuni impozabile; CAPITOLUL III — Persoane impozabile; CAPITOLUL IV — Operațiuni cuprinse în sfera de aplicare a taxei. Art. 268-274^1.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0268-0274bis1.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 201-210 — finalul accizelor și începutul Titlului IX: impozite și taxe locale. Art. 419-457.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p201-210.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL V — Locul operațiunilor cuprinse în sfera de aplicare a taxei; CAPITOLUL VI — Faptul generator și exigibilitatea taxei pe valoarea adăugată; CAPITOLUL VII — Baza de impozitare. Art. 275-290.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0275-0290.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 211-220 — impozite și taxe locale: clădiri, terenuri, mijloace de transport și taxe locale. Art. 458-471.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p211-220.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL VIII — Cotele de taxă; CAPITOLUL IX — Operațiuni scutite de taxă. Art. 291-296.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0291-0296.md
 
-- Codul fiscal (Legea nr. 227/2015) — paginile originale 221-228 — taxe locale, impozitul pe construcții și dispoziții finale. Art. 471-503.
-  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-p221-228.pdf
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL X — Regimul deducerilor; CAPITOLUL XI — Persoanele obligate la plata taxei. Art. 297-309.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0297-0309.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL XII — Regimuri speciale. Art. 310-314.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0310-0314.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — Articolul 315 — Regimul special pentru vânzările intracomunitare. Art. 315-315^6.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0315-0315bis6.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL XIII — Obligații. Art. 316-320.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0316-0320.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — Articolul 321 — Evidența operațiunilor. Art. 321-329.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0321-0329.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL XIV — Dispoziții comune; CAPITOLUL XV — Dispoziții tranzitorii; TITLUL VIII — Accize și alte taxe speciale. Art. 330-334.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0330-0334.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL I — Regimul accizelor armonizate; SECȚIUNEA 1 — Dispoziții generale; SECȚIUNEA a 2-a — Nivelul și calculul accizelor. Art. 335-343.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0335-0343.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — SECȚIUNEA a 3-a — Obligațiile plătitorilor de accize; SECȚIUNEA a 4-a — Alcool și băuturi alcoolice; SECȚIUNEA a 5-a — Tutun prelucrat. Art. 344-361.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0344-0361.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — SECȚIUNEA a 9-a — Regimul de antrepozitare; SECȚIUNEA a 10-a — Destinatarul înregistrat; SECȚIUNEA a 11-a — Expeditorul înregistrat. Art. 362-385^8.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0362-0385bis8.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — SECȚIUNEA a 12-a — Importatorul autorizat; SECȚIUNEA a 121-a — Monitorizare și control; SECȚIUNEA a 13-a — Excepții de la regimul de accizare pentru produse energetice și energie electrică. Art. 386-408.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0386-0408.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — Articolul 409 — Structura și conținutul informațiilor; SECȚIUNEA a 17-a — Deplasarea și impozitarea produselor accizabile după eliberarea pentru consum; SUBSECȚIUNEA 1 — Achiziții realizate de persoane fizice. Art. 409-424.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0409-0424.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — SECȚIUNEA a 20-a — Marcarea și colorarea păcurii și a produselor asimilate acesteia; SECȚIUNEA a 21-a — Marcarea și colorarea motorinei; SECȚIUNEA a 22-a — Alte obligații pentru operatorii economici cu produse accizabile. Art. 425-451^1.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0425-0451bis1.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL IV — Infracțiuni; ANEXA 1; ANEXA 2. Art. 452-462.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0452-0462.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL III — Impozitul pe teren și taxa pe teren; CAPITOLUL IV — Impozitul pe mijloacele de transport. Art. 463-472.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0463-0472.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL V — Taxa pentru eliberarea certificatelor, avizelor și a autorizațiilor; CAPITOLUL VI — Taxa pentru folosirea mijloacelor de reclamă și publicitate; CAPITOLUL VII — Impozitul pe spectacole. Art. 473-492.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0473-0492.md
+
+- Codul fiscal (Legea nr. 227/2015; actualizat prin O.U.G. nr. 8/2026) — CAPITOLUL XI — Sancțiuni; CAPITOLUL XII — Dispoziții finale; TITLUL X — Impozitul pe construcții. Art. 493-503.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-art0493-0503.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — TITLUL I — Dispoziții generale; CAPITOLUL I — Definiții; SECȚIUNEA 1 — Activitatea independentă. Partea 1.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part01.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA 21 — Reguli speciale pentru aplicarea TVA; SECȚIUNEA a 3-a — Prevederi privind respectarea regulilor de ajutor de stat; TITLUL II — Impozitul pe profit. Partea 2.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part02.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 2-a — Reguli fiscale pentru contribuabilii care aplică reglementările contabile conforme cu Standardele internaționale de raportare financiară; SECȚIUNEA a 3-a — Scutirea de impozit a profitului reinvestit; SECȚIUNEA a 4-a — Venituri neimpozabile. Partea 3.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part03.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 11-a — Regimul fiscal care se aplică fuziunilor, divizărilor totale, divizărilor parțiale, transferurilor de active și achizițiilor de titluri de participare între persoane juridice române; SECȚIUNEA a 12-a — Regimul fiscal comun care se aplică fuziunilor, divizări.... Partea 4.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part04.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 2-a — Venituri neimpozabile; SECȚIUNEA a 3-a — Cotele de impozitare; SECȚIUNEA a 4-a — Perioada impozabilă. Partea 5.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part05.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — CAPITOLUL III — Venituri din salarii și asimilate salariilor; SECȚIUNEA 1 — Definirea veniturilor din salarii și asimilate salariilor; SECȚIUNEA a 2-a — Deducere personală. Partea 6.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part06.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 2-a — Stabilirea venitului net anual din cedarea folosinței bunurilor; SECȚIUNEA a 3-a — Reguli aplicabile contribuțiilor sociale aferente veniturilor realizate din cedarea folosinței bunurilor; CAPITOLUL V — Venituri din investiții. Partea 7.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part07.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — CAPITOLUL XI — Venitul net anual impozabil; SECȚIUNEA 1 — Stabilirea venitului net anual impozabil; SECȚIUNEA a 2-a — Declarații privind venitul estimat/norma de venit. Partea 8.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part08.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 3-a — Stabilirea, plata și declararea contribuțiilor de asigurări sociale în cazul persoanelor fizice și juridice care au calitatea de angajatori sau sunt asimilate acestora, instituțiilor prevăzute la art. 136 lit. d) - f) din Codul fiscal, precum și în cazul pers.... Partea 9.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part09.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 2-a — Reținerea impozitului din veniturile impozabile obținute din România; SECȚIUNEA a 3-a — Tratamentul fiscal al veniturilor din dobânzi obținute din România de persoane juridice rezidente într-un stat membru al Uniunii Europene sau al Spațiului Economic Europea.... Partea 10.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part10.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — CAPITOLUL III — Persoane impozabile; CAPITOLUL IV — Operațiuni cuprinse în sfera de aplicare a taxei; SECȚIUNEA 1 — Livrarea de bunuri. Partea 11.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part11.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 4-a — Achizițiile intracomunitare de bunuri; SECȚIUNEA a 5-a — Dispoziții comune livrărilor de bunuri și prestărilor de servicii; CAPITOLUL V — Locul operațiunilor cuprinse în sfera de aplicare a taxei. Partea 12.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part12.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — CAPITOLUL VI — Faptul generator și exigibilitatea taxei pe valoarea adăugată; SECȚIUNEA 1 — Faptul generator și exigibilitatea - definiții; SECȚIUNEA a 2-a — Faptul generator pentru livrări de bunuri și prestări de servicii. Partea 13.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part13.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — CAPITOLUL VII — Baza de impozitare; SECȚIUNEA 1 — Baza de impozitare pentru livrări de bunuri și prestări de servicii efectuate în interiorul țării; SECȚIUNEA a 2-a — Ajustarea bazei de impozitare. Partea 14.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part14.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — CAPITOLUL VIII — Cotele de taxă. Partea 15.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part15.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — CAPITOLUL IX — Operațiuni scutite de taxă; SECȚIUNEA 1 — Scutiri pentru anumite activități de interes general și scutiri pentru alte activități; SECȚIUNEA a 2-a — Scutiri pentru importuri de bunuri și pentru achiziții intracomunitare. Partea 16.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part16.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — CAPITOLUL X — Regimul deducerilor; SECȚIUNEA 1 — Sfera de aplicare a dreptului de deducere; SECȚIUNEA a 2-a — Limitări speciale ale dreptului de deducere. Partea 17.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part17.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 6-a — Rambursările de taxă; SUBSECȚIUNEA 1 — Rambursarea taxei către persoane impozabile neînregistrate în scopuri de TVA în România și rambursarea TVA de către alte state membre către persoane impozabile stabilite în România; SUBSECȚIUNEA a 2-a — Rambursările de t.... Partea 18.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part18.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 8-a — Ajustarea taxei deductibile în cazul bunurilor de capital; SECȚIUNEA a 9-a — Dispoziții tranzitorii privind ajustarea; CAPITOLUL XI — Persoanele obligate la plata taxei. Partea 19.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part19.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — CAPITOLUL XII — Regimuri speciale; SECȚIUNEA 1 — Regimul special de scutire pentru întreprinderile mici; SECȚIUNEA a 2-a — Regimul special pentru agențiile de turism. Partea 20.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part20.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — CAPITOLUL XIII — Obligații; SECȚIUNEA 1 — Înregistrarea persoanelor impozabile în scopuri de TVA; SECȚIUNEA a 2-a — Înregistrarea în scopuri de TVA a altor persoane care efectuează achiziții intracomunitare sau pentru servicii. Partea 21.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part21.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 4-a — Facturarea. Partea 22.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part22.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 5-a — Evidența operațiunilor; SECȚIUNEA a 51-a — Evidențe speciale; SECȚIUNEA a 6-a — Perioada fiscală. Partea 23.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part23.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 2-a — Măsuri de simplificare; CAPITOLUL XV — Dispoziții tranzitorii; ANEXA 1 la normele metodologice de aplicare a prevederilor titlului VII din Codul. Partea 24.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part24.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 3-a — Obligațiile plătitorilor de accize; SUBSECȚIUNEA 1 — Plata accizelor la bugetul de stat; SUBSECȚIUNEA a 2-a — Documente fiscale. Partea 25.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part25.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 9-a — Regimul de antrepozitare; SUBSECȚIUNEA 1 — Reguli generale; SUBSECȚIUNEA a 2-a — Cererea de autorizare ca antrepozit fiscal. Partea 26.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part26.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SUBSECȚIUNEA a 5-a — Obligațiile antrepozitarului autorizat; SUBSECȚIUNEA a 6-a — Anularea, revocarea și suspendarea autorizației de antrepozit fiscal; SECȚIUNEA a 10-a — Destinatarul înregistrat. Partea 27.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part27.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 13-a — Excepții de la regimul de accizare pentru produse energetice și energie electrică; SECȚIUNEA a 14-a — Scutiri de la plata accizelor; SUBSECȚIUNEA 1 — Scutiri generale. Partea 28.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part28.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SUBSECȚIUNEA a 4-a — Scutiri pentru produse energetice și energie electrică. Partea 29.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part29.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 15-a — Restituirea și remiterea; SECȚIUNEA a 16-a — Deplasarea produselor accizabile în regim suspensiv de accize; SUBSECȚIUNEA 1 — Deplasarea produselor accizabile aflate în regim suspensiv de accize. Partea 30.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part30.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 17-a — Deplasarea și impozitarea produselor accizabile după eliberarea pentru consum; SUBSECȚIUNEA 1 — Achiziții realizate de persoane fizice; SUBSECȚIUNEA a 2-a — Procedura care trebuie urmată în cazul deplasărilor de produse accizabile care au fost eliberate pent.... Partea 31.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part31.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 19-a — Marcarea produselor alcoolice și a tutunului prelucrat; SUBSECȚIUNEA 1 — Reguli generale; SUBSECȚIUNEA a 2-a — Responsabilitatea marcării. Partea 32.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part32.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 3-a — Plătitori de accize; CAPITOLUL III — Contravenții și sancțiuni; SECȚIUNEA 1 — Contravenții și sancțiuni. Partea 33.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part33.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — TITLUL IX — Impozite și taxe locale; CAPITOLUL I — Dispoziții generale; SECȚIUNEA 1 — Definiții. Partea 34.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part34.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 6-a — Declararea, dobândirea, înstrăinarea și modificarea clădirilor; SECȚIUNEA a 7-a — Plata impozitului/taxei pe clădiri; CAPITOLUL III — Impozitul pe teren și taxa pe teren. Partea 35.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part35.md
+
+- Codul fiscal — Normele metodologice aprobate prin H.G. nr. 1/2016, actualizate prin H.G. nr. 602/2025 — SECȚIUNEA a 3-a — Calculul impozitului; SECȚIUNEA a 4-a — Declararea și datorarea impozitului pe mijloacele de transport; SECȚIUNEA a 5-a — Plata impozitului pe mijloacele de transport. Partea 36.
+  https://balazs230.github.io/avocatel-docs/sources/cod_fiscal-norme-part36.md
 
 - Codul muncii (Legea nr. 53/2003, actualizată la 17 octombrie 2022) — Titlul I: dispoziții generale și principii fundamentale; Titlul II, cap. I-III: încheierea, executarea și modificarea contractului individual de muncă. Art. 1-48.
   https://balazs230.github.io/avocatel-docs/sources/codul_muncii-art001-048.md

@@ -1,9 +1,8 @@
-"""Split Romanian legal texts into retrieval-sized PDF sections.
+"""Split remaining Romanian legal PDFs into retrieval-sized sections.
 
-The Codul fiscal source PDFs overlap at pages 80 and 169, so the duplicate
-pages are skipped.  Source pages beyond a document's configured final page are
-also excluded.  Each document is emitted as ten-page PDFs named with the
-original document page numbers.
+Configured overlap pages are skipped, and pages beyond a document's configured
+final page are excluded.  Each document is emitted as ten-page PDFs named with
+the original document page numbers.
 """
 
 from pathlib import Path
@@ -13,15 +12,6 @@ from pypdf import PdfReader, PdfWriter
 
 ROOT = Path(__file__).resolve().parent
 DOCUMENTS = (
-    (
-        "cod_fiscal",
-        (
-            ("cod_fiscal-1-80.pdf", 0, 1),
-            ("cod_fiscal-80-169.pdf", 1, 81),
-            ("cod_fiscal-169-228.pdf", 1, 170),
-        ),
-        228,
-    ),
     (
         "aplicare_cod_fiscal",
         (("aplicare_cod_fiscal.pdf", 0, 1),),
