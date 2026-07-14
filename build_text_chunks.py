@@ -296,6 +296,17 @@ PROCEDURE_FISCAL_PART = re.compile(
     r"^(?P<label>Partea\s+(?:a\s+)?[IVXLCDM]+(?:-a)?)$"
 )
 
+OUG34_SOURCE = ROOT / "oug_34_2014.md"
+OUG34_LEGACY_TEXT_SOURCES = (
+    ROOT / "oug34_2014.txt",
+    ROOT / "oug_34_2014.txt",
+)
+OUG34_CHAPTER = re.compile(r"^CAPITOLUL\s+(?P<number>[IVXLCDM]+)$")
+OUG34_ARTICLE = re.compile(r"^ARTICOLUL\s+(?P<number>\d+)$")
+OUG34_MARKDOWN_ARTICLE = re.compile(
+    r"(?m)^### Articolul (?P<number>\d+)(?: — .+)?$"
+)
+
 PAGE_FOOTER = re.compile(
     r"(?m)^Codul Muncii actualizat Legislatie Protectia Muncii\r?\n\d+\r?\n?"
 )
@@ -4003,6 +4014,248 @@ def build_procedure_fiscal_document(raw_source: str) -> None:
             legacy_text.unlink()
 
 
+@dataclass(frozen=True)
+class Oug34BuiltChunk:
+    path: Path
+    first_article: int
+    last_article: int
+    description: str
+    includes_annex: bool = False
+
+
+def clean_oug34_source(text: str) -> str:
+    text = text.removeprefix("\ufeff").replace("\r\n", "\n").replace("\r", "\n")
+    if text.startswith("# O.U.G. nr. 34/2014\n"):
+        return text.rstrip() + "\n"
+    romanian_diacritics = str.maketrans("şŞţŢ", "șȘțȚ")
+    return (
+        "\n".join(
+            repair_fiscal_mojibake(line).translate(romanian_diacritics).strip()
+            for line in text.splitlines()
+        )
+        .rstrip()
+        + "\n"
+    )
+
+
+def oug34_heading_title(lines: list[str], index: int) -> tuple[str, int]:
+    """Read a heading title, including a lowercase wrapped continuation."""
+    index += 1
+    while index < len(lines) and not lines[index].strip():
+        index += 1
+    if index >= len(lines) or not lines[index].strip():
+        raise RuntimeError("Missing O.U.G. nr. 34/2014 heading title")
+    title_parts = [lines[index].strip()]
+    index += 1
+    while index < len(lines):
+        candidate = lines[index].strip()
+        if not candidate or not candidate[0].islower():
+            break
+        title_parts.append(candidate)
+        index += 1
+    return " ".join(title_parts), index
+
+
+def format_oug34_markdown(text: str) -> str:
+    if text.startswith("# O.U.G. nr. 34/2014\n"):
+        return normalize_heading_spacing(text)
+
+    lines = text.splitlines()
+    try:
+        preamble_start = next(
+            index
+            for index, line in enumerate(lines)
+            if line.strip().startswith("Având în vedere că transpunerea")
+        )
+        chapter_start = next(
+            index
+            for index, line in enumerate(lines)
+            if line.strip() == "CAPITOLUL I"
+        )
+    except StopIteration as error:
+        raise RuntimeError("Could not locate O.U.G. nr. 34/2014 body") from error
+
+    rendered = [
+        "# O.U.G. nr. 34/2014",
+        "Ordonanța de urgență nr. 34/2014 privind drepturile consumatorilor în cadrul contractelor încheiate cu profesioniștii, precum și pentru modificarea și completarea unor acte normative",
+        "Publicată în Monitorul Oficial, Partea I, nr. 427 din 11 iunie 2014",
+        "Forma inițială; intrată în vigoare la 13 iunie 2014.",
+        "Text furnizat în scop documentar; nu reprezintă o republicare oficială.",
+        "",
+        "## Preambul",
+        *[line.rstrip() for line in lines[preamble_start:chapter_start]],
+    ]
+
+    index = chapter_start
+    while index < len(lines):
+        raw_line = lines[index].rstrip()
+        line = raw_line.strip()
+
+        chapter = OUG34_CHAPTER.fullmatch(line)
+        if chapter:
+            title, index = oug34_heading_title(lines, index)
+            rendered.append(f"## {line} — {title}")
+            continue
+
+        article = OUG34_ARTICLE.fullmatch(line)
+        if article:
+            title, index = oug34_heading_title(lines, index)
+            rendered.append(
+                f"### Articolul {article.group('number')} — {title}"
+            )
+            continue
+
+        if line == "ANEXĂ":
+            title, index = oug34_heading_title(lines, index)
+            rendered.append(f"## ANEXĂ — {title}")
+            continue
+
+        if re.fullmatch(r"[AB]\. .+", line):
+            rendered.append(f"### {line}")
+            index += 1
+            continue
+
+        if line in {
+            "Dreptul de retragere",
+            "Consecințele retragerii",
+            "Instrucțiuni de completare",
+        }:
+            rendered.append(f"#### {line}")
+            index += 1
+            continue
+
+        rendered.append(raw_line)
+        index += 1
+
+    return normalize_heading_spacing("\n".join(rendered))
+
+
+def validate_oug34_document(markdown: str) -> None:
+    articles = [
+        int(match.group("number"))
+        for match in OUG34_MARKDOWN_ARTICLE.finditer(markdown)
+    ]
+    if articles != list(range(1, 33)):
+        raise RuntimeError("O.U.G. nr. 34/2014 articles are incomplete or reordered")
+    if len(re.findall(r"(?m)^## CAPITOLUL [IVXLCDM]+ — ", markdown)) != 7:
+        raise RuntimeError("Unexpected O.U.G. nr. 34/2014 chapter count")
+    if len(re.findall(r"(?m)^## ANEXĂ — ", markdown)) != 1:
+        raise RuntimeError("Missing O.U.G. nr. 34/2014 annex")
+    for artifact in ("Ã", "Â", "Å", "Ä", "È"):
+        if artifact in markdown:
+            raise RuntimeError(f"Encoding artifact remains: {artifact}")
+
+
+def build_oug34_chunks(markdown: str) -> list[Oug34BuiltChunk]:
+    validate_oug34_document(markdown)
+    body_start = markdown.index("## Preambul")
+    split = markdown.index("## CAPITOLUL VI —")
+    preamble = markdown[:body_start].rstrip()
+    specs = (
+        (
+            1,
+            26,
+            markdown[body_start:split],
+            "preambulul; obiectul, definițiile și domeniul de aplicare; informarea și dreptul de retragere; celelalte drepturi ale consumatorilor și dispozițiile generale",
+            False,
+        ),
+        (
+            27,
+            32,
+            markdown[split:],
+            "competența, sesizarea, controlul și sancțiunile; dispozițiile finale, intrarea în vigoare și abrogările; instrucțiunile și formularul-model de retragere",
+            True,
+        ),
+    )
+    built = []
+    expected_names = set()
+    for first, last, body, description, includes_annex in specs:
+        suffix = "-anexa" if includes_annex else ""
+        filename = f"oug_34_2014-art{first:03d}-{last:03d}{suffix}.md"
+        fragment = f"Art. {first}-{last}" + (" și anexa" if includes_annex else "")
+        content = (
+            f"{preamble}\n"
+            f"**Fragment:** {fragment}.\n"
+            f"**Cuprins:** {description}.\n\n"
+            f"{body.strip()}\n"
+        )
+        labels = [
+            int(match.group("number"))
+            for match in OUG34_MARKDOWN_ARTICLE.finditer(content)
+        ]
+        if labels != list(range(first, last + 1)):
+            raise RuntimeError(f"Unexpected article range in {filename}")
+        if not MIN_CHUNK_CHARACTERS <= len(content) <= MAX_CHUNK_CHARACTERS:
+            raise RuntimeError(
+                f"{filename} has {len(content):,} characters; expected "
+                f"{MIN_CHUNK_CHARACTERS:,}-{MAX_CHUNK_CHARACTERS:,}"
+            )
+        path = OUTPUT / filename
+        path.write_text(content, encoding="utf-8", newline="\n")
+        built.append(
+            Oug34BuiltChunk(path, first, last, description, includes_annex)
+        )
+        expected_names.add(filename)
+        print(f"{filename}: {path.stat().st_size:,} bytes")
+
+    for stale in OUTPUT.glob("oug_34_2014-*.md"):
+        if stale.name not in expected_names:
+            stale.unlink()
+    return built
+
+
+def oug34_catalog_block(built: list[Oug34BuiltChunk]) -> str:
+    entries = []
+    prefix = (
+        "- OUG nr. 34/2014 privind drepturile consumatorilor în contractele "
+        "încheiate cu profesioniștii (forma inițială, M.Of. nr. 427/2014)"
+    )
+    for chunk in built:
+        range_label = f"Art. {chunk.first_article}-{chunk.last_article}"
+        if chunk.includes_annex:
+            range_label += " și anexa"
+        entries.append(
+            f"{prefix} — {chunk.description}. {range_label}.\n"
+            f"  {PUBLIC_BASE_URL}/{chunk.path.name}\n"
+        )
+    return "\n".join(entries) + "\n"
+
+
+def update_oug34_catalog(built: list[Oug34BuiltChunk]) -> None:
+    data = CATALOG.read_text(encoding="utf-8")
+    entry_pattern = re.compile(
+        r"(?m)^- OUG nr\. 34/2014 [^\n]*\n"
+        r"  https://[^\n]*/sources/oug_34_2014-[^\n]*\n(?:\n)?"
+    )
+    matches = list(entry_pattern.finditer(data))
+    if not matches:
+        raise RuntimeError("No existing O.U.G. nr. 34/2014 catalog entries found")
+    start, end = matches[0].start(), matches[-1].end()
+    if entry_pattern.sub("", data[start:end]).strip():
+        raise RuntimeError("O.U.G. nr. 34/2014 catalog entries are not contiguous")
+    CATALOG.write_text(
+        data[:start] + oug34_catalog_block(built) + data[end:],
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
+def build_oug34_document(raw_source: str) -> None:
+    markdown = format_oug34_markdown(clean_oug34_source(raw_source))
+    OUG34_SOURCE.write_text(markdown, encoding="utf-8", newline="\n")
+    built = build_oug34_chunks(markdown)
+    update_oug34_catalog(built)
+
+    for legacy_chunk in OUTPUT.glob("oug_34_2014-p*.pdf"):
+        legacy_chunk.unlink()
+    legacy_pdf = ROOT / "oug_34_2014.pdf"
+    if legacy_pdf.exists():
+        legacy_pdf.unlink()
+    for legacy_text in OUG34_LEGACY_TEXT_SOURCES:
+        if legacy_text.exists():
+            legacy_text.unlink()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -4049,6 +4302,11 @@ def parse_args() -> argparse.Namespace:
         "--import-fiscal-procedure-source",
         type=Path,
         help="import a supplied Codul de procedură fiscală TXT before building",
+    )
+    parser.add_argument(
+        "--import-oug34-source",
+        type=Path,
+        help="import a supplied O.U.G. nr. 34/2014 TXT before building",
     )
     return parser.parse_args()
 
@@ -4258,6 +4516,23 @@ def main() -> None:
 
     if procedure_fiscal_raw_source is not None:
         build_procedure_fiscal_document(procedure_fiscal_raw_source)
+
+    oug34_raw_source = None
+    if args.import_oug34_source:
+        if not args.import_oug34_source.is_file():
+            raise FileNotFoundError(args.import_oug34_source)
+        oug34_raw_source = args.import_oug34_source.read_text(encoding="utf-8-sig")
+    elif OUG34_SOURCE.is_file():
+        oug34_raw_source = OUG34_SOURCE.read_text(encoding="utf-8-sig")
+    else:
+        oug34_legacy = next(
+            (path for path in OUG34_LEGACY_TEXT_SOURCES if path.is_file()), None
+        )
+        if oug34_legacy:
+            oug34_raw_source = oug34_legacy.read_text(encoding="utf-8-sig")
+
+    if oug34_raw_source is not None:
+        build_oug34_document(oug34_raw_source)
 
 
 if __name__ == "__main__":

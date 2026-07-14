@@ -585,14 +585,11 @@ Available documents:
 - Codul de procedură fiscală (Legea nr. 207/2015; actualizat prin O.U.G. nr. 7/2026) — ANEXA 7 — Norme de declarare; Secțiunea I — Definiții; Secțiunea a II-a — Cerințe de declarare. Anexe — partea 8.
   https://balazs230.github.io/avocatel-docs/sources/cod_procedura_fiscala-anexe-part08.md
 
-- OUG nr. 34/2014 privind drepturile consumatorilor în contractele încheiate cu profesioniștii (forma inițială, M.Of. nr. 427/2014) — paginile originale 1-10 — obiectul, definițiile, domeniul de aplicare, obligațiile de informare pentru contractele obișnuite, la distanță și în afara spațiilor comerciale și începutul dreptului de retragere. Art. 1-12.
-  https://balazs230.github.io/avocatel-docs/sources/oug_34_2014-p001-010.pdf
+- OUG nr. 34/2014 privind drepturile consumatorilor în contractele încheiate cu profesioniștii (forma inițială, M.Of. nr. 427/2014) — preambulul; obiectul, definițiile și domeniul de aplicare; informarea și dreptul de retragere; celelalte drepturi ale consumatorilor și dispozițiile generale. Art. 1-26.
+  https://balazs230.github.io/avocatel-docs/sources/oug_34_2014-art001-026.md
 
-- OUG nr. 34/2014 privind drepturile consumatorilor în contractele încheiate cu profesioniștii (forma inițială, M.Of. nr. 427/2014) — paginile originale 11-20 — obligațiile după retragere, excepțiile, livrarea, plățile și riscurile, sancțiunile și modificările aduse legislației privind consumatorii și comunicațiile electronice. Art. 13-29.
-  https://balazs230.github.io/avocatel-docs/sources/oug_34_2014-p011-020.pdf
-
-- OUG nr. 34/2014 privind drepturile consumatorilor în contractele încheiate cu profesioniștii (forma inițială, M.Of. nr. 427/2014) — paginile originale 21-27 — continuarea modificărilor privind contractele de comunicații, intrarea în vigoare, aplicarea și abrogările, plus instrucțiunile și formularul-model pentru retragere. Art. 29-32 și anexa.
-  https://balazs230.github.io/avocatel-docs/sources/oug_34_2014-p021-027.pdf
+- OUG nr. 34/2014 privind drepturile consumatorilor în contractele încheiate cu profesioniștii (forma inițială, M.Of. nr. 427/2014) — competența, sesizarea, controlul și sancțiunile; dispozițiile finale, intrarea în vigoare și abrogările; instrucțiunile și formularul-model de retragere. Art. 27-32 și anexa.
+  https://balazs230.github.io/avocatel-docs/sources/oug_34_2014-art027-032-anexa.md
 
 - Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 1-10 — formele societare, actul constitutiv și constituirea societății pe acțiuni prin subscripție publică. Art. 1-27.
   https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p001-010.pdf
