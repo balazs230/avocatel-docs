@@ -27,19 +27,15 @@ MAX_CHUNK_CHARACTERS = 60_000
 CIVIL_SOURCE = ROOT / "codul_civil.md"
 CIVIL_LEGACY_TEXT_SOURCES = (ROOT / "cod_civil.txt", ROOT / "codul_civil.txt")
 CIVIL_LEGACY_SOURCE = ROOT / "codul_civil.pdf"
-CIVIL_NOISE_LINES = {
-    "Actul este reprodus în forma publicată în Monitorul Oficial al",
-    "României şi nu include posibile modificări ulterioare.",
-    "Cumpăraţi documentul în formă actualizată sau alegeţi un",
-    "abonament Lege5 care permite accesul la orice formă",
-    "actualizată, fără mesaje publicitare.",
-}
 CIVIL_STRUCTURE = re.compile(
-    r"^(?P<kind>CARTEA|TITLUL|CAPITOLUL|SEC[\u0162\u021aT]IUNEA)\s+.+$"
+    r"^(?:(?P<book>(?i:CARTEA\s+(?:A\s+)?(?:I|II|III|IV|V|VI|VII)"
+    r"(?:\s*-\s*A)?))"
+    r"|(?P<title>TITLUL\s+.+)"
+    r"|(?P<chapter>CAPITOLUL\s+.+)"
+    r"|(?P<section>Sec[\u0162\u0163\u021a\u021bT]iunea\s+.+))$"
 )
-CIVIL_ARTICLE = re.compile(
-    r"^Art\.\s+(?P<number>\d{1,3}(?:\.\d{3})?)\.?\s*"
-    r"(?:-\s*)?(?P<title>.*)$"
+CIVIL_INLINE_ARTICLE = re.compile(
+    r"Art\.\s*(?P<number>\d(?:[\d. ]*?\d)?)\s*\.?\s*[\u2013-]\s*"
 )
 CIVIL_MARKDOWN_ARTICLE = re.compile(
     r"(?m)^###### Art\.\s+(?P<number>[\d.]+)(?: — .*)?$"
@@ -138,175 +134,167 @@ class CivilChunk:
 CIVIL_CHUNKS = (
     CivilChunk(
         1,
-        103,
+        109,
         "legea civilă, aplicarea și interpretarea ei, publicitatea "
         "drepturilor, persoana fizică, capacitatea, drepturile personalității "
         "și starea civilă",
     ),
     CivilChunk(
-        104,
-        199,
+        110,
+        204,
         "ocrotirea persoanei fizice, tutela minorului, consiliul de familie, "
         "curatela și înființarea persoanei juridice",
     ),
     CivilChunk(
-        200,
-        277,
+        205,
+        289,
         "capacitatea, organele, reorganizarea și încetarea persoanei "
         "juridice; apărarea drepturilor nepatrimoniale, familia, logodna și "
         "începutul căsătoriei",
     ),
     CivilChunk(
-        278,
-        374,
+        290,
+        384,
         "încheierea și nulitatea căsătoriei, drepturile soților, regimurile "
         "matrimoniale și începutul divorțului",
     ),
     CivilChunk(
-        375,
-        474,
+        385,
+        486,
         "divorțul și efectele sale, rudenia, filiația, reproducerea asistată "
         "medical și adopția",
     ),
     CivilChunk(
-        475,
-        580,
+        487,
+        586,
         "încetarea adopției, autoritatea părintească, obligația de "
         "întreținere, bunurile și începutul proprietății private",
     ),
     CivilChunk(
-        581,
-        668,
+        587,
+        686,
         "accesiunea, limitele proprietății private, proprietatea comună, "
         "coproprietatea, condominiul și partajul",
     ),
     CivilChunk(
-        669,
-        772,
+        687,
+        791,
         "proprietatea periodică, superficia, uzufructul, uzul, abitația, "
         "servituțile și începutul fiduciei",
     ),
     CivilChunk(
-        773,
-        857,
+        792,
+        884,
         "fiducia și administrarea bunurilor altuia",
     ),
     CivilChunk(
-        858,
-        934,
+        885,
+        956,
         "proprietatea publică, cartea funciară, înscrierea și rectificarea "
         "drepturilor tabulare și începutul posesiei",
     ),
     CivilChunk(
-        935,
-        1019,
+        957,
+        1050,
         "dobândirea proprietății prin posesie, acțiunile posesorii, "
         "deschiderea moștenirii, moștenirea legală și începutul "
         "liberalităților",
     ),
     CivilChunk(
-        1020,
-        1105,
+        1051,
+        1140,
         "donațiile, testamentele, legatele, dezmoștenirea, rezerva "
         "succesorală și reducțiunea liberalităților",
     ),
     CivilChunk(
-        1106,
-        1181,
+        1141,
+        1249,
         "opțiunea succesorală, moștenirea vacantă, partajul succesoral, "
         "raportul donațiilor și începutul obligațiilor",
     ),
     CivilChunk(
-        1182,
-        1294,
+        1250,
+        1371,
         "formarea și validitatea contractului, consimțământul, obiectul, "
         "cauza, forma, nulitatea, interpretarea și efectele contractului",
     ),
     CivilChunk(
-        1295,
-        1410,
+        1372,
+        1479,
         "reprezentarea, cesiunea contractului, actul juridic unilateral, "
         "faptul juridic licit, răspunderea civilă și condiția",
     ),
     CivilChunk(
-        1411,
-        1526,
+        1480,
+        1586,
         "termenul, obligațiile complexe, plata, punerea în întârziere și "
         "începutul executării silite",
     ),
     CivilChunk(
-        1527,
-        1634,
+        1587,
+        1670,
         "executarea silită, daunele-interese, rezoluțiunea, măsurile "
         "conservatorii, cesiunea de creanță și stingerea obligațiilor",
     ),
     CivilChunk(
-        1635,
-        1729,
-        "restituirea prestațiilor și contractul de vânzare: formare, preț, "
-        "predare și garanții",
+        1671,
+        1771,
+        "contractul de vânzare: obligațiile părților, garanțiile și "
+        "varietățile vânzării; schimbul",
     ),
     CivilChunk(
-        1730,
-        1835,
-        "varietățile vânzării, dreptul de preempțiune, schimbul, furnizarea "
-        "și locațiunea",
+        1772,
+        1873,
+        "furnizarea, reportul, locațiunea, închirierea locuințelor, arendarea "
+        "și începutul antreprizei",
     ),
     CivilChunk(
-        1836,
-        1924,
-        "închirierea locuințelor, arendarea, contractul de antrepriză și "
-        "începutul contractului de societate",
+        1874,
+        1954,
+        "contractul de antrepriză și contractul de societate",
     ),
     CivilChunk(
-        1925,
-        2008,
+        1955,
+        2038,
         "contractul de societate, asocierea în participație și contractul "
         "de transport",
     ),
     CivilChunk(
-        2009,
-        2095,
+        2039,
+        2126,
         "contractul de mandat, mandatul fără reprezentare și contractul de "
         "agenție",
     ),
     CivilChunk(
-        2096,
-        2198,
+        2127,
+        2226,
         "intermedierea, depozitul, împrumutul, contul curent, contul bancar "
         "și începutul asigurării",
     ),
     CivilChunk(
-        2199,
-        2304,
+        2227,
+        2342,
         "asigurarea, renta viageră, întreținerea, jocul și pariul, tranzacția "
         "și începutul garanțiilor personale",
     ),
     CivilChunk(
-        2305,
-        2419,
+        2343,
+        2463,
         "fideiusiunea, garanțiile autonome, privilegiile și ipoteca "
         "imobiliară și mobiliară",
     ),
     CivilChunk(
-        2420,
-        2522,
+        2464,
+        2556,
         "rangul și executarea ipotecilor, gajul, dreptul de retenție și "
         "începutul prescripției extinctive",
     ),
     CivilChunk(
-        2523,
-        2604,
-        "cursul și împlinirea prescripției, decăderea, calculul termenelor și "
-        "dreptul internațional privat privind persoanele și familia",
-    ),
-    CivilChunk(
-        2605,
+        2557,
         2664,
-        "dreptul internațional privat privind bunurile, moștenirea, "
-        "obligațiile, titlurile de credit, fiducia și prescripția; "
-        "dispoziții finale și de punere în aplicare",
-        includes_implementation_law=True,
+        "dreptul internațional privat privind persoanele, familia, bunurile, "
+        "moștenirea, obligațiile, titlurile de credit, fiducia și prescripția; "
+        "dispoziții finale",
     ),
 )
 
@@ -485,50 +473,33 @@ def update_catalog(built: list[Path]) -> None:
 
 
 def clean_civil_source(text: str) -> str:
-    """Remove Lege5 page furniture and restore the first article's ordering."""
+    """Remove standalone source page numbers and normalize a split article label."""
     text = text.removeprefix("\ufeff").replace("\r\n", "\n").replace("\r", "\n")
-    lines = [line for line in text.splitlines() if line not in CIVIL_NOISE_LINES]
-
+    text = re.sub(
+        r"(?m)^(Art\.\s*[\d. ]+\.)\s*\n\s*([\u2013-])",
+        r"\1 \2",
+        text,
+    )
+    lines = [
+        line for line in text.splitlines() if not re.fullmatch(r"\s*\d{1,3}\s*", line)
+    ]
     try:
-        article_title = lines.index("Izvoarele dreptului civil")
         preliminary_title = lines.index("TITLUL PRELIMINAR")
     except ValueError as error:
         raise RuntimeError("Could not locate the start of Codul civil") from error
-    if article_title >= preliminary_title:
-        raise RuntimeError("Unexpected ordering at the start of Codul civil")
-
-    misplaced_article_text = lines[article_title:preliminary_title]
-    legal_text = lines[preliminary_title:]
-    try:
-        after_article_one = legal_text.index("Art. 1. -") + 1
-    except ValueError as error:
-        raise RuntimeError("Could not locate Codul civil art. 1") from error
-    legal_text[after_article_one:after_article_one] = misplaced_article_text
 
     preamble = [
         "Codul civil",
         "Legea nr. 287/2009",
-        "Republicată în Monitorul Oficial, Partea I, nr. 505 din 15 iulie 2011",
-        "În vigoare de la 1 octombrie 2011",
-        "Forma publicată nu include posibile modificări ulterioare.",
+        "Forma adoptată la 25 iunie 2009",
     ]
-    return "\n".join(preamble + legal_text).rstrip() + "\n"
+    return "\n".join(preamble + lines[preliminary_title:]).rstrip() + "\n"
 
 
 def format_civil_markdown(text: str) -> str:
     """Apply Markdown levels to the hierarchy found in Codul civil."""
     if text.startswith("# Codul civil\n"):
-        rendered = []
-        for line in text.splitlines():
-            article = CIVIL_ARTICLE.fullmatch(line)
-            if article:
-                heading = f"###### Art. {article.group('number')}"
-                if article.group("title"):
-                    heading += f" — {article.group('title')}"
-                rendered.append(heading)
-            else:
-                rendered.append(line)
-        return normalize_heading_spacing("\n".join(rendered))
+        return normalize_heading_spacing(text)
 
     lines = text.splitlines()
     if not lines or lines[0] != "Codul civil":
@@ -537,27 +508,32 @@ def format_civil_markdown(text: str) -> str:
     rendered = ["# Codul civil"]
     for line in lines[1:]:
         structure = CIVIL_STRUCTURE.fullmatch(line)
-        article = CIVIL_ARTICLE.fullmatch(line)
         if structure:
-            kind = structure.group("kind")
-            if kind == "CARTEA":
+            if structure.group("book"):
                 level = 2
-            elif kind == "TITLUL":
+            elif structure.group("title"):
                 level = 3
-            elif kind == "CAPITOLUL":
+            elif structure.group("chapter"):
                 level = 4
             else:
                 level = 5
             rendered.append(f"{'#' * level} {line}")
         elif CIVIL_PARAGRAPH.fullmatch(line):
             rendered.append(f"##### {line}")
-        elif article:
-            heading = f"###### Art. {article.group('number')}"
-            if article.group("title"):
-                heading += f" — {article.group('title')}"
-            rendered.append(heading)
         else:
-            rendered.append(line)
+            article = CIVIL_INLINE_ARTICLE.search(line)
+            if not article:
+                rendered.append(line)
+                continue
+
+            rubric = line[: article.start()].rstrip()
+            body = line[article.end() :].lstrip()
+            number = civil_article_number(article.group("number"))
+            if rubric:
+                rendered.append(rubric)
+            rendered.append(f"###### Art. {format_civil_article(number)}")
+            if body:
+                rendered.append(body)
 
     return normalize_heading_spacing("\n".join(rendered))
 
@@ -611,7 +587,7 @@ def civil_chunk_boundaries(markdown: str) -> list[int]:
 
 
 def civil_article_number(label: str) -> int:
-    return int(label.replace(".", ""))
+    return int(label.replace(".", "").replace(" ", ""))
 
 
 def civil_article_groups(markdown: str) -> tuple[list[int], list[int]]:
@@ -708,8 +684,8 @@ def civil_catalog_block(built: list[Path]) -> bytes:
         if chunk.filename not in filenames:
             raise RuntimeError(f"Missing generated chunk: {chunk.filename}")
         entries.append(
-            "- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. "
-            f"nr. 505/2011) — {chunk.description}. {civil_range_label(chunk)}.\n"
+            "- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie "
+            f"2009) — {chunk.description}. {civil_range_label(chunk)}.\n"
             f"  {PUBLIC_BASE_URL}/{chunk.filename}\n"
         )
     return ("\n".join(entries) + "\n").encode("utf-8")

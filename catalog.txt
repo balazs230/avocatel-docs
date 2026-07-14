@@ -225,89 +225,86 @@ Available documents:
 - Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 461-468 — finalizarea evaluării funcționarilor debutanți și tabelele criteriilor de performanță și evaluare. Anexa nr. 6.
   https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p461-468.pdf
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — legea civilă, aplicarea și interpretarea ei, publicitatea drepturilor, persoana fizică, capacitatea, drepturile personalității și starea civilă. Art. 1-103.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0001-0103.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — legea civilă, aplicarea și interpretarea ei, publicitatea drepturilor, persoana fizică, capacitatea, drepturile personalității și starea civilă. Art. 1-109.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0001-0109.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — ocrotirea persoanei fizice, tutela minorului, consiliul de familie, curatela și înființarea persoanei juridice. Art. 104-199.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0104-0199.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — ocrotirea persoanei fizice, tutela minorului, consiliul de familie, curatela și înființarea persoanei juridice. Art. 110-204.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0110-0204.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — capacitatea, organele, reorganizarea și încetarea persoanei juridice; apărarea drepturilor nepatrimoniale, familia, logodna și începutul căsătoriei. Art. 200-277.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0200-0277.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — capacitatea, organele, reorganizarea și încetarea persoanei juridice; apărarea drepturilor nepatrimoniale, familia, logodna și începutul căsătoriei. Art. 205-289.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0205-0289.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — încheierea și nulitatea căsătoriei, drepturile soților, regimurile matrimoniale și începutul divorțului. Art. 278-374.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0278-0374.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — încheierea și nulitatea căsătoriei, drepturile soților, regimurile matrimoniale și începutul divorțului. Art. 290-384.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0290-0384.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — divorțul și efectele sale, rudenia, filiația, reproducerea asistată medical și adopția. Art. 375-474.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0375-0474.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — divorțul și efectele sale, rudenia, filiația, reproducerea asistată medical și adopția. Art. 385-486.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0385-0486.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — încetarea adopției, autoritatea părintească, obligația de întreținere, bunurile și începutul proprietății private. Art. 475-580.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0475-0580.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — încetarea adopției, autoritatea părintească, obligația de întreținere, bunurile și începutul proprietății private. Art. 487-586.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0487-0586.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — accesiunea, limitele proprietății private, proprietatea comună, coproprietatea, condominiul și partajul. Art. 581-668.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0581-0668.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — accesiunea, limitele proprietății private, proprietatea comună, coproprietatea, condominiul și partajul. Art. 587-686.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0587-0686.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — proprietatea periodică, superficia, uzufructul, uzul, abitația, servituțile și începutul fiduciei. Art. 669-772.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0669-0772.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — proprietatea periodică, superficia, uzufructul, uzul, abitația, servituțile și începutul fiduciei. Art. 687-791.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0687-0791.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — fiducia și administrarea bunurilor altuia. Art. 773-857.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0773-0857.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — fiducia și administrarea bunurilor altuia. Art. 792-884.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0792-0884.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — proprietatea publică, cartea funciară, înscrierea și rectificarea drepturilor tabulare și începutul posesiei. Art. 858-934.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0858-0934.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — proprietatea publică, cartea funciară, înscrierea și rectificarea drepturilor tabulare și începutul posesiei. Art. 885-956.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0885-0956.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — dobândirea proprietății prin posesie, acțiunile posesorii, deschiderea moștenirii, moștenirea legală și începutul liberalităților. Art. 935-1.019.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0935-1019.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — dobândirea proprietății prin posesie, acțiunile posesorii, deschiderea moștenirii, moștenirea legală și începutul liberalităților. Art. 957-1.050.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0957-1050.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — donațiile, testamentele, legatele, dezmoștenirea, rezerva succesorală și reducțiunea liberalităților. Art. 1.020-1.105.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1020-1105.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — donațiile, testamentele, legatele, dezmoștenirea, rezerva succesorală și reducțiunea liberalităților. Art. 1.051-1.140.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1051-1140.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — opțiunea succesorală, moștenirea vacantă, partajul succesoral, raportul donațiilor și începutul obligațiilor. Art. 1.106-1.181.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1106-1181.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — opțiunea succesorală, moștenirea vacantă, partajul succesoral, raportul donațiilor și începutul obligațiilor. Art. 1.141-1.249.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1141-1249.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — formarea și validitatea contractului, consimțământul, obiectul, cauza, forma, nulitatea, interpretarea și efectele contractului. Art. 1.182-1.294.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1182-1294.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — formarea și validitatea contractului, consimțământul, obiectul, cauza, forma, nulitatea, interpretarea și efectele contractului. Art. 1.250-1.371.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1250-1371.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — reprezentarea, cesiunea contractului, actul juridic unilateral, faptul juridic licit, răspunderea civilă și condiția. Art. 1.295-1.410.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1295-1410.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — reprezentarea, cesiunea contractului, actul juridic unilateral, faptul juridic licit, răspunderea civilă și condiția. Art. 1.372-1.479.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1372-1479.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — termenul, obligațiile complexe, plata, punerea în întârziere și începutul executării silite. Art. 1.411-1.526.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1411-1526.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — termenul, obligațiile complexe, plata, punerea în întârziere și începutul executării silite. Art. 1.480-1.586.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1480-1586.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — executarea silită, daunele-interese, rezoluțiunea, măsurile conservatorii, cesiunea de creanță și stingerea obligațiilor. Art. 1.527-1.634.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1527-1634.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — executarea silită, daunele-interese, rezoluțiunea, măsurile conservatorii, cesiunea de creanță și stingerea obligațiilor. Art. 1.587-1.670.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1587-1670.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — restituirea prestațiilor și contractul de vânzare: formare, preț, predare și garanții. Art. 1.635-1.729.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1635-1729.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — contractul de vânzare: obligațiile părților, garanțiile și varietățile vânzării; schimbul. Art. 1.671-1.771.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1671-1771.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — varietățile vânzării, dreptul de preempțiune, schimbul, furnizarea și locațiunea. Art. 1.730-1.835.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1730-1835.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — furnizarea, reportul, locațiunea, închirierea locuințelor, arendarea și începutul antreprizei. Art. 1.772-1.873.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1772-1873.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — închirierea locuințelor, arendarea, contractul de antrepriză și începutul contractului de societate. Art. 1.836-1.924.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1836-1924.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — contractul de antrepriză și contractul de societate. Art. 1.874-1.954.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1874-1954.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — contractul de societate, asocierea în participație și contractul de transport. Art. 1.925-2.008.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1925-2008.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — contractul de societate, asocierea în participație și contractul de transport. Art. 1.955-2.038.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art1955-2038.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — contractul de mandat, mandatul fără reprezentare și contractul de agenție. Art. 2.009-2.095.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2009-2095.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — contractul de mandat, mandatul fără reprezentare și contractul de agenție. Art. 2.039-2.126.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2039-2126.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — intermedierea, depozitul, împrumutul, contul curent, contul bancar și începutul asigurării. Art. 2.096-2.198.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2096-2198.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — intermedierea, depozitul, împrumutul, contul curent, contul bancar și începutul asigurării. Art. 2.127-2.226.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2127-2226.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — asigurarea, renta viageră, întreținerea, jocul și pariul, tranzacția și începutul garanțiilor personale. Art. 2.199-2.304.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2199-2304.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — asigurarea, renta viageră, întreținerea, jocul și pariul, tranzacția și începutul garanțiilor personale. Art. 2.227-2.342.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2227-2342.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — fideiusiunea, garanțiile autonome, privilegiile și ipoteca imobiliară și mobiliară. Art. 2.305-2.419.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2305-2419.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — fideiusiunea, garanțiile autonome, privilegiile și ipoteca imobiliară și mobiliară. Art. 2.343-2.463.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2343-2463.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — rangul și executarea ipotecilor, gajul, dreptul de retenție și începutul prescripției extinctive. Art. 2.420-2.522.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2420-2522.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — rangul și executarea ipotecilor, gajul, dreptul de retenție și începutul prescripției extinctive. Art. 2.464-2.556.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2464-2556.md
 
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — cursul și împlinirea prescripției, decăderea, calculul termenelor și dreptul internațional privat privind persoanele și familia. Art. 2.523-2.604.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2523-2604.md
-
-- Codul civil (Legea nr. 287/2009, forma republicată în M.Of. nr. 505/2011) — dreptul internațional privat privind bunurile, moștenirea, obligațiile, titlurile de credit, fiducia și prescripția; dispoziții finale și de punere în aplicare. Art. 2.605-2.664; Legea nr. 71/2011, art. 211-230.
-  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2605-2664.md
+- Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — dreptul internațional privat privind persoanele, familia, bunurile, moștenirea, obligațiile, titlurile de credit, fiducia și prescripția; dispoziții finale. Art. 2.557-2.664.
+  https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2557-2664.md
 
 - Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — paginile originale 1-10 — dispoziții generale, condițiile tehnice pentru circulația vehiculelor și începutul înmatriculării și înregistrării. Art. 1-11^1.
   https://balazs230.github.io/avocatel-docs/sources/cod_rutier-p001-010.pdf
