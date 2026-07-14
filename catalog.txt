@@ -84,146 +84,80 @@ Available documents:
 - Codul muncii (Legea nr. 53/2003, actualizată la 17 octombrie 2022) — Titlurile XI-XIII: regulamentul intern, răspunderea juridică, jurisdicția muncii, dispozițiile tranzitorii și finale și directivele europene transpuse. Art. 241-281.
   https://balazs230.github.io/avocatel-docs/sources/codul_muncii-art241-281.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 1-10 — dispoziții generale, definiții și principii; începutul Părții a II-a privind Guvernul. Art. 1-14.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p001-010.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — dispoziții generale, definiții și principii; Guvernul, organizarea ministerelor și începutul administrației publice centrale de specialitate. Art. 1-54.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art001-054.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 11-20 — rolul, funcțiile, organizarea și funcționarea Guvernului. Art. 15-36.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p011-020.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — miniștrii, organizarea ministerelor, celelalte organe centrale și autoritățile administrative autonome; descentralizarea. Art. 55-83.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art055-083.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 21-30 — actele, mandatul și răspunderea Guvernului; administrația publică centrală de specialitate și conducerea ministerelor. Art. 37-59.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p021-030.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — principiile și regimul general al autonomiei locale, raporturile dintre autorități și folosirea limbii minorităților naționale. Art. 84-94, inclusiv art. 91^1-91^6.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art084-094.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 31-40 — organizarea ministerelor, alte organe centrale și autorități administrative autonome; începutul descentralizării. Art. 60-79.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p031-040.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — unitățile administrativ-teritoriale, competențele autorităților locale, constituirea și organizarea consiliului local. Art. 95-127.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art095-127.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 41-50 — cadrul instituțional al descentralizării și regimul general al autonomiei locale. Art. 80-92.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p041-050.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — mandatul și atribuțiile consiliului local, ședințele și adoptarea hotărârilor, delegatul sătesc și dizolvarea consiliului. Art. 128-147.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art128-147.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 51-60 — unitățile administrativ-teritoriale, competențele autorităților locale și începutul reglementării consiliului local. Art. 93-112.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p051-060.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — primarul și viceprimarul, administrația municipiului București și începutul reglementării consiliului județean. Art. 148-176.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art148-176.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 61-70 — constituirea și organizarea consiliului local și alegerea președintelui de ședință. Art. 113-123.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p061-070.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — funcționarea și actele consiliului județean, președintele și vicepreședinții acestuia, actele autorităților locale și începutul regimului aleșilor locali. Art. 177-205.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art177-205.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 71-80 — comisiile de specialitate și organizarea ședințelor consiliului local. Art. 124-134.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p071-080.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — mandatul, drepturile, obligațiile, incompatibilitățile, conflictele de interese și răspunderea aleșilor locali; secretarul general al unității administrativ-teritoriale. Art. 206-243.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art206-243.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 81-90 — ordinea de zi, adoptarea și semnarea hotărârilor consiliului local, delegatul sătesc și dizolvarea consiliului. Art. 135-141.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p081-090.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — administratorul public, inițiativa și adunările cetățenești, instituția prefectului și serviciile publice deconcentrate. Art. 244-283.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art244-283.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 91-100 — dizolvarea și suspendarea consiliului local; alegerea, rolul și atribuțiile primarului. Art. 142-155.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p091-100.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — domeniul public, inventarierea și transferul bunurilor și modalitățile de exercitare a dreptului de proprietate publică. Art. 284-301, inclusiv art. 292^1-292^3 și 300^1.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art284-301.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 101-110 — atribuțiile primarului, delegarea, viceprimarul și administrația municipiului București. Art. 156-166.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p101-110.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — concesionarea bunurilor proprietate publică: inițierea, documentația, licitația, atribuirea și contractul de concesiune. Art. 302-331.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art302-331.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 111-120 — primarii și secretarii generali din București; constituirea, competențele și funcționarea consiliului județean. Art. 167-181.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p111-120.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — încetarea concesiunii, închirierea și folosința gratuită a bunurilor publice și proprietatea privată a statului și a unităților administrativ-teritoriale. Art. 332-364^1.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art332-364bis.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 121-130 — hotărârile și dizolvarea consiliului județean, președintele și vicepreședinții acestuia și actele autorităților locale. Art. 182-195.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p121-130.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — principiile și clasificarea funcțiilor publice, categoriile de funcționari, înalții funcționari publici, ocuparea funcțiilor și evaluarea. Art. 365-399, inclusiv art. 374^1 și 398^1.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art365-399.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 131-140 — actele administrative locale și începutul regimului mandatului, drepturilor și obligațiilor aleșilor locali. Art. 196-207.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p131-140.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — managementul funcției publice, gestiunea resurselor umane și a posturilor și drepturile funcționarilor publici. Art. 400-429, inclusiv art. 411^1.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art400-429.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 141-150 — grupurile de aleși locali, protecția și indemnizațiile acestora, obligațiile de informare și transparența. Art. 208-226.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p141-150.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — îndatoririle și conduita funcționarilor publici, consilierea etică, formarea profesională, incompatibilitățile și conflictele de interese. Art. 430-463.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art430-463.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 151-160 — incompatibilități, conflicte de interese și răspunderea aleșilor locali; secretarul general al unității administrativ-teritoriale. Art. 227-243.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p151-160.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — dobândirea calității și cariera funcționarilor publici, recrutarea, numirea, promovarea, evaluarea, acordurile colective și comisiile paritare. Art. 464-489, inclusiv art. 465^1, 467^1 și 485^1.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art464-489.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 161-170 — administratorul public, inițiativa și adunările cetățenești; prefectul, subprefectul și atribuțiile acestora. Art. 244-254.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p161-170.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — răspunderea disciplinară și sancțiunile; modificarea raportului de serviciu, mobilitatea, delegarea, detașarea și exercitarea temporară. Art. 490-511, inclusiv art. 494^1.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art490-511.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 171-180 — controlul de legalitate, raporturile și structurile instituției prefectului, actele și răspunderea prefectului. Art. 255-276.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p171-180.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — suspendarea și încetarea raporturilor de serviciu, corpul de rezervă, actele administrative privind cariera și contravențiile. Art. 512-537, inclusiv art. 534^1 și 534^2.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art512-537.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 181-190 — serviciile publice deconcentrate; începutul regulilor privind proprietatea publică și transferul bunurilor. Art. 277-292.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p181-190.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — personalul contractual, cabinetele demnitarilor, răspunderea administrativă și administrativ-patrimonială și regimul serviciilor publice. Art. 538-596.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art538-596.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 191-200 — transferul bunurilor din domeniul public, administrarea proprietății publice și începutul concesionării. Art. 293-306.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p191-200.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — dispoziții tranzitorii și finale, termene și măsuri de aplicare, modificarea altor acte normative și abrogări. Art. 597-638, inclusiv art. 610^1.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-art597-638.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 201-210 — redevența, inițierea concesionării, documentația, licitația și atribuirea directă. Art. 307-315.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p201-210.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — Monitorul Oficial Local, listele bunurilor din domeniul public, funcțiile publice și echivalarea funcțiilor publice specifice cu cele generale. Anexele nr. 1-5 și 5^1.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-anexe01-05bis.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 211-220 — regulile ofertelor, comisia de evaluare și încheierea contractului de concesiune. Art. 316-323.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p211-220.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — metodologia evaluării funcționarilor publici: dispoziții generale și evaluarea înalților funcționari publici. Anexa nr. 6, partea 1.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-anexa06-part1.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 221-230 — conținutul și încetarea concesiunii; începutul închirierii bunurilor proprietate publică. Art. 324-334.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p221-230.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — evaluarea performanțelor funcționarilor publici și a activității funcționarilor publici debutanți, plus criteriile și formularele aferente. Anexa nr. 6, partea 2.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-anexa06-part2.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 231-240 — transparența, ofertele, evaluarea și anularea licitației pentru închirierea bunurilor publice. Art. 335-342.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p231-240.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — constituirea, componența, organizarea, funcționarea și atribuțiile comisiilor de disciplină. Anexa nr. 7, partea 1.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-anexa07-part1.md
 
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 241-250 — contractul de închiriere, folosința gratuită și începutul regulilor privind proprietatea privată a statului și a unităților administrativ-teritoriale. Art. 343-360.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p241-250.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 251-260 — exercitarea proprietății private; dispoziții generale, principii și începutul clasificării funcțiilor publice. Art. 361-378.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p251-260.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 261-270 — clasificarea funcțiilor publice, categoriile de funcționari și înalții funcționari publici. Art. 379-394.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p261-270.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 271-280 — formarea și ocuparea funcțiilor de înalt funcționar public, managementul funcției publice și gestiunea resurselor umane. Art. 395-404.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p271-280.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 281-290 — structura posturilor și începutul drepturilor și îndatoririlor funcționarilor publici. Art. 405-429.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p281-290.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 291-300 — îndatoririle, principiile de conduită, activitatea publică și relațiile cu cetățenii. Art. 430-447.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p291-300.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 301-310 — conduita funcționarilor, consilierea etică, formarea profesională și începutul regimului incompatibilităților. Art. 448-458.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p301-310.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 311-320 — incompatibilități, cariera funcționarilor publici, recrutarea și concursurile, inclusiv accesul persoanelor cu dizabilități. Art. 459-472.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p311-320.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 321-330 — numirea, stagiul, promovarea și evaluarea funcționarilor publici; acorduri colective și începutul răspunderii. Art. 473-491.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p321-330.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 331-340 — răspunderea disciplinară, sancțiunile și comisiile de disciplină; începutul modificării raporturilor de serviciu. Art. 492-502.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p331-340.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 341-350 — mobilitatea, delegarea, detașarea și exercitarea temporară a funcțiilor publice. Art. 503-511.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p341-350.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 351-360 — suspendarea și începutul încetării raporturilor de serviciu ale funcționarilor publici. Art. 512-519.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p351-360.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 361-370 — eliberarea, destituirea și demisia, corpul de rezervă și actele administrative privind cariera. Art. 520-533.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p361-370.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 371-380 — comunicarea și nulitatea actelor de carieră; personalul contractual, cabinetele demnitarilor și drepturile acestui personal. Art. 534-552.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p371-380.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 381-390 — răspunderea, încadrarea, promovarea și managementul personalului contractual; formele răspunderii administrative. Art. 553-577.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p381-390.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 391-400 — răspunderea administrativ-patrimonială, principiile și gestiunea serviciilor publice și începutul dispozițiilor tranzitorii. Art. 578-597.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p391-400.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 401-410 — dispoziții tranzitorii, abrogări, termene și măsuri de punere în aplicare. Art. 598-618.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p401-410.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 411-420 — continuarea dispozițiilor tranzitorii și finale și începutul modificărilor aduse altor acte normative. Art. 619-634.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p411-420.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 421-430 — modificări aduse altor acte normative, dispozițiile de adoptare și începutul anexei privind Monitorul Oficial Local. Art. 635-638; anexa nr. 1.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p421-430.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 431-440 — finalul procedurii Monitorului Oficial Local; listele bunurilor din domeniul public și lista funcțiilor publice. Anexele nr. 1-5.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p431-440.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 441-450 — metodologia evaluării funcționarilor publici, inclusiv evaluarea înalților funcționari și evaluarea performanțelor individuale. Anexa nr. 6.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p441-450.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 451-460 — obiective, interviu, punctaje și calificative în evaluarea performanțelor; evaluarea funcționarilor publici debutanți. Anexa nr. 6.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p451-460.pdf
-
-- Codul administrativ (OUG nr. 57/2019, forma publicată în M.Of. nr. 555/2019) — paginile originale 461-468 — finalizarea evaluării funcționarilor debutanți și tabelele criteriilor de performanță și evaluare. Anexa nr. 6.
-  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-p461-468.pdf
+- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie 2024) — procedura disciplinară; cadrele de competențe, proiectul-pilot pentru concursuri și normele privind organizarea și dezvoltarea carierei. Anexa nr. 7, partea 2; anexele nr. 8-10.
+  https://balazs230.github.io/avocatel-docs/sources/codul_administrativ-anexe07-part2-10.md
 
 - Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — legea civilă, aplicarea și interpretarea ei, publicitatea drepturilor, persoana fizică, capacitatea, drepturile personalității și starea civilă. Art. 1-109.
   https://balazs230.github.io/avocatel-docs/sources/codul_civil-art0001-0109.md

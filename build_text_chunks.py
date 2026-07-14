@@ -42,6 +42,62 @@ CIVIL_MARKDOWN_ARTICLE = re.compile(
 )
 CIVIL_PARAGRAPH = re.compile(r"^\u00a7\s*\d+\.\s*.+$")
 
+ADMINISTRATIVE_SOURCE = ROOT / "codul_administrativ.md"
+ADMINISTRATIVE_LEGACY_TEXT_SOURCES = (
+    ROOT / "cod_administrativ.txt",
+    ROOT / "codul_administrativ.txt",
+)
+ADMINISTRATIVE_LEGACY_SOURCE = ROOT / "codul_administrativ.pdf"
+ADMINISTRATIVE_PART = re.compile(
+    r"^PARTEA\s+(?:A\s+)?(?:I|II|III|IV|V|VI|VII|VIII|IX|X)"
+    r"(?:\s*-\s*A)?$",
+    re.IGNORECASE,
+)
+ADMINISTRATIVE_TITLE = re.compile(r"^TITLUL\s+.+$")
+ADMINISTRATIVE_CHAPTER = re.compile(r"^CAPITOLUL\s+.+$")
+ADMINISTRATIVE_SECTION = re.compile(
+    r"^SEC[\u0162\u0163\u021a\u021bT]IUNEA\s+.+$", re.IGNORECASE
+)
+ADMINISTRATIVE_ANNEX = re.compile(
+    r"^ANEXA\s+Nr\.\s*(?P<number>\d+)(?:\s+(?P<note>.*))?$",
+    re.IGNORECASE,
+)
+ADMINISTRATIVE_ARTICLE = re.compile(
+    r"^ARTICOLUL\s+(?P<number>\d+)\s*(?P<body>.*)$"
+)
+ADMINISTRATIVE_SPECIAL_ARTICLE = re.compile(
+    r"^Art\.\s*(?P<number>63|598)\.\s*[\u2013-]\s*(?P<body>.*)$"
+)
+ADMINISTRATIVE_MARKDOWN_ARTICLE = re.compile(
+    r"(?m)^###### Articolul (?P<number>\d+(?:\^\d+)?)$"
+)
+ADMINISTRATIVE_MARKDOWN_ANNEX = re.compile(
+    r"(?m)^## ANEXA Nr\. (?P<number>\d+(?:\^\d+)?)$"
+)
+ADMINISTRATIVE_INSERTED_ARTICLES = (
+    "91^1",
+    "91^2",
+    "91^3",
+    "91^4",
+    "91^5",
+    "91^6",
+    "292^1",
+    "292^2",
+    "292^3",
+    "300^1",
+    "364^1",
+    "374^1",
+    "398^1",
+    "411^1",
+    "465^1",
+    "467^1",
+    "485^1",
+    "494^1",
+    "534^1",
+    "534^2",
+    "610^1",
+)
+
 PAGE_FOOTER = re.compile(
     r"(?m)^Codul Muncii actualizat Legislatie Protectia Muncii\r?\n\d+\r?\n?"
 )
@@ -295,6 +351,212 @@ CIVIL_CHUNKS = (
         "dreptul internațional privat privind persoanele, familia, bunurile, "
         "moștenirea, obligațiile, titlurile de credit, fiducia și prescripția; "
         "dispoziții finale",
+    ),
+)
+
+
+@dataclass(frozen=True)
+class AdministrativeChunk:
+    filename: str
+    range_label: str
+    description: str
+    first_article: str | None = None
+    last_article: str | None = None
+
+
+ADMINISTRATIVE_CHUNKS = (
+    AdministrativeChunk(
+        "codul_administrativ-art001-054.md",
+        "Art. 1-54",
+        "dispoziții generale, definiții și principii; Guvernul, organizarea "
+        "ministerelor și începutul administrației publice centrale de specialitate",
+        "1",
+        "54",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art055-083.md",
+        "Art. 55-83",
+        "miniștrii, organizarea ministerelor, celelalte organe centrale și "
+        "autoritățile administrative autonome; descentralizarea",
+        "55",
+        "83",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art084-094.md",
+        "Art. 84-94, inclusiv art. 91^1-91^6",
+        "principiile și regimul general al autonomiei locale, raporturile dintre "
+        "autorități și folosirea limbii minorităților naționale",
+        "84",
+        "94",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art095-127.md",
+        "Art. 95-127",
+        "unitățile administrativ-teritoriale, competențele autorităților locale, "
+        "constituirea și organizarea consiliului local",
+        "95",
+        "127",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art128-147.md",
+        "Art. 128-147",
+        "mandatul și atribuțiile consiliului local, ședințele și adoptarea "
+        "hotărârilor, delegatul sătesc și dizolvarea consiliului",
+        "128",
+        "147",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art148-176.md",
+        "Art. 148-176",
+        "primarul și viceprimarul, administrația municipiului București și "
+        "începutul reglementării consiliului județean",
+        "148",
+        "176",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art177-205.md",
+        "Art. 177-205",
+        "funcționarea și actele consiliului județean, președintele și "
+        "vicepreședinții acestuia, actele autorităților locale și începutul "
+        "regimului aleșilor locali",
+        "177",
+        "205",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art206-243.md",
+        "Art. 206-243",
+        "mandatul, drepturile, obligațiile, incompatibilitățile, conflictele de "
+        "interese și răspunderea aleșilor locali; secretarul general al unității "
+        "administrativ-teritoriale",
+        "206",
+        "243",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art244-283.md",
+        "Art. 244-283",
+        "administratorul public, inițiativa și adunările cetățenești, instituția "
+        "prefectului și serviciile publice deconcentrate",
+        "244",
+        "283",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art284-301.md",
+        "Art. 284-301, inclusiv art. 292^1-292^3 și 300^1",
+        "domeniul public, inventarierea și transferul bunurilor și modalitățile "
+        "de exercitare a dreptului de proprietate publică",
+        "284",
+        "301",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art302-331.md",
+        "Art. 302-331",
+        "concesionarea bunurilor proprietate publică: inițierea, documentația, "
+        "licitația, atribuirea și contractul de concesiune",
+        "302",
+        "331",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art332-364bis.md",
+        "Art. 332-364^1",
+        "încetarea concesiunii, închirierea și folosința gratuită a bunurilor "
+        "publice și proprietatea privată a statului și a unităților "
+        "administrativ-teritoriale",
+        "332",
+        "364^1",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art365-399.md",
+        "Art. 365-399, inclusiv art. 374^1 și 398^1",
+        "principiile și clasificarea funcțiilor publice, categoriile de "
+        "funcționari, înalții funcționari publici, ocuparea funcțiilor și evaluarea",
+        "365",
+        "399",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art400-429.md",
+        "Art. 400-429, inclusiv art. 411^1",
+        "managementul funcției publice, gestiunea resurselor umane și a "
+        "posturilor și drepturile funcționarilor publici",
+        "400",
+        "429",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art430-463.md",
+        "Art. 430-463",
+        "îndatoririle și conduita funcționarilor publici, consilierea etică, "
+        "formarea profesională, incompatibilitățile și conflictele de interese",
+        "430",
+        "463",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art464-489.md",
+        "Art. 464-489, inclusiv art. 465^1, 467^1 și 485^1",
+        "dobândirea calității și cariera funcționarilor publici, recrutarea, "
+        "numirea, promovarea, evaluarea, acordurile colective și comisiile paritare",
+        "464",
+        "489",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art490-511.md",
+        "Art. 490-511, inclusiv art. 494^1",
+        "răspunderea disciplinară și sancțiunile; modificarea raportului de "
+        "serviciu, mobilitatea, delegarea, detașarea și exercitarea temporară",
+        "490",
+        "511",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art512-537.md",
+        "Art. 512-537, inclusiv art. 534^1 și 534^2",
+        "suspendarea și încetarea raporturilor de serviciu, corpul de rezervă, "
+        "actele administrative privind cariera și contravențiile",
+        "512",
+        "537",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art538-596.md",
+        "Art. 538-596",
+        "personalul contractual, cabinetele demnitarilor, răspunderea "
+        "administrativă și administrativ-patrimonială și regimul serviciilor publice",
+        "538",
+        "596",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-art597-638.md",
+        "Art. 597-638, inclusiv art. 610^1",
+        "dispoziții tranzitorii și finale, termene și măsuri de aplicare, "
+        "modificarea altor acte normative și abrogări",
+        "597",
+        "638",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-anexe01-05bis.md",
+        "Anexele nr. 1-5 și 5^1",
+        "Monitorul Oficial Local, listele bunurilor din domeniul public, funcțiile "
+        "publice și echivalarea funcțiilor publice specifice cu cele generale",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-anexa06-part1.md",
+        "Anexa nr. 6, partea 1",
+        "metodologia evaluării funcționarilor publici: dispoziții generale și "
+        "evaluarea înalților funcționari publici",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-anexa06-part2.md",
+        "Anexa nr. 6, partea 2",
+        "evaluarea performanțelor funcționarilor publici și a activității "
+        "funcționarilor publici debutanți, plus criteriile și formularele aferente",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-anexa07-part1.md",
+        "Anexa nr. 7, partea 1",
+        "constituirea, componența, organizarea, funcționarea și atribuțiile "
+        "comisiilor de disciplină",
+    ),
+    AdministrativeChunk(
+        "codul_administrativ-anexe07-part2-10.md",
+        "Anexa nr. 7, partea 2; anexele nr. 8-10",
+        "procedura disciplinară; cadrele de competențe, proiectul-pilot pentru "
+        "concursuri și normele privind organizarea și dezvoltarea carierei",
     ),
 )
 
@@ -727,6 +989,346 @@ def build_civil_document(raw_source: str) -> None:
             legacy_text.unlink()
 
 
+def clean_administrative_source(text: str) -> str:
+    """Normalize extraction artifacts without discarding substantive lines."""
+    text = text.removeprefix("\ufeff").replace("\r\n", "\n").replace("\r", "\n")
+    text = text.replace("Error! Hyperlink reference not valid.", "")
+    text = re.sub(r"(ARTICOLUL\s+534)\n(2\s+)", r"\1\2", text)
+    return text.rstrip() + "\n"
+
+
+def administrative_structure(line: str) -> tuple[int, str] | None:
+    if ADMINISTRATIVE_PART.fullmatch(line):
+        return 2, line
+    if ADMINISTRATIVE_TITLE.fullmatch(line):
+        return 3, line
+    if ADMINISTRATIVE_CHAPTER.fullmatch(line):
+        return 4, line
+    if ADMINISTRATIVE_SECTION.fullmatch(line):
+        return 5, line
+    return None
+
+
+def administrative_inserted_label(raw_number: str, current_article: int) -> str:
+    current = str(current_article)
+    if not raw_number.startswith(current) or len(raw_number) == len(current):
+        raise RuntimeError(
+            f"Unexpected article {raw_number} after article {current_article}"
+        )
+    return f"{current_article}^{raw_number[len(current):]}"
+
+
+def format_administrative_markdown(text: str) -> str:
+    """Render parts, titles, chapters, sections, articles and annexes as headings."""
+    if text.startswith("# Codul administrativ\n"):
+        return normalize_heading_spacing(text)
+
+    lines = text.splitlines()
+    try:
+        first_part = next(
+            index
+            for index, line in enumerate(lines)
+            if ADMINISTRATIVE_PART.fullmatch(line.strip())
+        )
+    except StopIteration as error:
+        raise RuntimeError("Could not locate the start of Codul administrativ") from error
+
+    rendered = ["# Codul administrativ"]
+    rendered.extend(line.strip() for line in lines[:first_part] if line.strip())
+    current_article = 0
+    annex_mode = False
+    index = first_part
+
+    while index < len(lines):
+        raw_line = lines[index].rstrip()
+        line = raw_line.strip()
+        annex = ADMINISTRATIVE_ANNEX.fullmatch(line)
+        if current_article == 638 and annex:
+            annex_mode = True
+            raw_number = annex.group("number")
+            number = "5^1" if raw_number == "51" else raw_number
+            rendered.append(f"## ANEXA Nr. {number}")
+            if annex.group("note"):
+                rendered.append(annex.group("note"))
+            index += 1
+            continue
+
+        if not annex_mode:
+            article = ADMINISTRATIVE_ARTICLE.fullmatch(line)
+            if article:
+                raw_number = article.group("number")
+                numeric_number = int(raw_number)
+                if numeric_number == current_article + 1:
+                    current_article = numeric_number
+                    number = raw_number
+                else:
+                    number = administrative_inserted_label(
+                        raw_number, current_article
+                    )
+                rendered.append(f"###### Articolul {number}")
+                if article.group("body"):
+                    rendered.append(article.group("body"))
+                index += 1
+                continue
+
+            special_article = ADMINISTRATIVE_SPECIAL_ARTICLE.fullmatch(line)
+            if special_article:
+                numeric_number = int(special_article.group("number"))
+                if numeric_number != current_article + 1:
+                    raise RuntimeError(
+                        f"Unexpected article {numeric_number} after "
+                        f"article {current_article}"
+                    )
+                current_article = numeric_number
+                rendered.append(f"###### Articolul {numeric_number}")
+                if special_article.group("body"):
+                    rendered.append(special_article.group("body"))
+                index += 1
+                continue
+        else:
+            annex_article = re.fullmatch(
+                r"Art\.\s*(\d+)\.\s*[\u2013-]\s*(.*)", line
+            )
+            if annex_article:
+                rendered.append(f"###### Articol anexă {annex_article.group(1)}")
+                if annex_article.group(2):
+                    rendered.append(annex_article.group(2))
+                index += 1
+                continue
+
+        structure = administrative_structure(line)
+        if structure:
+            level, label = structure
+            subtitle = ""
+            if index + 1 < len(lines):
+                candidate = lines[index + 1].strip()
+                is_amendment = re.match(r"^\d{2}/\d{2}/\d{4}\s+-", candidate)
+                if (
+                    candidate
+                    and not administrative_structure(candidate)
+                    and not ADMINISTRATIVE_ARTICLE.fullmatch(candidate)
+                    and not ADMINISTRATIVE_SPECIAL_ARTICLE.fullmatch(candidate)
+                    and not ADMINISTRATIVE_ANNEX.fullmatch(candidate)
+                    and not is_amendment
+                ):
+                    subtitle = candidate
+                    index += 1
+            suffix = f" — {subtitle}" if subtitle else ""
+            rendered.append(f"{'#' * level} {label}{suffix}")
+        else:
+            rendered.append(raw_line)
+        index += 1
+
+    if current_article != 638:
+        raise RuntimeError(
+            f"Administrative Code ended at article {current_article}, expected 638"
+        )
+    return normalize_heading_spacing("\n".join(rendered))
+
+
+def administrative_chunk_boundaries(markdown: str) -> list[int]:
+    headings = [
+        (match.start(), len(match.group(1)))
+        for match in re.finditer(r"(?m)^(#{2,6}) .+$", markdown)
+    ]
+    if not headings:
+        raise RuntimeError("No Codul administrativ structural headings found")
+
+    boundaries = [headings[0][0]]
+    position = boundaries[0]
+    while len(markdown) - position > MAX_CHUNK_CHARACTERS:
+        remaining = len(markdown) - position
+        target = remaining / 2 if remaining <= 2 * MAX_CHUNK_CHARACTERS else 46_000
+        candidates = [
+            heading
+            for heading in headings
+            if position + MIN_CHUNK_CHARACTERS
+            <= heading[0]
+            <= position + MAX_CHUNK_CHARACTERS
+            and heading[1] <= 5
+            and (
+                remaining > 2 * MAX_CHUNK_CHARACTERS
+                or len(markdown) - heading[0] >= MIN_CHUNK_CHARACTERS
+            )
+        ]
+        if not candidates:
+            candidates = [
+                heading
+                for heading in headings
+                if position + MIN_CHUNK_CHARACTERS
+                <= heading[0]
+                <= position + MAX_CHUNK_CHARACTERS
+                and (
+                    remaining > 2 * MAX_CHUNK_CHARACTERS
+                    or len(markdown) - heading[0] >= MIN_CHUNK_CHARACTERS
+                )
+            ]
+        if candidates:
+            next_position, _ = min(
+                candidates,
+                key=lambda heading: abs((heading[0] - position) - target)
+                + (heading[1] - 2) * 900,
+            )
+        else:
+            paragraphs = [
+                match.start()
+                for match in re.finditer(r"(?m)^\S", markdown)
+                if position + MIN_CHUNK_CHARACTERS
+                <= match.start()
+                <= position + MAX_CHUNK_CHARACTERS
+                and (
+                    remaining > 2 * MAX_CHUNK_CHARACTERS
+                    or len(markdown) - match.start() >= MIN_CHUNK_CHARACTERS
+                )
+            ]
+            if not paragraphs:
+                raise RuntimeError(
+                    f"No administrative-code boundary near character {position:,}"
+                )
+            next_position = min(
+                paragraphs,
+                key=lambda paragraph: abs((paragraph - position) - target),
+            )
+        boundaries.append(next_position)
+        position = next_position
+
+    boundaries.append(len(markdown))
+    if (
+        len(boundaries) > 2
+        and boundaries[-1] - boundaries[-2] < 25_000
+        and boundaries[-1] - boundaries[-3] <= 65_000
+    ):
+        boundaries.pop(-2)
+    return boundaries
+
+
+def validate_administrative_articles(markdown: str) -> None:
+    labels = [
+        match.group("number")
+        for match in ADMINISTRATIVE_MARKDOWN_ARTICLE.finditer(markdown)
+    ]
+    base_articles = [int(label) for label in labels if "^" not in label]
+    inserted_articles = tuple(label for label in labels if "^" in label)
+    if base_articles != list(range(1, 639)):
+        raise RuntimeError("Codul administrativ base articles are incomplete or reordered")
+    if inserted_articles != ADMINISTRATIVE_INSERTED_ARTICLES:
+        raise RuntimeError(
+            "Unexpected inserted articles: " + ", ".join(inserted_articles)
+        )
+
+    annexes = tuple(
+        match.group("number")
+        for match in ADMINISTRATIVE_MARKDOWN_ANNEX.finditer(markdown)
+    )
+    if annexes != ("1", "2", "3", "4", "5", "5^1", "6", "7", "8", "9", "10"):
+        raise RuntimeError("Unexpected administrative-code annex sequence")
+
+
+def build_administrative_chunks(markdown: str) -> list[Path]:
+    validate_administrative_articles(markdown)
+    boundaries = administrative_chunk_boundaries(markdown)
+    if len(boundaries) - 1 != len(ADMINISTRATIVE_CHUNKS):
+        raise RuntimeError(
+            f"Expected {len(ADMINISTRATIVE_CHUNKS)} administrative-code chunks, "
+            f"generated {len(boundaries) - 1}"
+        )
+
+    preamble = markdown[: boundaries[0]].rstrip()
+    expected_names = {chunk.filename for chunk in ADMINISTRATIVE_CHUNKS}
+    for stale in OUTPUT.glob("codul_administrativ-*.md"):
+        if stale.name not in expected_names:
+            stale.unlink()
+
+    built = []
+    for start, end, chunk in zip(
+        boundaries, boundaries[1:], ADMINISTRATIVE_CHUNKS
+    ):
+        body = markdown[start:end].strip() + "\n"
+        articles = [
+            match.group("number")
+            for match in ADMINISTRATIVE_MARKDOWN_ARTICLE.finditer(body)
+        ]
+        if chunk.first_article is not None:
+            if not articles or (
+                articles[0] != chunk.first_article
+                or articles[-1] != chunk.last_article
+            ):
+                found = f"{articles[0]}-{articles[-1]}" if articles else "none"
+                raise RuntimeError(
+                    f"{chunk.filename} expected {chunk.first_article}-"
+                    f"{chunk.last_article}, found {found}"
+                )
+        elif articles:
+            raise RuntimeError(f"Unexpected code articles in {chunk.filename}")
+
+        content = (
+            f"{preamble}\n"
+            f"**Fragment:** {chunk.range_label}\n"
+            f"**Cuprins:** {chunk.description}.\n\n"
+            f"{body}"
+        )
+        if not MIN_CHUNK_CHARACTERS <= len(content) <= MAX_CHUNK_CHARACTERS:
+            raise RuntimeError(
+                f"{chunk.filename} has {len(content):,} characters; expected "
+                f"{MIN_CHUNK_CHARACTERS:,}-{MAX_CHUNK_CHARACTERS:,}"
+            )
+
+        destination = OUTPUT / chunk.filename
+        destination.write_text(content, encoding="utf-8", newline="\n")
+        built.append(destination)
+        print(f"{destination.name}: {destination.stat().st_size:,} bytes")
+    return built
+
+
+def administrative_catalog_block(built: list[Path]) -> bytes:
+    filenames = {path.name for path in built}
+    entries = []
+    for chunk in ADMINISTRATIVE_CHUNKS:
+        if chunk.filename not in filenames:
+            raise RuntimeError(f"Missing generated chunk: {chunk.filename}")
+        entries.append(
+            "- Codul administrativ (OUG nr. 57/2019, consolidare la 8 aprilie "
+            f"2024) — {chunk.description}. {chunk.range_label}.\n"
+            f"  {PUBLIC_BASE_URL}/{chunk.filename}\n"
+        )
+    return ("\n".join(entries) + "\n").encode("utf-8")
+
+
+def update_administrative_catalog(built: list[Path]) -> None:
+    data = CATALOG.read_bytes()
+    entry_pattern = re.compile(
+        rb"- Codul administrativ[^\r\n]*\r?\n"
+        rb"  https://[^\r\n]*/sources/codul_administrativ-[^\r\n]*\r?\n(?:\r?\n)?"
+    )
+    matches = list(entry_pattern.finditer(data))
+    if not matches:
+        raise RuntimeError("No existing Codul administrativ catalog entries found")
+
+    start, end = matches[0].start(), matches[-1].end()
+    unmatched = entry_pattern.sub(b"", data[start:end])
+    if unmatched.strip():
+        raise RuntimeError("Administrative Code catalog entries are not contiguous")
+    replacement = administrative_catalog_block(built)
+    CATALOG.write_bytes(data[:start] + replacement + data[end:])
+
+
+def build_administrative_document(raw_source: str) -> None:
+    markdown = format_administrative_markdown(
+        clean_administrative_source(raw_source)
+    )
+    ADMINISTRATIVE_SOURCE.write_text(markdown, encoding="utf-8", newline="\n")
+    built = build_administrative_chunks(markdown)
+    update_administrative_catalog(built)
+
+    for legacy_chunk in OUTPUT.glob("codul_administrativ-p*.pdf"):
+        legacy_chunk.unlink()
+    if ADMINISTRATIVE_LEGACY_SOURCE.exists():
+        ADMINISTRATIVE_LEGACY_SOURCE.unlink()
+    for legacy_text in ADMINISTRATIVE_LEGACY_TEXT_SOURCES:
+        if legacy_text.exists():
+            legacy_text.unlink()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -738,6 +1340,11 @@ def parse_args() -> argparse.Namespace:
         "--import-civil-source",
         type=Path,
         help="import a supplied Codul civil TXT before building",
+    )
+    parser.add_argument(
+        "--import-administrative-source",
+        type=Path,
+        help="import a supplied Codul administrativ TXT before building",
     )
     return parser.parse_args()
 
@@ -786,6 +1393,34 @@ def main() -> None:
 
     if civil_raw_source is not None:
         build_civil_document(civil_raw_source)
+
+    administrative_raw_source = None
+    if args.import_administrative_source:
+        if not args.import_administrative_source.is_file():
+            raise FileNotFoundError(args.import_administrative_source)
+        administrative_raw_source = args.import_administrative_source.read_text(
+            encoding="utf-8-sig"
+        )
+    elif ADMINISTRATIVE_SOURCE.is_file():
+        administrative_raw_source = ADMINISTRATIVE_SOURCE.read_text(
+            encoding="utf-8-sig"
+        )
+    else:
+        administrative_legacy = next(
+            (
+                path
+                for path in ADMINISTRATIVE_LEGACY_TEXT_SOURCES
+                if path.is_file()
+            ),
+            None,
+        )
+        if administrative_legacy:
+            administrative_raw_source = administrative_legacy.read_text(
+                encoding="utf-8-sig"
+            )
+
+    if administrative_raw_source is not None:
+        build_administrative_document(administrative_raw_source)
 
 
 if __name__ == "__main__":

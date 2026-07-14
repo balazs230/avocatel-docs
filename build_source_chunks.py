@@ -23,11 +23,6 @@ DOCUMENTS = (
         228,
     ),
     (
-        "codul_administrativ",
-        (("codul_administrativ.pdf", 0, 1),),
-        468,
-    ),
-    (
         "cod_rutier",
         (("cod_rutier.pdf", 0, 1),),
         80,
