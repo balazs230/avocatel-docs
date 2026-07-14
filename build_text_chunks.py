@@ -149,6 +149,26 @@ ROAD_INSERTED_ARTICLES = (
     "133^1",
 )
 
+PENAL_SOURCE = ROOT / "codul_penal.md"
+PENAL_LEGACY_TEXT_SOURCES = (ROOT / "cod_penal.txt", ROOT / "codul_penal.txt")
+PENAL_LEGACY_SOURCE = ROOT / "cod_penal.pdf"
+PENAL_PART = re.compile(r"^PARTEA\s+.+$")
+PENAL_TITLE = re.compile(r"^TITLUL\s+[IVXLCDM]+$")
+PENAL_CHAPTER = re.compile(
+    r"^(?P<label>CAPITOLUL\s+[IVXLCDM]+)\s*(?P<title>.*)$"
+)
+PENAL_SECTION = re.compile(
+    r"^(?P<label>Sec[\u0162\u0163\u021a\u021bT]iunea\s+(?:a\s+)?\d+(?:-a)?)"
+    r"\s*(?P<title>.*)$",
+    re.IGNORECASE,
+)
+PENAL_ARTICLE = re.compile(
+    r"^Art\.\s*(?P<number>\d+)\.?\s*(?P<title>.+)$"
+)
+PENAL_MARKDOWN_ARTICLE = re.compile(
+    r"(?m)^###### Articolul (?P<number>\d+) — .+$"
+)
+
 PAGE_FOOTER = re.compile(
     r"(?m)^Codul Muncii actualizat Legislatie Protectia Muncii\r?\n\d+\r?\n?"
 )
@@ -677,6 +697,70 @@ ROAD_CHUNKS = (
         "imobilizarea și confiscarea, căile de atac, atribuțiile autorităților, "
         "dispozițiile finale și categoriile de permis",
         True,
+    ),
+)
+
+
+@dataclass(frozen=True)
+class PenalChunk:
+    first_article: int
+    last_article: int
+    description: str
+
+    @property
+    def filename(self) -> str:
+        return (
+            f"cod_penal-art{self.first_article:03d}-"
+            f"{self.last_article:03d}.md"
+        )
+
+    @property
+    def range_label(self) -> str:
+        return f"Art. {self.first_article}-{self.last_article}"
+
+
+PENAL_CHUNKS = (
+    PenalChunk(
+        1,
+        73,
+        "principiile și aplicarea legii penale, infracțiunea, cauzele "
+        "justificative și de neimputabilitate, tentativa, pluralitatea, "
+        "participanții și categoriile și calculul pedepselor",
+    ),
+    PenalChunk(
+        74,
+        124,
+        "individualizarea pedepselor, circumstanțele, renunțarea, amânarea și "
+        "suspendarea, liberarea condiționată, măsurile de siguranță și măsurile "
+        "educative neprivative de libertate",
+    ),
+    PenalChunk(
+        125,
+        196,
+        "măsurile educative privative de libertate, răspunderea persoanei "
+        "juridice, cauzele care înlătură răspunderea, executarea sau consecințele "
+        "condamnării, termenii legali și infracțiunile contra vieții și integrității",
+    ),
+    PenalChunk(
+        197,
+        263,
+        "infracțiunile asupra unui membru de familie, contra libertății, libertății "
+        "sexuale și vieții private, contra patrimoniului, autorității și frontierei",
+    ),
+    PenalChunk(
+        264,
+        345,
+        "infracțiunile contra înfăptuirii justiției, de corupție și de serviciu, "
+        "împotriva intereselor financiare europene, falsurile și infracțiunile "
+        "privind siguranța feroviară, rutieră și regimul armelor",
+    ),
+    PenalChunk(
+        346,
+        437,
+        "infracțiunile privind explozivii, activitățile reglementate, sănătatea și "
+        "ordinea publică, familia, libertatea religioasă, alegerile, securitatea "
+        "națională, capacitatea de luptă, genocidul și crimele de război; "
+        "dispoziția finală",
     ),
 )
 
@@ -1746,6 +1830,288 @@ def build_road_document(raw_source: str) -> None:
             legacy_text.unlink()
 
 
+def clean_penal_source(text: str) -> str:
+    """Drop the duplicated table of contents and recurring PDF page numbers."""
+    text = text.removeprefix("\ufeff").replace("\r\n", "\n").replace("\r", "\n")
+    if text.startswith("# Codul penal\n"):
+        return text.rstrip() + "\n"
+
+    lines = text.splitlines()
+    starts = [
+        index for index, line in enumerate(lines) if line.startswith("PARTEA GENERAL")
+    ]
+    if len(starts) != 2:
+        raise RuntimeError(
+            f"Expected a contents and a body occurrence of PARTEA GENERALĂ, "
+            f"found {len(starts)}"
+        )
+    body = [
+        line
+        for line in lines[starts[1] :]
+        if not re.fullmatch(r"\s*\d{1,3}\s*", line)
+    ]
+    return "\n".join(body).rstrip() + "\n"
+
+
+def penal_structure_kind(line: str) -> str | None:
+    if PENAL_PART.fullmatch(line):
+        return "part"
+    if PENAL_TITLE.fullmatch(line):
+        return "title"
+    if PENAL_CHAPTER.fullmatch(line):
+        return "chapter"
+    if PENAL_SECTION.fullmatch(line):
+        return "section"
+    if PENAL_ARTICLE.fullmatch(line):
+        return "article"
+    return None
+
+
+def format_penal_markdown(text: str) -> str:
+    """Apply the full part/title/chapter/section/article Markdown hierarchy."""
+    if text.startswith("# Codul penal\n"):
+        return normalize_heading_spacing(text)
+
+    lines = text.splitlines()
+    if not lines or not lines[0].startswith("PARTEA GENERAL"):
+        raise RuntimeError("Unexpected Codul penal body heading")
+
+    rendered = [
+        "# Codul penal",
+        "Legea nr. 286/2009",
+        "Actualizată până la 1 februarie 2014",
+    ]
+    index = 0
+    while index < len(lines):
+        raw_line = lines[index].rstrip()
+        line = raw_line.strip()
+        kind = penal_structure_kind(line)
+
+        if kind == "part":
+            rendered.append(f"## {line}")
+            index += 1
+            continue
+        if kind in {"title", "chapter", "section"}:
+            if kind == "title":
+                label, title, level = line, "", 3
+            elif kind == "chapter":
+                match = PENAL_CHAPTER.fullmatch(line)
+                assert match is not None
+                label, title, level = match.group("label"), match.group("title"), 4
+            else:
+                match = PENAL_SECTION.fullmatch(line)
+                assert match is not None
+                label, title, level = match.group("label"), match.group("title"), 5
+
+            index += 1
+            continuation = []
+            while index < len(lines):
+                candidate = lines[index].strip()
+                if penal_structure_kind(candidate):
+                    break
+                if candidate:
+                    continuation.append(candidate)
+                index += 1
+            full_title = " ".join(
+                part for part in [title.strip(), *continuation] if part
+            )
+            if not full_title:
+                raise RuntimeError(f"Missing heading title after {label}")
+            rendered.append(f"{'#' * level} {label} — {full_title}")
+            continue
+        if kind == "article":
+            article = PENAL_ARTICLE.fullmatch(line)
+            assert article is not None
+            rendered.append(
+                f"###### Articolul {article.group('number')} — "
+                f"{article.group('title').strip()}"
+            )
+            index += 1
+            continue
+
+        rendered.append(raw_line)
+        index += 1
+
+    return normalize_heading_spacing("\n".join(rendered))
+
+
+def validate_penal_document(markdown: str) -> None:
+    articles = [
+        int(match.group("number"))
+        for match in PENAL_MARKDOWN_ARTICLE.finditer(markdown)
+    ]
+    if articles != list(range(1, 438)):
+        raise RuntimeError("Codul penal articles are incomplete or reordered")
+
+    expected_structure = {
+        r"(?m)^## PARTEA ": 2,
+        r"(?m)^### TITLUL ": 23,
+        r"(?m)^#### CAPITOLUL ": 56,
+        r"(?m)^##### Sec": 13,
+    }
+    for pattern, expected in expected_structure.items():
+        actual = len(re.findall(pattern, markdown))
+        if actual != expected:
+            raise RuntimeError(
+                f"Unexpected Codul penal structure count for {pattern}: "
+                f"{actual}, expected {expected}"
+            )
+    if re.search(r"(?m)^\s*\d{1,3}\s*$", markdown):
+        raise RuntimeError("Standalone PDF page number remains in Codul penal")
+
+
+def penal_chunk_boundaries(markdown: str) -> list[int]:
+    structural = [
+        (match.start(), len(match.group(1)))
+        for match in re.finditer(r"(?m)^(#{2,5}) .+$", markdown)
+    ]
+    articles = [match.start() for match in PENAL_MARKDOWN_ARTICLE.finditer(markdown)]
+    if not structural:
+        raise RuntimeError("No Codul penal structural headings found")
+
+    boundaries = [structural[0][0]]
+    position = boundaries[0]
+    while len(markdown) - position > MAX_CHUNK_CHARACTERS:
+        remaining = len(markdown) - position
+        target = remaining / 2 if remaining <= 2 * MAX_CHUNK_CHARACTERS else 46_000
+        candidates = [
+            heading
+            for heading in structural
+            if position + MIN_CHUNK_CHARACTERS
+            <= heading[0]
+            <= position + MAX_CHUNK_CHARACTERS
+            and (
+                remaining > 2 * MAX_CHUNK_CHARACTERS
+                or len(markdown) - heading[0] >= MIN_CHUNK_CHARACTERS
+            )
+        ]
+        if candidates:
+            next_position, _ = min(
+                candidates,
+                key=lambda heading: abs((heading[0] - position) - target)
+                + (heading[1] - 2) * 900,
+            )
+        else:
+            article_candidates = [
+                article
+                for article in articles
+                if position + MIN_CHUNK_CHARACTERS
+                <= article
+                <= position + MAX_CHUNK_CHARACTERS
+                and (
+                    remaining > 2 * MAX_CHUNK_CHARACTERS
+                    or len(markdown) - article >= MIN_CHUNK_CHARACTERS
+                )
+            ]
+            if not article_candidates:
+                raise RuntimeError(
+                    f"No penal-code boundary near character {position:,}"
+                )
+            next_position = min(
+                article_candidates,
+                key=lambda article: abs((article - position) - target),
+            )
+        boundaries.append(next_position)
+        position = next_position
+    boundaries.append(len(markdown))
+    return boundaries
+
+
+def build_penal_chunks(markdown: str) -> list[Path]:
+    validate_penal_document(markdown)
+    boundaries = penal_chunk_boundaries(markdown)
+    if len(boundaries) - 1 != len(PENAL_CHUNKS):
+        raise RuntimeError(
+            f"Expected {len(PENAL_CHUNKS)} penal-code chunks, "
+            f"generated {len(boundaries) - 1}"
+        )
+
+    preamble = markdown[: boundaries[0]].rstrip()
+    expected_names = {chunk.filename for chunk in PENAL_CHUNKS}
+    for stale in OUTPUT.glob("cod_penal-*.md"):
+        if stale.name not in expected_names:
+            stale.unlink()
+
+    built = []
+    for start, end, chunk in zip(boundaries, boundaries[1:], PENAL_CHUNKS):
+        body = markdown[start:end].strip() + "\n"
+        articles = [
+            int(match.group("number"))
+            for match in PENAL_MARKDOWN_ARTICLE.finditer(body)
+        ]
+        if not articles or (
+            articles[0] != chunk.first_article or articles[-1] != chunk.last_article
+        ):
+            found = f"{articles[0]}-{articles[-1]}" if articles else "none"
+            raise RuntimeError(
+                f"{chunk.filename} expected {chunk.first_article}-"
+                f"{chunk.last_article}, found {found}"
+            )
+
+        content = (
+            f"{preamble}\n"
+            f"**Fragment:** {chunk.range_label}\n"
+            f"**Cuprins:** {chunk.description}.\n\n"
+            f"{body}"
+        )
+        if not MIN_CHUNK_CHARACTERS <= len(content) <= MAX_CHUNK_CHARACTERS:
+            raise RuntimeError(
+                f"{chunk.filename} has {len(content):,} characters; expected "
+                f"{MIN_CHUNK_CHARACTERS:,}-{MAX_CHUNK_CHARACTERS:,}"
+            )
+
+        destination = OUTPUT / chunk.filename
+        destination.write_text(content, encoding="utf-8", newline="\n")
+        built.append(destination)
+        print(f"{destination.name}: {destination.stat().st_size:,} bytes")
+    return built
+
+
+def penal_catalog_block(built: list[Path]) -> bytes:
+    filenames = {path.name for path in built}
+    entries = []
+    for chunk in PENAL_CHUNKS:
+        if chunk.filename not in filenames:
+            raise RuntimeError(f"Missing generated chunk: {chunk.filename}")
+        entries.append(
+            "- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie "
+            f"2014) — {chunk.description}. {chunk.range_label}.\n"
+            f"  {PUBLIC_BASE_URL}/{chunk.filename}\n"
+        )
+    return ("\n".join(entries) + "\n").encode("utf-8")
+
+
+def update_penal_catalog(built: list[Path]) -> None:
+    data = CATALOG.read_bytes()
+    entry_pattern = re.compile(
+        rb"- Codul penal[^\r\n]*\r?\n"
+        rb"  https://[^\r\n]*/sources/cod_penal-[^\r\n]*\r?\n(?:\r?\n)?"
+    )
+    matches = list(entry_pattern.finditer(data))
+    if not matches:
+        raise RuntimeError("No existing Codul penal catalog entries found")
+    start, end = matches[0].start(), matches[-1].end()
+    unmatched = entry_pattern.sub(b"", data[start:end])
+    if unmatched.strip():
+        raise RuntimeError("Penal Code catalog entries are not contiguous")
+    CATALOG.write_bytes(data[:start] + penal_catalog_block(built) + data[end:])
+
+
+def build_penal_document(raw_source: str) -> None:
+    markdown = format_penal_markdown(clean_penal_source(raw_source))
+    PENAL_SOURCE.write_text(markdown, encoding="utf-8", newline="\n")
+    built = build_penal_chunks(markdown)
+    update_penal_catalog(built)
+
+    for legacy_chunk in OUTPUT.glob("cod_penal-p*.pdf"):
+        legacy_chunk.unlink()
+    if PENAL_LEGACY_SOURCE.exists():
+        PENAL_LEGACY_SOURCE.unlink()
+    for legacy_text in PENAL_LEGACY_TEXT_SOURCES:
+        if legacy_text.exists():
+            legacy_text.unlink()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -1767,6 +2133,11 @@ def parse_args() -> argparse.Namespace:
         "--import-road-source",
         type=Path,
         help="import a supplied Codul rutier TXT before building",
+    )
+    parser.add_argument(
+        "--import-penal-source",
+        type=Path,
+        help="import a supplied Codul penal TXT before building",
     )
     return parser.parse_args()
 
@@ -1860,6 +2231,23 @@ def main() -> None:
 
     if road_raw_source is not None:
         build_road_document(road_raw_source)
+
+    penal_raw_source = None
+    if args.import_penal_source:
+        if not args.import_penal_source.is_file():
+            raise FileNotFoundError(args.import_penal_source)
+        penal_raw_source = args.import_penal_source.read_text(encoding="utf-8-sig")
+    elif PENAL_SOURCE.is_file():
+        penal_raw_source = PENAL_SOURCE.read_text(encoding="utf-8-sig")
+    else:
+        penal_legacy = next(
+            (path for path in PENAL_LEGACY_TEXT_SOURCES if path.is_file()), None
+        )
+        if penal_legacy:
+            penal_raw_source = penal_legacy.read_text(encoding="utf-8-sig")
+
+    if penal_raw_source is not None:
+        build_penal_document(penal_raw_source)
 
 
 if __name__ == "__main__":

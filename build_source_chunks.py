@@ -23,11 +23,6 @@ DOCUMENTS = (
         228,
     ),
     (
-        "cod_penal",
-        (("cod_penal.pdf", 0, 1),),
-        105,
-    ),
-    (
         "constitutia_romaniei",
         (("constitutia_romaniei.pdf", 0, 1),),
         40,

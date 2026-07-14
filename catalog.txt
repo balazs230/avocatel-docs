@@ -258,38 +258,23 @@ Available documents:
 - Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — reținerea și restituirea documentelor, retragerea permisului, imobilizarea și confiscarea, căile de atac, atribuțiile autorităților, dispozițiile finale și categoriile de permis. Art. 111-137; anexa nr. 1.
   https://balazs230.github.io/avocatel-docs/sources/cod_rutier-art111-137.md
 
-- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 1-10 — coperta și cuprinsul; principiile și aplicarea legii penale, noțiunea de infracțiune, cauzele justificative și începutul cauzelor de neimputabilitate. Art. 1-25.
-  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p001-010.pdf
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — principiile și aplicarea legii penale, infracțiunea, cauzele justificative și de neimputabilitate, tentativa, pluralitatea, participanții și categoriile și calculul pedepselor. Art. 1-73.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-art001-073.md
 
-- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 11-20 — cauzele de neimputabilitate, tentativa, unitatea și pluralitatea de infracțiuni, participanții și categoriile pedepselor. Art. 26-69.
-  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p011-020.pdf
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — individualizarea pedepselor, circumstanțele, renunțarea, amânarea și suspendarea, liberarea condiționată, măsurile de siguranță și măsurile educative neprivative de libertate. Art. 74-124.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-art074-124.md
 
-- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 21-30 — calculul și individualizarea pedepselor, circumstanțele, renunțarea și amânarea aplicării, suspendarea sub supraveghere și liberarea condiționată. Art. 70-101.
-  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p021-030.pdf
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — măsurile educative privative de libertate, răspunderea persoanei juridice, cauzele care înlătură răspunderea, executarea sau consecințele condamnării, termenii legali și infracțiunile contra vieții și integrității. Art. 125-196.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-art125-196.md
 
-- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 31-40 — liberarea condiționată, măsurile de siguranță, răspunderea penală a minorului, măsurile educative și începutul răspunderii persoanei juridice. Art. 102-138.
-  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p031-040.pdf
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — infracțiunile asupra unui membru de familie, contra libertății, libertății sexuale și vieții private, contra patrimoniului, autorității și frontierei. Art. 197-263.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-art197-263.md
 
-- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 41-50 — pedepsele persoanei juridice, cauzele care înlătură răspunderea, executarea ori consecințele condamnării și înțelesul termenilor legali. Art. 139-185.
-  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p041-050.pdf
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — infracțiunile contra înfăptuirii justiției, de corupție și de serviciu, împotriva intereselor financiare europene, falsurile și infracțiunile privind siguranța feroviară, rutieră și regimul armelor. Art. 264-345.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-art264-345.md
 
-- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 51-60 — infracțiuni contra vieții, integrității, familiei, libertății, libertății sexuale și vieții private; începutul infracțiunilor contra patrimoniului. Art. 186-228.
-  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p051-060.pdf
-
-- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 61-70 — tâlhăria, frauda, distrugerea și alte infracțiuni patrimoniale; infracțiuni contra autorității, frontierei și înfăptuirii justiției. Art. 229-278.
-  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p061-070.pdf
-
-- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 71-80 — infracțiuni contra justiției, de corupție și de serviciu, împotriva intereselor financiare europene și falsificarea monedelor și instrumentelor de autentificare. Art. 279-323.
-  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p071-080.pdf
-
-- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 81-90 — falsuri în înscrisuri; infracțiuni privind siguranța feroviară și rutieră, armele și explozivii, activitățile reglementate, sănătatea și ordinea publică. Art. 324-367.
-  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p081-090.pdf
-
-- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 91-100 — infracțiuni contra ordinii publice, familiei și libertății religioase, infracțiuni electorale, contra securității naționale și contra capacității de luptă. Art. 368-425.
-  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p091-100.pdf
-
-- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 101-105 — infracțiuni militare, genocid, infracțiuni contra umanității și de război și dispoziția finală privind intrarea în vigoare. Art. 426-437.
-  https://balazs230.github.io/avocatel-docs/sources/cod_penal-p101-105.pdf
+- Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — infracțiunile privind explozivii, activitățile reglementate, sănătatea și ordinea publică, familia, libertatea religioasă, alegerile, securitatea națională, capacitatea de luptă, genocidul și crimele de război; dispoziția finală. Art. 346-437.
+  https://balazs230.github.io/avocatel-docs/sources/cod_penal-art346-437.md
 
 - Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — paginile originale 1-10 — Titlul I: principiile generale; Titlul II: dispoziții comune și drepturile și libertățile fundamentale. Art. 1-43.
   https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-p001-010.pdf
