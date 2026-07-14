@@ -240,29 +240,23 @@ Available documents:
 - Codul civil (Legea nr. 287/2009, forma adoptată la 25 iunie 2009) — dreptul internațional privat privind persoanele, familia, bunurile, moștenirea, obligațiile, titlurile de credit, fiducia și prescripția; dispoziții finale. Art. 2.557-2.664.
   https://balazs230.github.io/avocatel-docs/sources/codul_civil-art2557-2664.md
 
-- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — paginile originale 1-10 — dispoziții generale, condițiile tehnice pentru circulația vehiculelor și începutul înmatriculării și înregistrării. Art. 1-11^1.
-  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-p001-010.pdf
+- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — dispoziții generale, condițiile tehnice pentru circulația vehiculelor, înmatricularea și înregistrarea, inclusiv serviciile electronice aferente. Art. 1-11^7.
+  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-art001-011bis7.md
 
-- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — paginile originale 11-20 — înmatricularea, înregistrarea și radierea vehiculelor; condiții generale pentru conducătorii de vehicule. Art. 11^2-22.
-  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-p011-020.pdf
+- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — înmatricularea, înregistrarea și radierea vehiculelor; condițiile pentru conducători, permisul de conducere, examinarea și recunoașterea permiselor. Art. 12-28^1.
+  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-art012-028bis1.md
 
-- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — paginile originale 21-30 — permisul de conducere, examinarea și recunoașterea permiselor, semnalizarea rutieră și începutul obligațiilor participanților la trafic. Art. 22^1-35.
-  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-p021-030.pdf
+- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — semnalizarea rutieră, obligațiile participanților la trafic, regulile pentru vehicule și regulile aplicabile celorlalți participanți. Art. 29-73.
+  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-art029-073.md
 
-- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — paginile originale 31-40 — obligațiile participanților și regulile de circulație pentru vehicule: benzi, viteză, manevre, intersecții, depășire și prioritate. Art. 36-70.
-  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-p031-040.pdf
+- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — circulația pe autostrăzi și drumuri expres, accidentele, traficul internațional, infracțiunile și clasele de contravenții. Art. 74-102.
+  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-art074-102.md
 
-- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — paginile originale 41-50 — reguli pentru ceilalți participanți, autostrăzi și drumuri expres, accidente, trafic internațional, infracțiuni și începutul răspunderii contravenționale. Art. 71-100.
-  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-p041-050.pdf
+- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — punctele-amendă și de penalizare, suspendarea dreptului de a conduce, testarea, reducerea suspendării și măsurile tehnico-administrative. Art. 103-110.
+  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-art103-110.md
 
-- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — paginile originale 51-60 — clasele de contravenții, punctele-amendă și de penalizare, suspendarea permisului și măsurile tehnico-administrative. Art. 101-106^1.
-  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-p051-060.pdf
-
-- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — paginile originale 61-70 — testarea și reducerea perioadei de suspendare, reținerea documentelor, retragerea permisului, imobilizarea și confiscarea vehiculelor. Art. 106^2-115.
-  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-p061-070.pdf
-
-- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — paginile originale 71-80 — restituirea permisului și plăcuțelor, căile de atac, atribuțiile autorităților, dispozițiile finale și categoriile de vehicule pentru permis. Art. 116-137 și anexa nr. 1.
-  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-p071-080.pdf
+- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie 2025) — reținerea și restituirea documentelor, retragerea permisului, imobilizarea și confiscarea, căile de atac, atribuțiile autorităților, dispozițiile finale și categoriile de permis. Art. 111-137; anexa nr. 1.
+  https://balazs230.github.io/avocatel-docs/sources/cod_rutier-art111-137.md
 
 - Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — paginile originale 1-10 — coperta și cuprinsul; principiile și aplicarea legii penale, noțiunea de infracțiune, cauzele justificative și începutul cauzelor de neimputabilitate. Art. 1-25.
   https://balazs230.github.io/avocatel-docs/sources/cod_penal-p001-010.pdf

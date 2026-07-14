@@ -98,6 +98,57 @@ ADMINISTRATIVE_INSERTED_ARTICLES = (
     "610^1",
 )
 
+ROAD_SOURCE = ROOT / "codul_rutier.md"
+ROAD_LEGACY_TEXT_SOURCES = (ROOT / "cod_rutier.txt", ROOT / "codul_rutier.txt")
+ROAD_LEGACY_SOURCE = ROOT / "cod_rutier.pdf"
+ROAD_CHAPTER = re.compile(
+    r"^Capitolul\s+(?P<number>[IVXLCDM]+)\s*[\u2013-]\s*(?P<title>.*)$",
+    re.IGNORECASE,
+)
+ROAD_SECTION = re.compile(
+    r"^(?P<label>SEC[\u0162\u0163\u021a\u021bT]IUNEA\s+(?:a\s+)?\d+(?:-a)?)"
+    r"\s*(?P<title>.*)$",
+    re.IGNORECASE,
+)
+ROAD_ANNEX = re.compile(
+    r"^ANEXA\s+(?P<number>\d+)\s*[\u2013-]\s*(?P<title>.*)$",
+    re.IGNORECASE,
+)
+ROAD_ARTICLE = re.compile(
+    r"^Art\.\s*(?P<number>\d+(?:\.\d+)*)\.?\s*(?P<body>.*)$"
+)
+ROAD_MARKDOWN_ARTICLE = re.compile(
+    r"(?m)^#### Articolul (?P<number>\d+(?:\^\d+)?)$"
+)
+ROAD_MARKDOWN_ANNEX = re.compile(r"(?m)^## ANEXA (?P<number>\d+)(?:\s|$)")
+ROAD_INSERTED_ARTICLES = (
+    "11^1",
+    "11^2",
+    "11^3",
+    "11^4",
+    "11^5",
+    "11^6",
+    "11^7",
+    "22^1",
+    "22^2",
+    "23^1",
+    "24^1",
+    "28^1",
+    "54^1",
+    "64^1",
+    "80^1",
+    "80^2",
+    "104^1",
+    "106^1",
+    "106^2",
+    "109^1",
+    "109^2",
+    "109^3",
+    "114^1",
+    "120^1",
+    "133^1",
+)
+
 PAGE_FOOTER = re.compile(
     r"(?m)^Codul Muncii actualizat Legislatie Protectia Muncii\r?\n\d+\r?\n?"
 )
@@ -557,6 +608,75 @@ ADMINISTRATIVE_CHUNKS = (
         "Anexa nr. 7, partea 2; anexele nr. 8-10",
         "procedura disciplinară; cadrele de competențe, proiectul-pilot pentru "
         "concursuri și normele privind organizarea și dezvoltarea carierei",
+    ),
+)
+
+
+@dataclass(frozen=True)
+class RoadChunk:
+    first_article: str
+    last_article: str
+    description: str
+    includes_annex: bool = False
+
+    @property
+    def filename(self) -> str:
+        def filename_label(article: str) -> str:
+            base, *inserted = article.split("^", 1)
+            suffix = f"bis{inserted[0]}" if inserted else ""
+            return f"{int(base):03d}{suffix}"
+
+        return (
+            f"cod_rutier-art{filename_label(self.first_article)}-"
+            f"{filename_label(self.last_article)}.md"
+        )
+
+    @property
+    def range_label(self) -> str:
+        label = f"Art. {self.first_article}-{self.last_article}"
+        if self.includes_annex:
+            label += "; anexa nr. 1"
+        return label
+
+
+ROAD_CHUNKS = (
+    RoadChunk(
+        "1",
+        "11^7",
+        "dispoziții generale, condițiile tehnice pentru circulația vehiculelor, "
+        "înmatricularea și înregistrarea, inclusiv serviciile electronice aferente",
+    ),
+    RoadChunk(
+        "12",
+        "28^1",
+        "înmatricularea, înregistrarea și radierea vehiculelor; condițiile pentru "
+        "conducători, permisul de conducere, examinarea și recunoașterea permiselor",
+    ),
+    RoadChunk(
+        "29",
+        "73",
+        "semnalizarea rutieră, obligațiile participanților la trafic, regulile "
+        "pentru vehicule și regulile aplicabile celorlalți participanți",
+    ),
+    RoadChunk(
+        "74",
+        "102",
+        "circulația pe autostrăzi și drumuri expres, accidentele, traficul "
+        "internațional, infracțiunile și clasele de contravenții",
+    ),
+    RoadChunk(
+        "103",
+        "110",
+        "punctele-amendă și de penalizare, suspendarea dreptului de a conduce, "
+        "testarea, reducerea suspendării și măsurile tehnico-administrative",
+    ),
+    RoadChunk(
+        "111",
+        "137",
+        "reținerea și restituirea documentelor, retragerea permisului, "
+        "imobilizarea și confiscarea, căile de atac, atribuțiile autorităților, "
+        "dispozițiile finale și categoriile de permis",
+        True,
     ),
 )
 
@@ -1329,6 +1449,303 @@ def build_administrative_document(raw_source: str) -> None:
             legacy_text.unlink()
 
 
+def clean_road_source(text: str) -> str:
+    text = text.removeprefix("\ufeff").replace("\r\n", "\n").replace("\r", "\n")
+    return text.rstrip() + "\n"
+
+
+def road_source_marker(line: str) -> bool:
+    return bool(
+        ROAD_CHAPTER.fullmatch(line)
+        or ROAD_SECTION.fullmatch(line)
+        or ROAD_ANNEX.fullmatch(line)
+        or ROAD_ARTICLE.fullmatch(line)
+    )
+
+
+def road_article_label(raw_number: str, current_article: int) -> tuple[str, int]:
+    parts = raw_number.split(".")
+    base = int(parts[0])
+    if len(parts) == 1:
+        if base != current_article + 1:
+            raise RuntimeError(
+                f"Unexpected road-code article {raw_number} after {current_article}"
+            )
+        return raw_number, base
+    if base != current_article or len(parts) != 2:
+        raise RuntimeError(
+            f"Unexpected inserted road-code article {raw_number} after "
+            f"{current_article}"
+        )
+    return f"{base}^{parts[1]}", current_article
+
+
+def format_road_markdown(text: str) -> str:
+    """Format the Road Code hierarchy and normalize two duplicated chapter labels."""
+    if text.startswith("# Codul rutier\n"):
+        return normalize_heading_spacing(text)
+
+    lines = text.splitlines()
+    if not lines or not lines[0].lower().startswith("codul rutier"):
+        raise RuntimeError("Unexpected Codul rutier document heading")
+
+    rendered = [
+        "# Codul rutier",
+        "OUG nr. 195/2002",
+        "Actualizat la 5 februarie 2025",
+    ]
+    expected_chapters = ("I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X")
+    chapter_index = 0
+    current_article = 0
+    index = 1
+
+    while index < len(lines):
+        raw_line = lines[index].rstrip()
+        line = raw_line.strip()
+        article = ROAD_ARTICLE.fullmatch(line)
+        if article:
+            label, current_article = road_article_label(
+                article.group("number"), current_article
+            )
+            rendered.append(f"#### Articolul {label}")
+            if article.group("body"):
+                rendered.append(article.group("body"))
+            index += 1
+            continue
+
+        chapter = ROAD_CHAPTER.fullmatch(line)
+        if chapter:
+            if chapter_index >= len(expected_chapters):
+                raise RuntimeError("Too many Codul rutier chapters")
+            title = chapter.group("title").strip()
+            if index + 1 < len(lines):
+                continuation = lines[index + 1].strip()
+                if continuation and not road_source_marker(continuation):
+                    title = f"{title} {continuation}".strip()
+                    index += 1
+            number = expected_chapters[chapter_index]
+            rendered.append(f"## CAPITOLUL {number} — {title}")
+            chapter_index += 1
+            index += 1
+            continue
+
+        section = ROAD_SECTION.fullmatch(line)
+        if section:
+            title = section.group("title").strip()
+            if not title and index + 1 < len(lines):
+                continuation = lines[index + 1].strip()
+                if continuation and not road_source_marker(continuation):
+                    title = continuation
+                    index += 1
+            suffix = f" — {title}" if title else ""
+            rendered.append(f"### {section.group('label').upper()}{suffix}")
+            index += 1
+            continue
+
+        annex = ROAD_ANNEX.fullmatch(line)
+        if annex:
+            title = annex.group("title").strip().replace(
+                "eliberrează", "eliberează"
+            )
+            if index + 1 < len(lines):
+                continuation = lines[index + 1].strip()
+                if continuation and not road_source_marker(continuation):
+                    title = f"{title} {continuation}".strip()
+                    index += 1
+            rendered.append(f"## ANEXA {annex.group('number')} — {title}")
+            index += 1
+            continue
+
+        rendered.append(raw_line)
+        index += 1
+
+    if chapter_index != len(expected_chapters):
+        raise RuntimeError(
+            f"Found {chapter_index} road-code chapters, expected "
+            f"{len(expected_chapters)}"
+        )
+    if current_article != 137:
+        raise RuntimeError(
+            f"Codul rutier ended at article {current_article}, expected 137"
+        )
+    return normalize_heading_spacing("\n".join(rendered))
+
+
+def validate_road_articles(markdown: str) -> None:
+    labels = [
+        match.group("number") for match in ROAD_MARKDOWN_ARTICLE.finditer(markdown)
+    ]
+    base_articles = [int(label) for label in labels if "^" not in label]
+    inserted_articles = tuple(label for label in labels if "^" in label)
+    if base_articles != list(range(1, 138)):
+        raise RuntimeError("Codul rutier base articles are incomplete or reordered")
+    if inserted_articles != ROAD_INSERTED_ARTICLES:
+        raise RuntimeError("Unexpected inserted road-code articles")
+    annexes = tuple(
+        match.group("number") for match in ROAD_MARKDOWN_ANNEX.finditer(markdown)
+    )
+    if annexes != ("1",):
+        raise RuntimeError(f"Unexpected road-code annex sequence: {annexes}")
+
+
+def road_chunk_boundaries(markdown: str) -> list[int]:
+    structural = [
+        (match.start(), len(match.group(1)))
+        for match in re.finditer(r"(?m)^(#{2,3}) .+$", markdown)
+    ]
+    articles = [
+        match.start()
+        for match in ROAD_MARKDOWN_ARTICLE.finditer(markdown)
+        if "^" not in match.group("number")
+    ]
+    if not structural:
+        raise RuntimeError("No Codul rutier structural headings found")
+
+    boundaries = [structural[0][0]]
+    position = boundaries[0]
+    while len(markdown) - position > MAX_CHUNK_CHARACTERS:
+        remaining = len(markdown) - position
+        target = remaining / 2 if remaining <= 2 * MAX_CHUNK_CHARACTERS else 46_000
+        candidates = [
+            heading
+            for heading in structural
+            if position + MIN_CHUNK_CHARACTERS
+            <= heading[0]
+            <= position + MAX_CHUNK_CHARACTERS
+            and (
+                remaining > 2 * MAX_CHUNK_CHARACTERS
+                or len(markdown) - heading[0] >= MIN_CHUNK_CHARACTERS
+            )
+        ]
+        if candidates:
+            next_position, _ = min(
+                candidates,
+                key=lambda heading: abs((heading[0] - position) - target)
+                + (heading[1] - 2) * 900,
+            )
+        else:
+            article_candidates = [
+                article
+                for article in articles
+                if position + MIN_CHUNK_CHARACTERS
+                <= article
+                <= position + MAX_CHUNK_CHARACTERS
+                and (
+                    remaining > 2 * MAX_CHUNK_CHARACTERS
+                    or len(markdown) - article >= MIN_CHUNK_CHARACTERS
+                )
+            ]
+            if not article_candidates:
+                raise RuntimeError(
+                    f"No road-code boundary near character {position:,}"
+                )
+            next_position = min(
+                article_candidates,
+                key=lambda article: abs((article - position) - target),
+            )
+        boundaries.append(next_position)
+        position = next_position
+    boundaries.append(len(markdown))
+    return boundaries
+
+
+def build_road_chunks(markdown: str) -> list[Path]:
+    validate_road_articles(markdown)
+    boundaries = road_chunk_boundaries(markdown)
+    if len(boundaries) - 1 != len(ROAD_CHUNKS):
+        raise RuntimeError(
+            f"Expected {len(ROAD_CHUNKS)} road-code chunks, "
+            f"generated {len(boundaries) - 1}"
+        )
+
+    preamble = markdown[: boundaries[0]].rstrip()
+    expected_names = {chunk.filename for chunk in ROAD_CHUNKS}
+    for stale in OUTPUT.glob("cod_rutier-*.md"):
+        if stale.name not in expected_names:
+            stale.unlink()
+
+    built = []
+    for start, end, chunk in zip(boundaries, boundaries[1:], ROAD_CHUNKS):
+        body = markdown[start:end].strip() + "\n"
+        articles = [
+            match.group("number") for match in ROAD_MARKDOWN_ARTICLE.finditer(body)
+        ]
+        if not articles or (
+            articles[0] != chunk.first_article or articles[-1] != chunk.last_article
+        ):
+            found = f"{articles[0]}-{articles[-1]}" if articles else "none"
+            raise RuntimeError(
+                f"{chunk.filename} expected {chunk.first_article}-"
+                f"{chunk.last_article}, found {found}"
+            )
+        has_annex = bool(ROAD_MARKDOWN_ANNEX.search(body))
+        if has_annex != chunk.includes_annex:
+            raise RuntimeError(f"Unexpected annex placement in {chunk.filename}")
+
+        content = (
+            f"{preamble}\n"
+            f"**Fragment:** {chunk.range_label}\n"
+            f"**Cuprins:** {chunk.description}.\n\n"
+            f"{body}"
+        )
+        if not MIN_CHUNK_CHARACTERS <= len(content) <= MAX_CHUNK_CHARACTERS:
+            raise RuntimeError(
+                f"{chunk.filename} has {len(content):,} characters; expected "
+                f"{MIN_CHUNK_CHARACTERS:,}-{MAX_CHUNK_CHARACTERS:,}"
+            )
+
+        destination = OUTPUT / chunk.filename
+        destination.write_text(content, encoding="utf-8", newline="\n")
+        built.append(destination)
+        print(f"{destination.name}: {destination.stat().st_size:,} bytes")
+    return built
+
+
+def road_catalog_block(built: list[Path]) -> bytes:
+    filenames = {path.name for path in built}
+    entries = []
+    for chunk in ROAD_CHUNKS:
+        if chunk.filename not in filenames:
+            raise RuntimeError(f"Missing generated chunk: {chunk.filename}")
+        entries.append(
+            "- Codul rutier (OUG nr. 195/2002, actualizată la 5 februarie "
+            f"2025) — {chunk.description}. {chunk.range_label}.\n"
+            f"  {PUBLIC_BASE_URL}/{chunk.filename}\n"
+        )
+    return ("\n".join(entries) + "\n").encode("utf-8")
+
+
+def update_road_catalog(built: list[Path]) -> None:
+    data = CATALOG.read_bytes()
+    entry_pattern = re.compile(
+        rb"- Codul rutier[^\r\n]*\r?\n"
+        rb"  https://[^\r\n]*/sources/cod_rutier-[^\r\n]*\r?\n(?:\r?\n)?"
+    )
+    matches = list(entry_pattern.finditer(data))
+    if not matches:
+        raise RuntimeError("No existing Codul rutier catalog entries found")
+    start, end = matches[0].start(), matches[-1].end()
+    unmatched = entry_pattern.sub(b"", data[start:end])
+    if unmatched.strip():
+        raise RuntimeError("Road Code catalog entries are not contiguous")
+    CATALOG.write_bytes(data[:start] + road_catalog_block(built) + data[end:])
+
+
+def build_road_document(raw_source: str) -> None:
+    markdown = format_road_markdown(clean_road_source(raw_source))
+    ROAD_SOURCE.write_text(markdown, encoding="utf-8", newline="\n")
+    built = build_road_chunks(markdown)
+    update_road_catalog(built)
+
+    for legacy_chunk in OUTPUT.glob("cod_rutier-p*.pdf"):
+        legacy_chunk.unlink()
+    if ROAD_LEGACY_SOURCE.exists():
+        ROAD_LEGACY_SOURCE.unlink()
+    for legacy_text in ROAD_LEGACY_TEXT_SOURCES:
+        if legacy_text.exists():
+            legacy_text.unlink()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -1345,6 +1762,11 @@ def parse_args() -> argparse.Namespace:
         "--import-administrative-source",
         type=Path,
         help="import a supplied Codul administrativ TXT before building",
+    )
+    parser.add_argument(
+        "--import-road-source",
+        type=Path,
+        help="import a supplied Codul rutier TXT before building",
     )
     return parser.parse_args()
 
@@ -1421,6 +1843,23 @@ def main() -> None:
 
     if administrative_raw_source is not None:
         build_administrative_document(administrative_raw_source)
+
+    road_raw_source = None
+    if args.import_road_source:
+        if not args.import_road_source.is_file():
+            raise FileNotFoundError(args.import_road_source)
+        road_raw_source = args.import_road_source.read_text(encoding="utf-8-sig")
+    elif ROAD_SOURCE.is_file():
+        road_raw_source = ROAD_SOURCE.read_text(encoding="utf-8-sig")
+    else:
+        road_legacy = next(
+            (path for path in ROAD_LEGACY_TEXT_SOURCES if path.is_file()), None
+        )
+        if road_legacy:
+            road_raw_source = road_legacy.read_text(encoding="utf-8-sig")
+
+    if road_raw_source is not None:
+        build_road_document(road_raw_source)
 
 
 if __name__ == "__main__":
