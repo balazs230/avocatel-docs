@@ -23,19 +23,9 @@ DOCUMENTS = (
         228,
     ),
     (
-        "codul_muncii",
-        (("codul_muncii.pdf", 0, 1),),
-        95,
-    ),
-    (
         "codul_administrativ",
         (("codul_administrativ.pdf", 0, 1),),
         468,
-    ),
-    (
-        "codul_civil",
-        (("codul_civil.pdf", 0, 1),),
-        843,
     ),
     (
         "cod_rutier",
