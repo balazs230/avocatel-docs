@@ -169,6 +169,30 @@ PENAL_MARKDOWN_ARTICLE = re.compile(
     r"(?m)^###### Articolul (?P<number>\d+) — .+$"
 )
 
+CONSTITUTION_SOURCE = ROOT / "constitutia_romaniei.md"
+CONSTITUTION_LEGACY_TEXT_SOURCES = (
+    ROOT / "constitutie.txt",
+    ROOT / "constitutia_romaniei.txt",
+)
+CONSTITUTION_LEGACY_SOURCE = ROOT / "constitutia_romaniei.pdf"
+CONSTITUTION_TITLE = re.compile(
+    r"^(?P<label>TITLUL\s+[IVXLCDM]+)\s*[\u2013-]\s*(?P<title>.+)$"
+)
+CONSTITUTION_CHAPTER = re.compile(
+    r"^(?P<label>CAPITOLUL\s+[IVXLCDM]+)\s*[\u2013-]\s*(?P<title>.+)$"
+)
+CONSTITUTION_SECTION = re.compile(
+    r"^(?P<label>SEC[\u0162\u0163\u021a\u021bT]IUNEA\s+(?:a\s+)?\d+(?:-a)?)"
+    r"\s*[\u2013-]\s*(?P<title>.+)$",
+    re.IGNORECASE,
+)
+CONSTITUTION_ARTICLE = re.compile(
+    r"^Art\.\s*(?P<number>\d+)\s*[\u2013-]\s*(?P<title>.+)$"
+)
+CONSTITUTION_MARKDOWN_ARTICLE = re.compile(
+    r"(?m)^##### Articolul (?P<number>\d+) — .+$"
+)
+
 PAGE_FOOTER = re.compile(
     r"(?m)^Codul Muncii actualizat Legislatie Protectia Muncii\r?\n\d+\r?\n?"
 )
@@ -761,6 +785,43 @@ PENAL_CHUNKS = (
         "ordinea publică, familia, libertatea religioasă, alegerile, securitatea "
         "națională, capacitatea de luptă, genocidul și crimele de război; "
         "dispoziția finală",
+    ),
+)
+
+
+@dataclass(frozen=True)
+class ConstitutionChunk:
+    first_article: int
+    last_article: int
+    description: str
+
+    @property
+    def filename(self) -> str:
+        return (
+            f"constitutia_romaniei-art{self.first_article:03d}-"
+            f"{self.last_article:03d}.md"
+        )
+
+    @property
+    def range_label(self) -> str:
+        return f"Art. {self.first_article}-{self.last_article}"
+
+
+CONSTITUTION_CHUNKS = (
+    ConstitutionChunk(
+        1,
+        79,
+        "principiile generale, drepturile, libertățile și îndatoririle "
+        "fundamentale, Avocatul Poporului și organizarea, statutul membrilor și "
+        "legiferarea în Parlament",
+    ),
+    ConstitutionChunk(
+        80,
+        156,
+        "Președintele României, Guvernul, raporturile cu Parlamentul, "
+        "administrația publică, autoritatea judecătorească, economia și finanțele, "
+        "Curtea Constituțională, integrarea euroatlantică, revizuirea și "
+        "dispozițiile finale",
     ),
 )
 
@@ -2112,6 +2173,242 @@ def build_penal_document(raw_source: str) -> None:
             legacy_text.unlink()
 
 
+def clean_constitution_source(text: str) -> str:
+    """Keep the constitutional text and discard the scraped website tail."""
+    text = text.removeprefix("\ufeff").replace("\r\n", "\n").replace("\r", "\n")
+    if text.startswith("# Constituția României\n"):
+        return text.rstrip() + "\n"
+
+    lines = text.splitlines()
+    if not lines or lines[0] != "Textul integral":
+        raise RuntimeError("Unexpected Constitution source heading")
+    try:
+        end = lines.index("Search")
+    except ValueError as error:
+        raise RuntimeError("Could not locate the end of the constitutional text") from error
+
+    body = [
+        line for line in lines[1:end] if line.strip() != "Constituția României"
+    ]
+    if not any(line.startswith("Art. 156 ") for line in body):
+        raise RuntimeError("Constitution source ends before article 156")
+    return "\n".join(body).rstrip() + "\n"
+
+
+def format_constitution_markdown(text: str) -> str:
+    if text.startswith("# Constituția României\n"):
+        return normalize_heading_spacing(text)
+
+    lines = text.splitlines()
+    if not lines or not CONSTITUTION_TITLE.fullmatch(lines[0].strip()):
+        raise RuntimeError("Unexpected start of the constitutional text")
+
+    rendered = [
+        "# Constituția României",
+        "Forma revizuită și republicată în Monitorul Oficial nr. 767/2003",
+    ]
+    for raw_line in lines:
+        line = raw_line.strip()
+        title = CONSTITUTION_TITLE.fullmatch(line)
+        chapter = CONSTITUTION_CHAPTER.fullmatch(line)
+        section = CONSTITUTION_SECTION.fullmatch(line)
+        article = CONSTITUTION_ARTICLE.fullmatch(line)
+        if title:
+            rendered.append(
+                f"## {title.group('label')} — {title.group('title').strip()}"
+            )
+        elif chapter:
+            rendered.append(
+                f"### {chapter.group('label')} — {chapter.group('title').strip()}"
+            )
+        elif section:
+            rendered.append(
+                f"#### {section.group('label').upper()} — "
+                f"{section.group('title').strip()}"
+            )
+        elif article:
+            rendered.append(
+                f"##### Articolul {article.group('number')} — "
+                f"{article.group('title').strip()}"
+            )
+        else:
+            rendered.append(raw_line.rstrip())
+    return normalize_heading_spacing("\n".join(rendered))
+
+
+def validate_constitution_document(markdown: str) -> None:
+    articles = [
+        int(match.group("number"))
+        for match in CONSTITUTION_MARKDOWN_ARTICLE.finditer(markdown)
+    ]
+    if articles != list(range(1, 157)):
+        raise RuntimeError("Constitution articles are incomplete or reordered")
+
+    expected_structure = {
+        r"(?m)^## TITLUL ": 8,
+        r"(?m)^### CAPITOLUL ": 10,
+        r"(?m)^#### SEC": 8,
+    }
+    for pattern, expected in expected_structure.items():
+        actual = len(re.findall(pattern, markdown))
+        if actual != expected:
+            raise RuntimeError(
+                f"Unexpected Constitution structure count for {pattern}: "
+                f"{actual}, expected {expected}"
+            )
+    for artifact in ("Search", "Ultimele comentarii", "Constituția României\n\n#####"):
+        if artifact in markdown:
+            raise RuntimeError(f"Scraped website artifact remains: {artifact}")
+
+
+def constitution_chunk_boundaries(markdown: str) -> list[int]:
+    structural = [
+        (match.start(), len(match.group(1)))
+        for match in re.finditer(r"(?m)^(#{2,4}) .+$", markdown)
+    ]
+    articles = [
+        match.start() for match in CONSTITUTION_MARKDOWN_ARTICLE.finditer(markdown)
+    ]
+    if not structural:
+        raise RuntimeError("No Constitution structural headings found")
+
+    boundaries = [structural[0][0]]
+    position = boundaries[0]
+    while len(markdown) - position > MAX_CHUNK_CHARACTERS:
+        remaining = len(markdown) - position
+        target = remaining / 2 if remaining <= 2 * MAX_CHUNK_CHARACTERS else 46_000
+        candidates = [
+            heading
+            for heading in structural
+            if position + MIN_CHUNK_CHARACTERS
+            <= heading[0]
+            <= position + MAX_CHUNK_CHARACTERS
+            and len(markdown) - heading[0] >= MIN_CHUNK_CHARACTERS
+        ]
+        if candidates:
+            next_position, _ = min(
+                candidates,
+                key=lambda heading: abs((heading[0] - position) - target)
+                + (heading[1] - 2) * 900,
+            )
+        else:
+            article_candidates = [
+                article
+                for article in articles
+                if position + MIN_CHUNK_CHARACTERS
+                <= article
+                <= position + MAX_CHUNK_CHARACTERS
+                and len(markdown) - article >= MIN_CHUNK_CHARACTERS
+            ]
+            if not article_candidates:
+                raise RuntimeError(
+                    f"No Constitution boundary near character {position:,}"
+                )
+            next_position = min(
+                article_candidates,
+                key=lambda article: abs((article - position) - target),
+            )
+        boundaries.append(next_position)
+        position = next_position
+    boundaries.append(len(markdown))
+    return boundaries
+
+
+def build_constitution_chunks(markdown: str) -> list[Path]:
+    validate_constitution_document(markdown)
+    boundaries = constitution_chunk_boundaries(markdown)
+    if len(boundaries) - 1 != len(CONSTITUTION_CHUNKS):
+        raise RuntimeError(
+            f"Expected {len(CONSTITUTION_CHUNKS)} Constitution chunks, "
+            f"generated {len(boundaries) - 1}"
+        )
+
+    preamble = markdown[: boundaries[0]].rstrip()
+    expected_names = {chunk.filename for chunk in CONSTITUTION_CHUNKS}
+    for stale in OUTPUT.glob("constitutia_romaniei-*.md"):
+        if stale.name not in expected_names:
+            stale.unlink()
+
+    built = []
+    for start, end, chunk in zip(boundaries, boundaries[1:], CONSTITUTION_CHUNKS):
+        body = markdown[start:end].strip() + "\n"
+        articles = [
+            int(match.group("number"))
+            for match in CONSTITUTION_MARKDOWN_ARTICLE.finditer(body)
+        ]
+        if not articles or (
+            articles[0] != chunk.first_article or articles[-1] != chunk.last_article
+        ):
+            found = f"{articles[0]}-{articles[-1]}" if articles else "none"
+            raise RuntimeError(
+                f"{chunk.filename} expected {chunk.first_article}-"
+                f"{chunk.last_article}, found {found}"
+            )
+
+        content = (
+            f"{preamble}\n"
+            f"**Fragment:** {chunk.range_label}\n"
+            f"**Cuprins:** {chunk.description}.\n\n"
+            f"{body}"
+        )
+        if not MIN_CHUNK_CHARACTERS <= len(content) <= MAX_CHUNK_CHARACTERS:
+            raise RuntimeError(
+                f"{chunk.filename} has {len(content):,} characters; expected "
+                f"{MIN_CHUNK_CHARACTERS:,}-{MAX_CHUNK_CHARACTERS:,}"
+            )
+
+        destination = OUTPUT / chunk.filename
+        destination.write_text(content, encoding="utf-8", newline="\n")
+        built.append(destination)
+        print(f"{destination.name}: {destination.stat().st_size:,} bytes")
+    return built
+
+
+def constitution_catalog_block(built: list[Path]) -> bytes:
+    filenames = {path.name for path in built}
+    entries = []
+    for chunk in CONSTITUTION_CHUNKS:
+        if chunk.filename not in filenames:
+            raise RuntimeError(f"Missing generated chunk: {chunk.filename}")
+        entries.append(
+            "- Constituția României (forma revizuită și republicată în M.Of. "
+            f"nr. 767/2003) — {chunk.description}. {chunk.range_label}.\n"
+            f"  {PUBLIC_BASE_URL}/{chunk.filename}\n"
+        )
+    return ("\n".join(entries) + "\n").encode("utf-8")
+
+
+def update_constitution_catalog(built: list[Path]) -> None:
+    data = CATALOG.read_bytes()
+    entry_pattern = re.compile(
+        rb"- Constitu\xc8\x9bia Rom\xc3\xa2niei[^\r\n]*\r?\n"
+        rb"  https://[^\r\n]*/sources/constitutia_romaniei-[^\r\n]*\r?\n(?:\r?\n)?"
+    )
+    matches = list(entry_pattern.finditer(data))
+    if not matches:
+        raise RuntimeError("No existing Constitution catalog entries found")
+    start, end = matches[0].start(), matches[-1].end()
+    unmatched = entry_pattern.sub(b"", data[start:end])
+    if unmatched.strip():
+        raise RuntimeError("Constitution catalog entries are not contiguous")
+    CATALOG.write_bytes(data[:start] + constitution_catalog_block(built) + data[end:])
+
+
+def build_constitution_document(raw_source: str) -> None:
+    markdown = format_constitution_markdown(clean_constitution_source(raw_source))
+    CONSTITUTION_SOURCE.write_text(markdown, encoding="utf-8", newline="\n")
+    built = build_constitution_chunks(markdown)
+    update_constitution_catalog(built)
+
+    for legacy_chunk in OUTPUT.glob("constitutia_romaniei-p*.pdf"):
+        legacy_chunk.unlink()
+    if CONSTITUTION_LEGACY_SOURCE.exists():
+        CONSTITUTION_LEGACY_SOURCE.unlink()
+    for legacy_text in CONSTITUTION_LEGACY_TEXT_SOURCES:
+        if legacy_text.exists():
+            legacy_text.unlink()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -2138,6 +2435,11 @@ def parse_args() -> argparse.Namespace:
         "--import-penal-source",
         type=Path,
         help="import a supplied Codul penal TXT before building",
+    )
+    parser.add_argument(
+        "--import-constitution-source",
+        type=Path,
+        help="import a supplied Romanian Constitution TXT before building",
     )
     return parser.parse_args()
 
@@ -2248,6 +2550,32 @@ def main() -> None:
 
     if penal_raw_source is not None:
         build_penal_document(penal_raw_source)
+
+    constitution_raw_source = None
+    if args.import_constitution_source:
+        if not args.import_constitution_source.is_file():
+            raise FileNotFoundError(args.import_constitution_source)
+        constitution_raw_source = args.import_constitution_source.read_text(
+            encoding="utf-8-sig"
+        )
+    elif CONSTITUTION_SOURCE.is_file():
+        constitution_raw_source = CONSTITUTION_SOURCE.read_text(encoding="utf-8-sig")
+    else:
+        constitution_legacy = next(
+            (
+                path
+                for path in CONSTITUTION_LEGACY_TEXT_SOURCES
+                if path.is_file()
+            ),
+            None,
+        )
+        if constitution_legacy:
+            constitution_raw_source = constitution_legacy.read_text(
+                encoding="utf-8-sig"
+            )
+
+    if constitution_raw_source is not None:
+        build_constitution_document(constitution_raw_source)
 
 
 if __name__ == "__main__":

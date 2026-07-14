@@ -276,17 +276,11 @@ Available documents:
 - Codul penal (Legea nr. 286/2009, actualizată până la 1 februarie 2014) — infracțiunile privind explozivii, activitățile reglementate, sănătatea și ordinea publică, familia, libertatea religioasă, alegerile, securitatea națională, capacitatea de luptă, genocidul și crimele de război; dispoziția finală. Art. 346-437.
   https://balazs230.github.io/avocatel-docs/sources/cod_penal-art346-437.md
 
-- Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — paginile originale 1-10 — Titlul I: principiile generale; Titlul II: dispoziții comune și drepturile și libertățile fundamentale. Art. 1-43.
-  https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-p001-010.pdf
+- Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — principiile generale, drepturile, libertățile și îndatoririle fundamentale, Avocatul Poporului și organizarea, statutul membrilor și legiferarea în Parlament. Art. 1-79.
+  https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-art001-079.md
 
-- Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — paginile originale 11-20 — drepturile și libertățile fundamentale, îndatoririle, Avocatul Poporului și începutul autorităților publice: Parlamentul și Președintele României. Art. 44-81.
-  https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-p011-020.pdf
-
-- Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — paginile originale 21-30 — Președintele României, Guvernul, raporturile Parlamentului cu Guvernul și administrația publică centrală și locală. Art. 82-122.
-  https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-p021-030.pdf
-
-- Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — paginile originale 31-40 — prefectul, autoritatea judecătorească, economia și finanțele, Curtea Constituțională, integrarea euroatlantică, revizuirea și dispozițiile finale. Art. 123-156.
-  https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-p031-040.pdf
+- Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — Președintele României, Guvernul, raporturile cu Parlamentul, administrația publică, autoritatea judecătorească, economia și finanțele, Curtea Constituțională, integrarea euroatlantică, revizuirea și dispozițiile finale. Art. 80-156.
+  https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-art080-156.md
 
 - Aplicarea Codului fiscal — HG nr. 284/2017 pentru modificarea Normelor metodologice aprobate prin HG nr. 1/2016 — paginile originale 1-10 — reguli generale privind reînregistrarea în scopuri de TVA și ajustările după anularea codului; începutul modificărilor privind impozitul pe profit. Articolul unic, lit. A și lit. B pct. 1-5.
   https://balazs230.github.io/avocatel-docs/sources/aplicare_cod_fiscal-p001-010.pdf

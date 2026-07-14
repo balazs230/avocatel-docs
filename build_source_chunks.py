@@ -23,11 +23,6 @@ DOCUMENTS = (
         228,
     ),
     (
-        "constitutia_romaniei",
-        (("constitutia_romaniei.pdf", 0, 1),),
-        40,
-    ),
-    (
         "aplicare_cod_fiscal",
         (("aplicare_cod_fiscal.pdf", 0, 1),),
         41,
