@@ -435,21 +435,6 @@ Available documents:
 - Constituția României (forma revizuită și republicată în M.Of. nr. 767/2003) — Președintele României, Guvernul, raporturile cu Parlamentul, administrația publică, autoritatea judecătorească, economia și finanțele, Curtea Constituțională, integrarea euroatlantică, revizuirea și dispozițiile finale. Art. 80-156.
   https://balazs230.github.io/avocatel-docs/sources/constitutia_romaniei-art080-156.md
 
-- Aplicarea Codului fiscal — HG nr. 284/2017 pentru modificarea Normelor metodologice aprobate prin HG nr. 1/2016 — paginile originale 1-10 — reguli generale privind reînregistrarea în scopuri de TVA și ajustările după anularea codului; începutul modificărilor privind impozitul pe profit. Articolul unic, lit. A și lit. B pct. 1-5.
-  https://balazs230.github.io/avocatel-docs/sources/aplicare_cod_fiscal-p001-010.pdf
-
-- Aplicarea Codului fiscal — HG nr. 284/2017 pentru modificarea Normelor metodologice aprobate prin HG nr. 1/2016 — paginile originale 11-20 — impozitul pe profit, veniturile microîntreprinderilor, impozitul pe venit și contribuțiile sociale obligatorii. Articolul unic, lit. B-E.
-  https://balazs230.github.io/avocatel-docs/sources/aplicare_cod_fiscal-p011-020.pdf
-
-- Aplicarea Codului fiscal — HG nr. 284/2017 pentru modificarea Normelor metodologice aprobate prin HG nr. 1/2016 — paginile originale 21-30 — veniturile nerezidenților și modificări TVA privind operațiunile, baza de impozitare, deducerea, ajustările și facturarea. Articolul unic, lit. F și lit. G pct. 1-9.
-  https://balazs230.github.io/avocatel-docs/sources/aplicare_cod_fiscal-p021-030.pdf
-
-- Aplicarea Codului fiscal — HG nr. 284/2017 pentru modificarea Normelor metodologice aprobate prin HG nr. 1/2016 — paginile originale 31-40 — TVA: înregistrare, ajustări, regimuri speciale și introducerea regimului special pentru agricultori. Articolul unic, lit. G pct. 10-12.
-  https://balazs230.github.io/avocatel-docs/sources/aplicare_cod_fiscal-p031-040.pdf
-
-- Aplicarea Codului fiscal — HG nr. 284/2017 pentru modificarea Normelor metodologice aprobate prin HG nr. 1/2016 — pagina originală 41 — finalul regulilor privind regimul special pentru agricultori și abrogarea punctului 107 din norme. Articolul unic, lit. G pct. 12-13.
-  https://balazs230.github.io/avocatel-docs/sources/aplicare_cod_fiscal-p041-041.pdf
-
 - Codul de procedură civilă (Legea nr. 134/2010, republicată în M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — domeniul și principiile procesului civil, aplicarea legii procesuale, acțiunea civilă, incompatibilitatea judecătorului și începutul regimului părților. Art. 1-79.
   https://balazs230.github.io/avocatel-docs/sources/cod_procedura_civila-art0001-0079.md
 
@@ -591,56 +576,32 @@ Available documents:
 - OUG nr. 34/2014 privind drepturile consumatorilor în contractele încheiate cu profesioniștii (forma inițială, M.Of. nr. 427/2014) — competența, sesizarea, controlul și sancțiunile; dispozițiile finale, intrarea în vigoare și abrogările; instrucțiunile și formularul-model de retragere. Art. 27-32 și anexa.
   https://balazs230.github.io/avocatel-docs/sources/oug_34_2014-art027-032-anexa.md
 
-- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 1-10 — formele societare, actul constitutiv și constituirea societății pe acțiuni prin subscripție publică. Art. 1-27.
-  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p001-010.pdf
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — TITLUL I — Dispoziții generale; TITLUL II — Constituirea societăților comerciale; TITLUL III — Funcționarea societăților comerciale. Art. 1-74.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-art001-074.md
 
-- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 11-20 — adunarea constitutivă, înmatricularea, neregularitățile constituirii, dispozițiile procedurale și începutul funcționării societăților. Art. 28-67.
-  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p011-020.pdf
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — CAPITOLUL 2 — Societățile în nume colectiv; CAPITOLUL 3 — Societățile în comandită simplă; SECȚIUNEA I — Despre acțiuni; SECȚIUNEA a II-a — Despre adunările generale. Art. 75-136^1.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-art075-136bis1.md
 
-- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 21-30 — administrarea și aporturile, societățile în nume colectiv și în comandită simplă și regimul acțiunilor societăților pe acțiuni. Art. 68-106.
-  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p021-030.pdf
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — SECȚIUNEA a III-a — Despre administrația societății; SUBSECȚIUNEA I — Sistemul unitar; SUBSECȚIUNEA a III-a — Dispoziții comune pentru sistemul unitar și sistemul dualist; SECȚIUNEA a IV-a — Auditul financiar, auditul intern și cenzorii. Art. 137-166.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-art137-166.md
 
-- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 31-40 — acțiunile proprii, registrele societății, adunările generale, hotărârile acționarilor și dreptul de retragere. Art. 107-136.
-  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p031-040.pdf
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — TITLUL IV — Modificarea actului constitutiv; TITLUL V — Excluderea și retragerea asociaților; TITLUL VI — Dizolvarea, fuziunea și divizarea societăților comerciale. Art. 167-237^1.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-art167-237bis1.md
 
-- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 41-50 — exercitarea drepturilor acționarilor și administrarea societăților pe acțiuni în sistem unitar și dualist. Art. 136^1-153^3.
-  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p041-050.pdf
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — CAPITOLUL 2 — Fuziunea și divizarea societăților; CAPITOLUL 3 — Fuziunea transfrontalieră; SECȚIUNEA 1 — Domeniul de aplicare. Competența jurisdicțională; SECȚIUNEA a 2-a — Etape. Efecte. Nulitate. Art. 238-251^19.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-art238-251bis19.md
 
-- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 51-60 — directoratul și consiliul de supraveghere, răspunderea administratorilor, situațiile financiare, cenzorii și auditul financiar. Art. 153^4-160.
-  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p051-060.pdf
+- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — TITLUL VII — Lichidarea societăților comerciale; TITLUL VII^1 — Societatea europeană; TITLUL VIII — Contravenții și infracțiuni; TITLUL IX — Dispoziții finale și tranzitorii; Note privind forma consolidată. Art. 252-294 și note.
+  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-art252-294-note.md
 
-- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 61-70 — cenzorii, obligațiunile, registrele și situațiile financiare, societățile în comandită pe acțiuni și societățile cu răspundere limitată. Art. 160^1-198.
-  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p061-070.pdf
+- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — CAPITOLUL I — Dispoziții generale; SECȚIUNEA 1 — Domeniul de aplicare; CAPITOLUL II — Organizarea Oficiului Național al Registrului Comerțului și a oficiilor registrului…; CAPITOLUL III — Statutul registratorului. Art. 1-38.
+  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-art001-038.md
 
-- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 71-80 — părțile sociale, modificarea actului constitutiv și a capitalului, excluderea și retragerea asociaților și începutul dizolvării. Art. 199-231.
-  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p071-080.pdf
+- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — CAPITOLUL IV — Procedura de înregistrare; SECȚIUNEA 1 — Dispoziții generale; SECȚIUNEA a 6-a — Acte și fapte care se înregistrează în registrul comerțului; SECȚIUNEA a 7-a — Procedura în fața registratorului. Art. 39-109.
+  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-art039-109.md
 
-- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 81-90 — efectele dizolvării și procedura fuziunii și divizării societăților. Art. 232-246.
-  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p081-090.pdf
+- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — SECȚIUNEA a 8-a — Procedura în fața instanței de judecată; SECȚIUNEA a 9-a — Înregistrarea declarației pe propria răspundere cu privire la îndeplinirea condițiilor de…; SECȚIUNEA a 10-a — Atribuirea codului unic de înregistrare și înregistrarea fiscală a profesioniștilor care au… Art. 110-129.
+  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-art110-129.md
 
-- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 91-100 — efectele fuziunii și divizării și procedura fuziunii transfrontaliere. Art. 247-251^15.
-  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p091-100.pdf
-
-- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 101-110 — încheierea și nulitatea fuziunii transfrontaliere, lichidarea societăților și începutul regimului societății europene. Art. 251^16-270^2.
-  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p101-110.pdf
-
-- Legea nr. 31/1990 privind societățile (republicată în M.Of. nr. 1066/2004; forma consolidată până la 23.06.2010) — paginile originale 111-120 — societatea europeană, contravențiile și infracțiunile, dispozițiile finale și tranzitorii și notele de aplicare. Art. 270^3-294 și note.
-  https://balazs230.github.io/avocatel-docs/sources/legea_31_1990-p111-120.pdf
-
-- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — paginile originale 1-10 — domeniul de aplicare, definițiile, organizarea registrului comerțului, publicitatea și accesul la informații și începutul organizării ONRC. Art. 1-25.
-  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-p001-010.pdf
-
-- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — paginile originale 11-20 — serviciile de asistență, prelucrarea datelor, statutul registratorului și începutul procedurii de înregistrare, inclusiv firma profesionistului. Art. 26-70.
-  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-p011-020.pdf
-
-- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — paginile originale 21-30 — cererile pentru PFA, persoane juridice și sucursale, documentele justificative, datele înregistrate și mențiunile din registrul comerțului. Art. 71-103.
-  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-p021-030.pdf
-
-- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — paginile originale 31-40 — soluționarea cererilor, încheierile registratorului, plângerile, radierea, înregistrarea fiscală și începutul modificărilor aduse Legii societăților. Art. 104-129.
-  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-p031-040.pdf
-
-- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — paginile originale 41-50 — modificările aduse Legii societăților și regimului PFA, dispozițiile tranzitorii, ordinele de aplicare, personalul și abrogările. Art. 129-140.
-  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-p041-050.pdf
-
-- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — paginile originale 51-57 — intrarea în vigoare și procedurile de numire prin concurs sau examen a conducerii ONRC și a registratorilor registrului comerțului. Art. 141-142 și anexele nr. 1-2.
-  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-p051-057.pdf
+- Legea nr. 265/2022 privind registrul comerțului (forma inițială, M.Of. nr. 750/2022) — ANEXA 1 — Procedură de numire în funcțiile de director general, director general adjunct la Oficiul Național al Registrului…; ANEXA 2 — Procedură de numire în funcția de registrator de registrul comerțului. Art. 130-142 și anexele nr. 1-2.
+  https://balazs230.github.io/avocatel-docs/sources/legea_265_2022-art130-142-anexe.md

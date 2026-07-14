@@ -11,23 +11,7 @@ from pypdf import PdfReader, PdfWriter
 
 
 ROOT = Path(__file__).resolve().parent
-DOCUMENTS = (
-    (
-        "aplicare_cod_fiscal",
-        (("aplicare_cod_fiscal.pdf", 0, 1),),
-        41,
-    ),
-    (
-        "legea_31_1990",
-        (("legea_31_1990.pdf", 0, 1),),
-        120,
-    ),
-    (
-        "legea_265_2022",
-        (("L_265_2022.pdf", 0, 1),),
-        57,
-    ),
-)
+DOCUMENTS = ()
 CHUNK_SIZE = 10
 OUTPUT = ROOT / "sources"
 

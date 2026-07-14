@@ -307,6 +307,40 @@ OUG34_MARKDOWN_ARTICLE = re.compile(
     r"(?m)^### Articolul (?P<number>\d+)(?: — .+)?$"
 )
 
+LAW31_SOURCE = ROOT / "legea_31_1990.md"
+LAW31_LEGACY_TEXT_SOURCES = (
+    ROOT / "lege31_1990.txt",
+    ROOT / "legea_31_1990.txt",
+)
+LAW31_TITLE = re.compile(r"^TITLUL\s+(?P<label>[IVXLCDM]+(?:\^\d+)?)$")
+LAW31_CHAPTER = re.compile(r"^CAP\.\s*(?P<label>\d+)$")
+LAW31_SECTION = re.compile(r"^SECȚIUNEA\s+(?P<label>.+)$")
+LAW31_SUBSECTION = re.compile(r"^SUBSECȚIUNEA\s+(?P<label>.+)$")
+LAW31_ARTICLE = re.compile(
+    r"^ART\.\s*(?P<label>\d+(?:\^\d+[a-z]?)?)"
+    r"(?P<closing>\))?\s*(?P<footnote>\*\))?\s*(?P<suffix>.*)$"
+)
+LAW31_MARKDOWN_ARTICLE = re.compile(
+    r"(?m)^###### Articolul (?P<label>\d+(?:\^\d+[a-z]?)?)"
+    r"(?: \*\))?(?: — Abrogat)?$"
+)
+
+LAW265_SOURCE = ROOT / "legea_265_2022.md"
+LAW265_LEGACY_TEXT_SOURCES = (
+    ROOT / "265_2022.txt",
+    ROOT / "legea_265_2022.txt",
+)
+LAW265_CHAPTER = re.compile(r"^CAPITOLUL\s+(?P<label>[IVXLCDM]+)$")
+LAW265_SECTION = re.compile(r"^SECȚIUNEA\s+(?P<label>.+)$")
+LAW265_ARTICLE = re.compile(r"^ART\.\s*(?P<number>\d+)$")
+LAW265_ANNEX = re.compile(r"^ANEXA\s+(?P<number>[12])$")
+LAW265_MARKDOWN_ARTICLE = re.compile(
+    r"(?m)^#### Articolul (?P<number>\d+)$"
+)
+LAW265_MARKDOWN_ANNEX_ARTICLE = re.compile(
+    r"(?m)^### Articolul (?P<number>\d+)$"
+)
+
 PAGE_FOOTER = re.compile(
     r"(?m)^Codul Muncii actualizat Legislatie Protectia Muncii\r?\n\d+\r?\n?"
 )
@@ -4256,6 +4290,641 @@ def build_oug34_document(raw_source: str) -> None:
             legacy_text.unlink()
 
 
+@dataclass(frozen=True)
+class Law31BuiltChunk:
+    path: Path
+    first_article: str
+    last_article: str
+    description: str
+    includes_notes: bool = False
+
+
+def clean_law31_source(text: str) -> str:
+    text = text.removeprefix("\ufeff").replace("\r\n", "\n").replace("\r", "\n")
+    if text.startswith("# Legea nr. 31/1990 privind societățile\n"):
+        return text.rstrip() + "\n"
+    romanian_diacritics = str.maketrans("şŞţŢ", "șȘțȚ")
+    lines = []
+    removed_page_numbers = 0
+    for raw_line in text.splitlines():
+        line = repair_fiscal_mojibake(raw_line).translate(romanian_diacritics).strip()
+        if re.fullmatch(r"\d{1,3}", line) and 1 <= int(line) <= 120:
+            removed_page_numbers += 1
+            continue
+        if re.fullmatch(r"-{5,}", line):
+            continue
+        lines.append(line)
+    if removed_page_numbers != 119:
+        raise RuntimeError(
+            "Unexpected Legea nr. 31/1990 page-number count: "
+            f"{removed_page_numbers}, expected 119"
+        )
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def law31_structure(line: str) -> tuple[str, re.Match[str]] | None:
+    for kind, pattern in (
+        ("title", LAW31_TITLE),
+        ("chapter", LAW31_CHAPTER),
+        ("section", LAW31_SECTION),
+        ("subsection", LAW31_SUBSECTION),
+    ):
+        match = pattern.fullmatch(line)
+        if match:
+            return kind, match
+    return None
+
+
+def format_law31_markdown(text: str) -> str:
+    if text.startswith("# Legea nr. 31/1990 privind societățile\n"):
+        return normalize_heading_spacing(text)
+
+    lines = text.splitlines()
+    try:
+        title_start = lines.index("TITLUL I")
+        notes_start = lines.index("NOTE:")
+    except ValueError as error:
+        raise RuntimeError("Could not locate Legea nr. 31/1990 body or notes") from error
+
+    modifier_lines = [line for line in lines[4:title_start] if line]
+    if len(modifier_lines) != 21 or not all(
+        line.startswith("- ") for line in modifier_lines
+    ):
+        raise RuntimeError("Unexpected Legea nr. 31/1990 modifier list")
+
+    rendered = [
+        "# Legea nr. 31/1990 privind societățile",
+        "Legea nr. 31 din 16 noiembrie 1990 privind societățile comerciale",
+        "Republicată în Monitorul Oficial, Partea I, nr. 1.066 din 17 noiembrie 2004",
+        "Forma consolidată până la 23 iunie 2010.",
+        "Text furnizat în scop documentar; nu reprezintă o republicare oficială.",
+        "",
+        "## Acte modificatoare incluse în consolidare",
+        *modifier_lines,
+    ]
+
+    index = title_start
+    while index < len(lines):
+        line = lines[index].strip()
+        if not line:
+            rendered.append("")
+            index += 1
+            continue
+
+        if index == notes_start:
+            rendered.append("## Note privind forma consolidată")
+            index += 1
+            continue
+
+        structure = law31_structure(line)
+        if structure and index < notes_start:
+            kind, match = structure
+            title_parts = []
+            index += 1
+            while index < notes_start:
+                candidate = lines[index].strip()
+                if (
+                    law31_structure(candidate)
+                    or LAW31_ARTICLE.fullmatch(candidate)
+                    or candidate == "NOTE:"
+                ):
+                    break
+                if candidate:
+                    title_parts.append(candidate)
+                index += 1
+            if not title_parts:
+                raise RuntimeError(f"Missing heading title after {line}")
+            title = " ".join(title_parts)
+            if kind == "title":
+                label = f"TITLUL {match.group('label')}"
+                level = 2
+            elif kind == "chapter":
+                label = f"CAPITOLUL {match.group('label')}"
+                level = 3
+            elif kind == "section":
+                label = f"SECȚIUNEA {match.group('label')}"
+                level = 4
+            else:
+                label = f"SUBSECȚIUNEA {match.group('label')}"
+                level = 5
+            rendered.append(f"{'#' * level} {label} — {title}")
+            continue
+
+        article = LAW31_ARTICLE.fullmatch(line) if index < notes_start else None
+        if article:
+            suffix = article.group("suffix").strip()
+            if suffix not in {"", "*** Abrogat"}:
+                raise RuntimeError(f"Unexpected article suffix: {line}")
+            heading = f"###### Articolul {article.group('label')}"
+            if article.group("footnote"):
+                heading += " *)"
+            if suffix:
+                heading += " — Abrogat"
+            rendered.append(heading)
+            index += 1
+            continue
+
+        rendered.append(lines[index].rstrip())
+        index += 1
+
+    return normalize_heading_spacing("\n".join(rendered))
+
+
+def validate_law31_document(markdown: str) -> None:
+    labels = [
+        match.group("label") for match in LAW31_MARKDOWN_ARTICLE.finditer(markdown)
+    ]
+    base_articles = [int(label) for label in labels if "^" not in label]
+    inserted = [label for label in labels if "^" in label]
+    if base_articles != list(range(1, 295)):
+        raise RuntimeError("Legea nr. 31/1990 base articles are incomplete or reordered")
+    if len(labels) != 391 or len(inserted) != 97 or len(set(labels)) != 391:
+        raise RuntimeError("Unexpected Legea nr. 31/1990 inserted-article structure")
+    expected_structure = {
+        r"(?m)^## TITLUL ": 10,
+        r"(?m)^### CAPITOLUL ": 19,
+        r"(?m)^#### SECȚIUNEA ": 8,
+        r"(?m)^##### SUBSECȚIUNEA ": 3,
+        r"(?m)^## Note privind forma consolidată$": 1,
+    }
+    for pattern, expected in expected_structure.items():
+        actual = len(re.findall(pattern, markdown))
+        if actual != expected:
+            raise RuntimeError(
+                f"Unexpected Legea nr. 31/1990 structure count for {pattern}: "
+                f"{actual}, expected {expected}"
+            )
+    if re.search(r"(?m)^\d{1,3}$", markdown):
+        raise RuntimeError("A PDF page number remains in Legea nr. 31/1990")
+    for artifact in ("Ã", "Â", "Å", "Ä", "È", "ş", "Ş", "ţ", "Ţ"):
+        if artifact in markdown:
+            raise RuntimeError(f"Encoding artifact remains: {artifact}")
+
+
+def law31_chunk_description(body: str) -> str:
+    found = []
+    for match in re.finditer(r"(?m)^(#{2,5}) (.+)$", body):
+        heading = match.group(2).strip()
+        if not heading.startswith("Acte modificatoare"):
+            found.append((len(match.group(1)), heading))
+    if not found:
+        return "continuarea dispozițiilor privind societățile"
+
+    top_level = []
+    lower_level = []
+    for level, heading in found:
+        target = top_level if level == 2 else lower_level
+        if heading not in target:
+            target.append(heading)
+    if top_level:
+        headings = top_level
+        if len(top_level) <= 2 and lower_level:
+            headings.append(lower_level[0])
+    elif len(lower_level) <= 4:
+        headings = lower_level
+    else:
+        headings = [*lower_level[:2], *lower_level[-2:]]
+
+    description = "; ".join(headings)
+    return description if len(description) <= 300 else description[:297].rstrip() + "..."
+
+
+def law31_filename_label(label: str) -> str:
+    base, *inserted = label.split("^", 1)
+    suffix = f"bis{inserted[0]}" if inserted else ""
+    return f"{int(base):03d}{suffix}"
+
+
+def build_law31_chunks(markdown: str) -> list[Law31BuiltChunk]:
+    validate_law31_document(markdown)
+    body_start = markdown.index("## Acte modificatoare")
+    preamble = markdown[:body_start].rstrip()
+    body = markdown[body_start:]
+    boundaries = fiscal_part_boundaries(body)
+    built = []
+    expected_names = set()
+
+    for start, end in zip(boundaries, boundaries[1:]):
+        chunk_body = body[start:end].strip() + "\n"
+        labels = [
+            match.group("label")
+            for match in LAW31_MARKDOWN_ARTICLE.finditer(chunk_body)
+        ]
+        if not labels:
+            raise RuntimeError("Legea nr. 31/1990 chunk contains no article")
+        first, last = labels[0], labels[-1]
+        includes_notes = "## Note privind forma consolidată" in chunk_body
+        suffix = "-note" if includes_notes else ""
+        filename = (
+            f"legea_31_1990-art{law31_filename_label(first)}-"
+            f"{law31_filename_label(last)}{suffix}.md"
+        )
+        description = law31_chunk_description(chunk_body)
+        fragment = f"Art. {first}-{last}" + (" și note" if includes_notes else "")
+        content = (
+            f"{preamble}\n"
+            f"**Fragment:** {fragment}.\n"
+            f"**Cuprins:** {description}.\n\n"
+            f"{chunk_body}"
+        )
+        if not MIN_CHUNK_CHARACTERS <= len(content) <= MAX_CHUNK_CHARACTERS:
+            raise RuntimeError(
+                f"{filename} has {len(content):,} characters; expected "
+                f"{MIN_CHUNK_CHARACTERS:,}-{MAX_CHUNK_CHARACTERS:,}"
+            )
+        path = OUTPUT / filename
+        path.write_text(content, encoding="utf-8", newline="\n")
+        built.append(Law31BuiltChunk(path, first, last, description, includes_notes))
+        expected_names.add(filename)
+        print(f"{filename}: {path.stat().st_size:,} bytes")
+
+    chunk_labels = [
+        match.group("label")
+        for chunk in built
+        for match in LAW31_MARKDOWN_ARTICLE.finditer(
+            chunk.path.read_text(encoding="utf-8")
+        )
+    ]
+    document_labels = [
+        match.group("label") for match in LAW31_MARKDOWN_ARTICLE.finditer(markdown)
+    ]
+    if chunk_labels != document_labels:
+        raise RuntimeError("Legea nr. 31/1990 chunk coverage differs from source")
+
+    for stale in OUTPUT.glob("legea_31_1990-*.md"):
+        if stale.name not in expected_names:
+            stale.unlink()
+    return built
+
+
+def law31_catalog_block(built: list[Law31BuiltChunk]) -> str:
+    prefix = (
+        "- Legea nr. 31/1990 privind societățile (republicată în M.Of. "
+        "nr. 1066/2004; forma consolidată până la 23.06.2010)"
+    )
+    entries = []
+    for chunk in built:
+        range_label = f"Art. {chunk.first_article}-{chunk.last_article}"
+        if chunk.includes_notes:
+            range_label += " și note"
+        entries.append(
+            f"{prefix} — {chunk.description}. {range_label}.\n"
+            f"  {PUBLIC_BASE_URL}/{chunk.path.name}\n"
+        )
+    return "\n".join(entries) + "\n"
+
+
+def update_law31_catalog(built: list[Law31BuiltChunk]) -> None:
+    data = CATALOG.read_text(encoding="utf-8")
+    entry_pattern = re.compile(
+        r"(?m)^- Legea nr\. 31/1990 [^\n]*\n"
+        r"  https://[^\n]*/sources/legea_31_1990-[^\n]*\n(?:\n)?"
+    )
+    matches = list(entry_pattern.finditer(data))
+    if not matches:
+        raise RuntimeError("No existing Legea nr. 31/1990 catalog entries found")
+    start, end = matches[0].start(), matches[-1].end()
+    if entry_pattern.sub("", data[start:end]).strip():
+        raise RuntimeError("Legea nr. 31/1990 catalog entries are not contiguous")
+    CATALOG.write_text(
+        data[:start] + law31_catalog_block(built) + data[end:],
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
+def build_law31_document(raw_source: str) -> None:
+    markdown = format_law31_markdown(clean_law31_source(raw_source))
+    LAW31_SOURCE.write_text(markdown, encoding="utf-8", newline="\n")
+    built = build_law31_chunks(markdown)
+    update_law31_catalog(built)
+
+    for legacy_chunk in OUTPUT.glob("legea_31_1990-p*.pdf"):
+        legacy_chunk.unlink()
+    legacy_pdf = ROOT / "legea_31_1990.pdf"
+    if legacy_pdf.exists():
+        legacy_pdf.unlink()
+    for legacy_text in LAW31_LEGACY_TEXT_SOURCES:
+        if legacy_text.exists():
+            legacy_text.unlink()
+
+
+@dataclass(frozen=True)
+class Law265BuiltChunk:
+    path: Path
+    first_article: int
+    last_article: int
+    description: str
+    includes_annexes: bool = False
+
+
+def clean_law265_source(text: str) -> str:
+    text = text.removeprefix("\ufeff").replace("\r\n", "\n").replace("\r", "\n")
+    if text.startswith("# Legea nr. 265/2022 privind registrul comerțului\n"):
+        return text.rstrip() + "\n"
+    romanian_diacritics = str.maketrans("şŞţŢ", "șȘțȚ")
+    lines = [
+        repair_fiscal_mojibake(line).translate(romanian_diacritics).strip()
+        for line in text.splitlines()
+    ]
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def law265_structure(line: str) -> tuple[str, re.Match[str]] | None:
+    for kind, pattern in (
+        ("chapter", LAW265_CHAPTER),
+        ("section", LAW265_SECTION),
+    ):
+        match = pattern.fullmatch(line)
+        if match:
+            return kind, match
+    return None
+
+
+def format_law265_markdown(text: str) -> str:
+    if text.startswith("# Legea nr. 265/2022 privind registrul comerțului\n"):
+        return normalize_heading_spacing(text)
+
+    lines = text.splitlines()
+    try:
+        chapter_start = lines.index("CAPITOLUL I")
+        annex_start = lines.index("ANEXA 1")
+    except ValueError as error:
+        raise RuntimeError("Could not locate Legea nr. 265/2022 body or annexes") from error
+
+    rendered = [
+        "# Legea nr. 265/2022 privind registrul comerțului",
+        "Legea nr. 265 din 22 iulie 2022 privind registrul comerțului și pentru modificarea și completarea altor acte normative cu incidență asupra înregistrării în registrul comerțului",
+        "Publicată în Monitorul Oficial, Partea I, nr. 750 din 26 iulie 2022",
+        "Forma inițială.",
+        "Text furnizat în scop documentar; nu reprezintă o republicare oficială.",
+        "",
+        "## Preambul",
+        *[line for line in lines[3:chapter_start] if line],
+    ]
+
+    index = chapter_start
+    in_annex = False
+    while index < len(lines):
+        line = lines[index].strip()
+        if not line:
+            rendered.append("")
+            index += 1
+            continue
+
+        annex = LAW265_ANNEX.fullmatch(line)
+        if annex:
+            in_annex = True
+            title_parts = []
+            index += 1
+            while index < len(lines):
+                candidate = lines[index].strip()
+                if LAW265_ARTICLE.fullmatch(candidate) or LAW265_ANNEX.fullmatch(
+                    candidate
+                ):
+                    break
+                if candidate:
+                    title_parts.append(candidate)
+                index += 1
+            if not title_parts:
+                raise RuntimeError(f"Missing title for {line}")
+            title_parts[0] = title_parts[0].capitalize()
+            rendered.append(
+                f"## ANEXA {annex.group('number')} — {' '.join(title_parts)}"
+            )
+            continue
+
+        structure = law265_structure(line) if not in_annex else None
+        if structure:
+            kind, match = structure
+            title_parts = []
+            index += 1
+            while index < annex_start:
+                candidate = lines[index].strip()
+                if (
+                    law265_structure(candidate)
+                    or LAW265_ARTICLE.fullmatch(candidate)
+                    or LAW265_ANNEX.fullmatch(candidate)
+                ):
+                    break
+                if candidate:
+                    title_parts.append(candidate)
+                index += 1
+            if not title_parts:
+                raise RuntimeError(f"Missing heading title after {line}")
+            if kind == "chapter":
+                label = f"CAPITOLUL {match.group('label')}"
+                level = 2
+            else:
+                label = f"SECȚIUNEA {match.group('label')}"
+                level = 3
+            rendered.append(f"{'#' * level} {label} — {' '.join(title_parts)}")
+            continue
+
+        article = LAW265_ARTICLE.fullmatch(line)
+        if article:
+            level = 3 if in_annex else 4
+            rendered.append(
+                f"{'#' * level} Articolul {article.group('number')}"
+            )
+            index += 1
+            continue
+
+        rendered.append(lines[index].rstrip())
+        index += 1
+
+    return normalize_heading_spacing("\n".join(rendered))
+
+
+def validate_law265_document(markdown: str) -> None:
+    main_articles = [
+        int(match.group("number"))
+        for match in LAW265_MARKDOWN_ARTICLE.finditer(markdown)
+    ]
+    if main_articles != list(range(1, 143)):
+        raise RuntimeError("Legea nr. 265/2022 articles are incomplete or reordered")
+
+    annex_matches = list(re.finditer(r"(?m)^## ANEXA ([12]) — ", markdown))
+    if [match.group(1) for match in annex_matches] != ["1", "2"]:
+        raise RuntimeError("Legea nr. 265/2022 annexes are incomplete or reordered")
+    annex_parts = []
+    for index, match in enumerate(annex_matches):
+        end = annex_matches[index + 1].start() if index + 1 < 2 else len(markdown)
+        annex_parts.append(markdown[match.start():end])
+    expected_annex_articles = (list(range(1, 12)), list(range(1, 8)))
+    for part, expected in zip(annex_parts, expected_annex_articles):
+        actual = [
+            int(match.group("number"))
+            for match in LAW265_MARKDOWN_ANNEX_ARTICLE.finditer(part)
+        ]
+        if actual != expected:
+            raise RuntimeError("Unexpected Legea nr. 265/2022 annex article coverage")
+
+    expected_structure = {
+        r"(?m)^## CAPITOLUL ": 4,
+        r"(?m)^### SECȚIUNEA ": 14,
+        r"(?m)^## ANEXA [12] — ": 2,
+    }
+    for pattern, expected in expected_structure.items():
+        actual = len(re.findall(pattern, markdown))
+        if actual != expected:
+            raise RuntimeError(
+                f"Unexpected Legea nr. 265/2022 structure count for {pattern}: "
+                f"{actual}, expected {expected}"
+            )
+    for artifact in ("Ã", "Â", "Å", "Ä", "È", "ş", "Ş", "ţ", "Ţ"):
+        if artifact in markdown:
+            raise RuntimeError(f"Encoding artifact remains: {artifact}")
+
+
+def law265_chunk_description(body: str) -> str:
+    headings = []
+    for match in re.finditer(r"(?m)^#{2,3} (.+)$", body):
+        heading = match.group(1).strip()
+        if heading == "Preambul" or heading.startswith("Articolul "):
+            continue
+        if heading not in headings:
+            headings.append(heading)
+    if not headings:
+        return "continuarea procedurii de înregistrare în registrul comerțului"
+    selected = headings if len(headings) <= 4 else [*headings[:2], *headings[-2:]]
+    if len(selected) <= 2:
+        heading_limit = 135
+    elif len(selected) == 3:
+        heading_limit = 115
+    else:
+        heading_limit = 105
+    shortened = []
+    for heading in selected:
+        if len(heading) > heading_limit:
+            heading = heading[: heading_limit - 1].rsplit(" ", 1)[0] + "…"
+        shortened.append(heading)
+    description = "; ".join(shortened)
+    if len(description) > 300:
+        description = description[:299].rsplit(" ", 1)[0] + "…"
+    return description
+
+
+def build_law265_chunks(markdown: str) -> list[Law265BuiltChunk]:
+    validate_law265_document(markdown)
+    body_start = markdown.index("## Preambul")
+    preamble = markdown[:body_start].rstrip()
+    body = markdown[body_start:]
+    boundaries = fiscal_part_boundaries(body)
+    built = []
+    expected_names = set()
+
+    for start, end in zip(boundaries, boundaries[1:]):
+        chunk_body = body[start:end].strip() + "\n"
+        articles = [
+            int(match.group("number"))
+            for match in LAW265_MARKDOWN_ARTICLE.finditer(chunk_body)
+        ]
+        if not articles:
+            raise RuntimeError("Legea nr. 265/2022 chunk contains no main article")
+        first, last = articles[0], articles[-1]
+        includes_annexes = "## ANEXA " in chunk_body
+        suffix = "-anexe" if includes_annexes else ""
+        filename = f"legea_265_2022-art{first:03d}-{last:03d}{suffix}.md"
+        description = law265_chunk_description(chunk_body)
+        fragment = f"Art. {first}-{last}" + (
+            " și anexele nr. 1-2" if includes_annexes else ""
+        )
+        content = (
+            f"{preamble}\n"
+            f"**Fragment:** {fragment}.\n"
+            f"**Cuprins:** {description}.\n\n"
+            f"{chunk_body}"
+        )
+        if not MIN_CHUNK_CHARACTERS <= len(content) <= MAX_CHUNK_CHARACTERS:
+            raise RuntimeError(
+                f"{filename} has {len(content):,} characters; expected "
+                f"{MIN_CHUNK_CHARACTERS:,}-{MAX_CHUNK_CHARACTERS:,}"
+            )
+        path = OUTPUT / filename
+        path.write_text(content, encoding="utf-8", newline="\n")
+        built.append(
+            Law265BuiltChunk(path, first, last, description, includes_annexes)
+        )
+        expected_names.add(filename)
+        print(f"{filename}: {path.stat().st_size:,} bytes")
+
+    chunk_articles = [
+        int(match.group("number"))
+        for chunk in built
+        for match in LAW265_MARKDOWN_ARTICLE.finditer(
+            chunk.path.read_text(encoding="utf-8")
+        )
+    ]
+    if chunk_articles != list(range(1, 143)):
+        raise RuntimeError("Legea nr. 265/2022 chunk article coverage differs")
+    if sum(chunk.includes_annexes for chunk in built) != 1:
+        raise RuntimeError("Legea nr. 265/2022 annexes are not in one chunk")
+
+    for stale in OUTPUT.glob("legea_265_2022-*.md"):
+        if stale.name not in expected_names:
+            stale.unlink()
+    return built
+
+
+def law265_catalog_block(built: list[Law265BuiltChunk]) -> str:
+    prefix = (
+        "- Legea nr. 265/2022 privind registrul comerțului "
+        "(forma inițială, M.Of. nr. 750/2022)"
+    )
+    entries = []
+    for chunk in built:
+        range_label = f"Art. {chunk.first_article}-{chunk.last_article}"
+        if chunk.includes_annexes:
+            range_label += " și anexele nr. 1-2"
+        punctuation = "" if chunk.description.endswith((".", "…", "!", "?")) else "."
+        entries.append(
+            f"{prefix} — {chunk.description}{punctuation} {range_label}.\n"
+            f"  {PUBLIC_BASE_URL}/{chunk.path.name}\n"
+        )
+    return "\n".join(entries) + "\n"
+
+
+def update_law265_catalog(built: list[Law265BuiltChunk]) -> None:
+    data = CATALOG.read_text(encoding="utf-8")
+    entry_pattern = re.compile(
+        r"(?m)^- Legea nr\. 265/2022 [^\n]*\n"
+        r"  https://[^\n]*/sources/legea_265_2022-[^\n]*\n(?:\n)?"
+    )
+    matches = list(entry_pattern.finditer(data))
+    if not matches:
+        raise RuntimeError("No existing Legea nr. 265/2022 catalog entries found")
+    start, end = matches[0].start(), matches[-1].end()
+    if entry_pattern.sub("", data[start:end]).strip():
+        raise RuntimeError("Legea nr. 265/2022 catalog entries are not contiguous")
+    replacement = law265_catalog_block(built)
+    tail = data[end:]
+    if not tail.strip():
+        replacement = replacement.rstrip() + "\n"
+        tail = ""
+    CATALOG.write_text(
+        data[:start] + replacement + tail,
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
+def build_law265_document(raw_source: str) -> None:
+    markdown = format_law265_markdown(clean_law265_source(raw_source))
+    LAW265_SOURCE.write_text(markdown, encoding="utf-8", newline="\n")
+    built = build_law265_chunks(markdown)
+    update_law265_catalog(built)
+
+    for legacy_chunk in OUTPUT.glob("legea_265_2022-p*.pdf"):
+        legacy_chunk.unlink()
+    for legacy_pdf in (ROOT / "L_265_2022.pdf", ROOT / "legea_265_2022.pdf"):
+        if legacy_pdf.exists():
+            legacy_pdf.unlink()
+    for legacy_text in LAW265_LEGACY_TEXT_SOURCES:
+        if legacy_text.exists():
+            legacy_text.unlink()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -4307,6 +4976,16 @@ def parse_args() -> argparse.Namespace:
         "--import-oug34-source",
         type=Path,
         help="import a supplied O.U.G. nr. 34/2014 TXT before building",
+    )
+    parser.add_argument(
+        "--import-law31-source",
+        type=Path,
+        help="import a supplied Legea nr. 31/1990 TXT before building",
+    )
+    parser.add_argument(
+        "--import-law265-source",
+        type=Path,
+        help="import a supplied Legea nr. 265/2022 TXT before building",
     )
     return parser.parse_args()
 
@@ -4533,6 +5212,40 @@ def main() -> None:
 
     if oug34_raw_source is not None:
         build_oug34_document(oug34_raw_source)
+
+    law31_raw_source = None
+    if args.import_law31_source:
+        if not args.import_law31_source.is_file():
+            raise FileNotFoundError(args.import_law31_source)
+        law31_raw_source = args.import_law31_source.read_text(encoding="utf-8-sig")
+    elif LAW31_SOURCE.is_file():
+        law31_raw_source = LAW31_SOURCE.read_text(encoding="utf-8-sig")
+    else:
+        law31_legacy = next(
+            (path for path in LAW31_LEGACY_TEXT_SOURCES if path.is_file()), None
+        )
+        if law31_legacy:
+            law31_raw_source = law31_legacy.read_text(encoding="utf-8-sig")
+
+    if law31_raw_source is not None:
+        build_law31_document(law31_raw_source)
+
+    law265_raw_source = None
+    if args.import_law265_source:
+        if not args.import_law265_source.is_file():
+            raise FileNotFoundError(args.import_law265_source)
+        law265_raw_source = args.import_law265_source.read_text(encoding="utf-8-sig")
+    elif LAW265_SOURCE.is_file():
+        law265_raw_source = LAW265_SOURCE.read_text(encoding="utf-8-sig")
+    else:
+        law265_legacy = next(
+            (path for path in LAW265_LEGACY_TEXT_SOURCES if path.is_file()), None
+        )
+        if law265_legacy:
+            law265_raw_source = law265_legacy.read_text(encoding="utf-8-sig")
+
+    if law265_raw_source is not None:
+        build_law265_document(law265_raw_source)
 
 
 if __name__ == "__main__":
