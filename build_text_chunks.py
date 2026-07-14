@@ -262,6 +262,40 @@ FISCAL_MARKDOWN_ARTICLE = re.compile(
 )
 FISCAL_ANNEX = re.compile(r"^ANEXA\s+(?P<label>.+)$")
 
+PROCEDURE_FISCAL_SOURCE = ROOT / "codul_de_procedura_fiscala.md"
+PROCEDURE_FISCAL_LEGACY_TEXT_SOURCES = (
+    ROOT / "procedura_fiscala.txt",
+    ROOT / "cod_procedura_fiscala.txt",
+)
+PROCEDURE_FISCAL_TITLE = re.compile(
+    r"^(?P<label>TITLUL\s+[IVXLCDM]+)\s+(?P<title>.+)$"
+)
+PROCEDURE_FISCAL_CHAPTER = re.compile(
+    r"^(?P<label>CAPITOLUL\s+(?P<roman>[IVXLCDM]+)"
+    r"(?P<inserted>\d+)?)"
+    r"(?:\s+(?P<title>.+))?$"
+)
+PROCEDURE_FISCAL_SECTION = re.compile(
+    r"^(?P<label>(?:SEC[\u0162\u0163\u021a\u021bT]IUNEA|"
+    r"Sec[\u0162\u0163\u021a\u021bT]iunea)\s+"
+    r"(?:(?:a\s+)?(?:\d+|[IVXLCDM]+)(?:-a)?))"
+    r"(?:\s*-?\s*(?P<title>.*))?$"
+)
+PROCEDURE_FISCAL_ARTICLE = re.compile(
+    r"^ART\.\s*(?P<raw_number>\d+(?:\s+\d+)?)\s*(?:\*)?\s*"
+    r"(?P<title>.*)$"
+)
+PROCEDURE_FISCAL_MARKDOWN_ARTICLE = re.compile(
+    r"(?m)^###### Articolul (?P<number>\d+(?:\^\d+)?)"
+    r"(?: \u2014 .+)?$"
+)
+PROCEDURE_FISCAL_ANNEX = re.compile(
+    r"^ANEXA\s+(?P<number>\d+)\s*(?:-\s*(?P<title>.*))?$"
+)
+PROCEDURE_FISCAL_PART = re.compile(
+    r"^(?P<label>Partea\s+(?:a\s+)?[IVXLCDM]+(?:-a)?)$"
+)
+
 PAGE_FOOTER = re.compile(
     r"(?m)^Codul Muncii actualizat Legislatie Protectia Muncii\r?\n\d+\r?\n?"
 )
@@ -3038,6 +3072,13 @@ def repair_fiscal_mojibake(line: str) -> str:
         "Å¢": "Ţ",
         "Â«": "«",
         "Â»": "»",
+        "â€ž": "„",
+        "â€œ": "“",
+        "â€": "”",
+        "â€™": "’",
+        "â€“": "–",
+        "â€”": "—",
+        "â€¦": "…",
     }
     for damaged, repaired in replacements.items():
         line = line.replace(damaged, repaired)
@@ -3540,6 +3581,428 @@ def build_fiscal_document(raw_source: str) -> None:
             legacy_text.unlink()
 
 
+@dataclass(frozen=True)
+class ProcedureFiscalBuiltChunk:
+    path: Path
+    kind: str
+    description: str
+    first_article: str | None = None
+    last_article: str | None = None
+    part: int | None = None
+
+
+def clean_procedure_fiscal_source(text: str) -> str:
+    text = text.removeprefix("\ufeff").replace("\r\n", "\n").replace("\r", "\n")
+    if text.startswith("# Codul de procedură fiscală\n"):
+        return text.rstrip() + "\n"
+    lines = []
+    for raw_line in text.splitlines():
+        line = repair_fiscal_mojibake(raw_line)
+        line = re.sub(r"^\d+>ART\.", "ART.", line)
+        lines.append(line)
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def procedure_fiscal_structure(
+    line: str,
+) -> tuple[str, re.Match[str]] | None:
+    for kind, pattern in (
+        ("title", PROCEDURE_FISCAL_TITLE),
+        ("chapter", PROCEDURE_FISCAL_CHAPTER),
+        ("section", PROCEDURE_FISCAL_SECTION),
+    ):
+        match = pattern.fullmatch(line)
+        if match:
+            return kind, match
+    return None
+
+
+def procedure_fiscal_heading_stop(line: str) -> bool:
+    stripped = line.strip()
+    if not stripped:
+        return True
+    if procedure_fiscal_structure(stripped):
+        return True
+    if PROCEDURE_FISCAL_ARTICLE.fullmatch(stripped):
+        return True
+    if PROCEDURE_FISCAL_ANNEX.fullmatch(stripped):
+        return True
+    if PROCEDURE_FISCAL_PART.fullmatch(stripped):
+        return True
+    if stripped.startswith(("(", "[", "*")):
+        return True
+    if re.match(r"^(?:\d+|[A-ZĂÂÎȘȚ])\.\s*", stripped):
+        return True
+    return False
+
+
+def procedure_fiscal_full_heading(
+    lines: list[str],
+    index: int,
+    label: str,
+    title: str,
+    conservative: bool = False,
+) -> tuple[str, int]:
+    continuations = []
+    while index + 1 < len(lines) and len(continuations) < 5:
+        candidate = lines[index + 1].strip()
+        if procedure_fiscal_heading_stop(candidate):
+            break
+        current = continuations[-1] if continuations else title
+        if conservative and current:
+            if re.match(
+                r"^(?:Prezenta|Următoarele|În sensul|Entitatea|Un utilizator|"
+                r"O entitate|A\. |B\. |C\. )",
+                candidate,
+                re.IGNORECASE,
+            ):
+                break
+            connector = current.rstrip().split()[-1].lower() in {
+                "a",
+                "al",
+                "ale",
+                "cu",
+                "de",
+                "în",
+                "la",
+                "pentru",
+                "privește",
+                "privind",
+                "și",
+            }
+            if not (candidate[0].islower() or connector or len(candidate) < 30):
+                break
+        continuations.append(candidate)
+        index += 1
+    full_title = " ".join(part for part in [title, *continuations] if part)
+    if not full_title:
+        raise RuntimeError(f"Missing fiscal-procedure heading title after {label}")
+    return full_title, index
+
+
+def format_procedure_fiscal_markdown(text: str) -> str:
+    if text.startswith("# Codul de procedură fiscală\n"):
+        return normalize_heading_spacing(text)
+
+    lines = text.splitlines()
+    try:
+        start = next(
+            index
+            for index, line in enumerate(lines)
+            if line.startswith("TITLUL I Dispozi")
+        )
+        annex_start = next(
+            index
+            for index in range(start, len(lines))
+            if re.match(r"^ANEXA\s+1\b", lines[index])
+        )
+    except StopIteration as error:
+        raise RuntimeError("Could not locate Codul de procedură fiscală") from error
+
+    rendered = [
+        "# Codul de procedură fiscală",
+        "Legea nr. 207/2015 privind Codul de procedură fiscală",
+        "Forma consolidată: O.U.G. nr. 7/2026",
+        "Text furnizat în scop documentar; nu reprezintă o republicare oficială.",
+    ]
+    current_article = 0
+    inserted_articles: list[str] = []
+    index = start
+
+    while index < len(lines):
+        raw_line = lines[index].rstrip()
+        line = raw_line.strip()
+        if line in {"Ordine de", "aplicare"}:
+            index += 1
+            continue
+
+        article = PROCEDURE_FISCAL_ARTICLE.fullmatch(line)
+        if article and index < annex_start:
+            raw_number = article.group("raw_number").replace(" ", "")
+            number = int(raw_number)
+            if number == current_article + 1:
+                label = raw_number
+                current_article = number
+            else:
+                candidates = [
+                    base
+                    for base in range(1, current_article + 1)
+                    if raw_number.startswith(str(base))
+                    and len(raw_number) > len(str(base))
+                ]
+                if not candidates:
+                    raise RuntimeError(
+                        f"Unexpected fiscal-procedure article {raw_number} "
+                        f"after {current_article}"
+                    )
+                base = max(candidates, key=lambda value: len(str(value)))
+                label = f"{base}^{raw_number[len(str(base)):]}"
+                inserted_articles.append(label)
+
+            title = article.group("title").strip().lstrip("- ")
+            if not title and index + 1 < len(lines):
+                candidate = lines[index + 1].strip().lstrip("- ")
+                if candidate and not procedure_fiscal_heading_stop(candidate):
+                    title = candidate
+                    index += 1
+            rendered.append(
+                f"###### Articolul {label}" + (f" — {title}" if title else "")
+            )
+            index += 1
+            continue
+
+        structure = procedure_fiscal_structure(line)
+        if structure:
+            kind, match = structure
+            label = match.group("label").strip()
+            title = (match.group("title") or "").strip()
+            if kind == "chapter" and match.group("inserted"):
+                label = (
+                    f"CAPITOLUL {match.group('roman')}^"
+                    f"{match.group('inserted')}"
+                )
+            full_title, index = procedure_fiscal_full_heading(
+                lines,
+                index,
+                label,
+                title,
+                conservative=index >= annex_start,
+            )
+            levels = {"title": 2, "chapter": 3, "section": 4}
+            if index >= annex_start and kind == "section":
+                levels["section"] = 3
+            rendered.append(f"{'#' * levels[kind]} {label} — {full_title}")
+            index += 1
+            continue
+
+        annex = PROCEDURE_FISCAL_ANNEX.fullmatch(line)
+        if annex:
+            label = f"ANEXA {annex.group('number')}"
+            title = (annex.group("title") or "").strip()
+            full_title, index = procedure_fiscal_full_heading(
+                lines, index, label, title, conservative=True
+            )
+            rendered.append(f"## {label} — {full_title}")
+            index += 1
+            continue
+
+        part = PROCEDURE_FISCAL_PART.fullmatch(line)
+        if part and index >= annex_start:
+            label = part.group("label")
+            title = ""
+            if index + 1 < len(lines):
+                candidate = lines[index + 1].strip()
+                if candidate and not procedure_fiscal_heading_stop(candidate):
+                    title = candidate
+                    index += 1
+            rendered.append(f"### {label}" + (f" — {title}" if title else ""))
+            index += 1
+            continue
+
+        rendered.append(raw_line)
+        index += 1
+
+    if current_article != 354:
+        raise RuntimeError(
+            f"Codul de procedură fiscală ended at article {current_article}"
+        )
+    if len(inserted_articles) != 74 or len(set(inserted_articles)) != 74:
+        raise RuntimeError(
+            f"Expected 74 inserted fiscal-procedure articles, found "
+            f"{len(inserted_articles)}"
+        )
+    return normalize_heading_spacing("\n".join(rendered))
+
+
+def validate_procedure_fiscal_document(markdown: str) -> None:
+    marker = "## ANEXA 1"
+    if marker not in markdown:
+        raise RuntimeError("Missing fiscal-procedure annexes")
+    code, annexes = markdown.split(marker, 1)
+    labels = [
+        match.group("number")
+        for match in PROCEDURE_FISCAL_MARKDOWN_ARTICLE.finditer(code)
+    ]
+    base_articles = [int(label) for label in labels if "^" not in label]
+    inserted = [label for label in labels if "^" in label]
+    if base_articles != list(range(1, 355)):
+        raise RuntimeError(
+            "Codul de procedură fiscală articles are incomplete or reordered"
+        )
+    if len(inserted) != 74 or len(set(inserted)) != 74:
+        raise RuntimeError("Unexpected inserted fiscal-procedure articles")
+
+    expected_code = {
+        r"(?m)^## TITLUL ": 12,
+        r"(?m)^### CAPITOLUL ": 48,
+        r"(?m)^#### SEC": 27,
+    }
+    expected_annexes = {
+        r"(?m)^## ANEXA ": 6,
+        r"(?m)^### (?:SEC|Sec)": 21,
+        r"(?m)^### Partea ": 2,
+    }
+    for part, expected in ((code, expected_code), (annexes, expected_annexes)):
+        for pattern, count in expected.items():
+            actual = len(re.findall(pattern, part))
+            if actual != count:
+                raise RuntimeError(
+                    f"Unexpected fiscal-procedure structure count for {pattern}: "
+                    f"{actual}, expected {count}"
+                )
+    for artifact in ("Ordine de\naplicare", ">ART.", "Ã", "Ä", "Å", "È", "â€"):
+        if artifact in markdown:
+            raise RuntimeError(f"Extraction artifact remains: {artifact}")
+
+
+def build_procedure_fiscal_chunks(
+    markdown: str,
+) -> list[ProcedureFiscalBuiltChunk]:
+    validate_procedure_fiscal_document(markdown)
+    first_heading = markdown.index("## TITLUL ")
+    annex_heading = markdown.index("## ANEXA 1")
+    preamble = markdown[:first_heading].rstrip()
+    parts = (
+        ("code", markdown[first_heading:annex_heading]),
+        ("annexes", markdown[annex_heading:]),
+    )
+    expected_names: set[str] = set()
+    built: list[ProcedureFiscalBuiltChunk] = []
+
+    for kind, part_text in parts:
+        boundaries = fiscal_part_boundaries(part_text)
+        for ordinal, (start, end) in enumerate(
+            zip(boundaries, boundaries[1:]), 1
+        ):
+            body = part_text[start:end].strip() + "\n"
+            description = fiscal_chunk_description(body, kind)
+            if kind == "code":
+                labels = [
+                    match.group("number")
+                    for match in PROCEDURE_FISCAL_MARKDOWN_ARTICLE.finditer(body)
+                ]
+                if not labels:
+                    raise RuntimeError(
+                        "Fiscal-procedure code chunk contains no article"
+                    )
+
+                def article_key(label: str) -> tuple[int, int]:
+                    base, *inserted = label.split("^", 1)
+                    return int(base), int(inserted[0]) if inserted else 0
+
+                first_article = min(labels, key=article_key)
+                last_article = max(labels, key=article_key)
+
+                def filename_label(label: str) -> str:
+                    base, *inserted = label.split("^", 1)
+                    suffix = f"bis{inserted[0]}" if inserted else ""
+                    return f"{int(base):04d}{suffix}"
+
+                filename = (
+                    f"cod_procedura_fiscala-art{filename_label(first_article)}-"
+                    f"{filename_label(last_article)}.md"
+                )
+                fragment = f"Art. {first_article}-{last_article}"
+                record = ProcedureFiscalBuiltChunk(
+                    OUTPUT / filename,
+                    kind,
+                    description,
+                    first_article,
+                    last_article,
+                )
+            else:
+                filename = f"cod_procedura_fiscala-anexe-part{ordinal:02d}.md"
+                fragment = f"Anexele Codului — partea {ordinal}"
+                record = ProcedureFiscalBuiltChunk(
+                    OUTPUT / filename,
+                    kind,
+                    description,
+                    part=ordinal,
+                )
+
+            content = (
+                f"{preamble}\n"
+                f"**Fragment:** {fragment}\n"
+                f"**Cuprins:** {description}.\n\n"
+                f"{body}"
+            )
+            if not MIN_CHUNK_CHARACTERS <= len(content) <= MAX_CHUNK_CHARACTERS:
+                raise RuntimeError(
+                    f"{filename} has {len(content):,} characters; expected "
+                    f"{MIN_CHUNK_CHARACTERS:,}-{MAX_CHUNK_CHARACTERS:,}"
+                )
+            record.path.write_text(content, encoding="utf-8", newline="\n")
+            expected_names.add(filename)
+            built.append(record)
+            print(f"{filename}: {record.path.stat().st_size:,} bytes")
+
+    for stale in OUTPUT.glob("cod_procedura_fiscala-*.md"):
+        if stale.name not in expected_names:
+            stale.unlink()
+    return built
+
+
+def procedure_fiscal_catalog_block(
+    built: list[ProcedureFiscalBuiltChunk],
+) -> str:
+    entries = []
+    for chunk in built:
+        if chunk.kind == "code":
+            range_label = f"Art. {chunk.first_article}-{chunk.last_article}."
+        else:
+            range_label = f"Anexe — partea {chunk.part}."
+        entries.append(
+            "- Codul de procedură fiscală (Legea nr. 207/2015; actualizat prin "
+            f"O.U.G. nr. 7/2026) — {chunk.description}. {range_label}\n"
+            f"  {PUBLIC_BASE_URL}/{chunk.path.name}\n"
+        )
+    return "\n".join(entries) + "\n"
+
+
+def update_procedure_fiscal_catalog(
+    built: list[ProcedureFiscalBuiltChunk],
+) -> None:
+    data = CATALOG.read_text(encoding="utf-8")
+    entry_pattern = re.compile(
+        r"(?m)^- Codul de procedură fiscală [^\n]*\n"
+        r"  https://[^\n]*/sources/cod_procedura_fiscala-[^\n]*"
+        r"\n(?:\n)?"
+    )
+    matches = list(entry_pattern.finditer(data))
+    if not matches:
+        raise RuntimeError(
+            "No existing Codul de procedură fiscală catalog entries found"
+        )
+    start, end = matches[0].start(), matches[-1].end()
+    if entry_pattern.sub("", data[start:end]).strip():
+        raise RuntimeError(
+            "Codul de procedură fiscală catalog entries are not contiguous"
+        )
+    CATALOG.write_text(
+        data[:start] + procedure_fiscal_catalog_block(built) + data[end:],
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
+def build_procedure_fiscal_document(raw_source: str) -> None:
+    markdown = format_procedure_fiscal_markdown(
+        clean_procedure_fiscal_source(raw_source)
+    )
+    PROCEDURE_FISCAL_SOURCE.write_text(markdown, encoding="utf-8", newline="\n")
+    built = build_procedure_fiscal_chunks(markdown)
+    update_procedure_fiscal_catalog(built)
+
+    for legacy_chunk in OUTPUT.glob("cod_procedura_fiscala-p*.pdf"):
+        legacy_chunk.unlink()
+    legacy_pdf = ROOT / "cod_procedura_fiscala.pdf"
+    if legacy_pdf.exists():
+        legacy_pdf.unlink()
+    for legacy_text in PROCEDURE_FISCAL_LEGACY_TEXT_SOURCES:
+        if legacy_text.exists():
+            legacy_text.unlink()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -3581,6 +4044,11 @@ def parse_args() -> argparse.Namespace:
         "--import-fiscal-source",
         type=Path,
         help="import a supplied Codul fiscal TXT before building",
+    )
+    parser.add_argument(
+        "--import-fiscal-procedure-source",
+        type=Path,
+        help="import a supplied Codul de procedură fiscală TXT before building",
     )
     return parser.parse_args()
 
@@ -3762,6 +4230,34 @@ def main() -> None:
 
     if fiscal_raw_source is not None:
         build_fiscal_document(fiscal_raw_source)
+
+    procedure_fiscal_raw_source = None
+    if args.import_fiscal_procedure_source:
+        if not args.import_fiscal_procedure_source.is_file():
+            raise FileNotFoundError(args.import_fiscal_procedure_source)
+        procedure_fiscal_raw_source = args.import_fiscal_procedure_source.read_text(
+            encoding="utf-8-sig"
+        )
+    elif PROCEDURE_FISCAL_SOURCE.is_file():
+        procedure_fiscal_raw_source = PROCEDURE_FISCAL_SOURCE.read_text(
+            encoding="utf-8-sig"
+        )
+    else:
+        procedure_fiscal_legacy = next(
+            (
+                path
+                for path in PROCEDURE_FISCAL_LEGACY_TEXT_SOURCES
+                if path.is_file()
+            ),
+            None,
+        )
+        if procedure_fiscal_legacy:
+            procedure_fiscal_raw_source = procedure_fiscal_legacy.read_text(
+                encoding="utf-8-sig"
+            )
+
+    if procedure_fiscal_raw_source is not None:
+        build_procedure_fiscal_document(procedure_fiscal_raw_source)
 
 
 if __name__ == "__main__":

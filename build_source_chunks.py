@@ -18,11 +18,6 @@ DOCUMENTS = (
         41,
     ),
     (
-        "cod_procedura_fiscala",
-        (("cod_procedura_fiscala.pdf", 0, 1),),
-        167,
-    ),
-    (
         "oug_34_2014",
         (("oug_34_2014.pdf", 0, 1),),
         27,
