@@ -28,11 +28,6 @@ DOCUMENTS = (
         41,
     ),
     (
-        "cod_procedura_civila",
-        (("cod_procedura_civila.pdf", 0, 1),),
-        134,
-    ),
-    (
         "cod_procedura_fiscala",
         (("cod_procedura_fiscala.pdf", 0, 1),),
         167,

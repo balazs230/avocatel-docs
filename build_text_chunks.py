@@ -193,6 +193,48 @@ CONSTITUTION_MARKDOWN_ARTICLE = re.compile(
     r"(?m)^##### Articolul (?P<number>\d+) — .+$"
 )
 
+PROCEDURE_CIVIL_SOURCE = ROOT / "codul_de_procedura_civila.md"
+PROCEDURE_CIVIL_LEGACY_TEXT_SOURCES = (
+    ROOT / "procedura_civila.txt",
+    ROOT / "cod_procedura_civila.txt",
+)
+PROCEDURE_CIVIL_LEGACY_SOURCE = ROOT / "cod_procedura_civila.pdf"
+PROCEDURE_CIVIL_FOOTER = re.compile(
+    r"(?m)^Codul de Procedura Civila din 2010 - forma sintetica pentru data "
+    r"2020-05-25\n?"
+    r"|^pag\.\s*\d+\s+5/25/2020\s*:\s*lex@snppc\.ro\n?"
+)
+PROCEDURE_CIVIL_BOOK = re.compile(
+    r"^(?P<label>CARTEA\s+[IVXLCDM]+):\s*(?P<title>.*)$"
+)
+PROCEDURE_CIVIL_TITLE = re.compile(
+    r"^(?P<label>TITLUL\s+(?:PRELIMINAR|[IVXLCDM]+)):\s*(?P<title>.*)$"
+)
+PROCEDURE_CIVIL_CHAPTER = re.compile(
+    r"^(?P<label>CAPITOLUL\s+(?:[IVXLCDM]+|0))"
+    r"(?::\s*|\s+)(?P<title>.*?)(?::)?$"
+)
+PROCEDURE_CIVIL_SECTION = re.compile(
+    r"^(?P<label>SEC[\u0162\u0163\u021a\u021bT]IUNEA\s+"
+    r"(?:\d+|a\s+\d+-a)):\s*(?P<title>.*)$",
+    re.IGNORECASE,
+)
+PROCEDURE_CIVIL_SUBSECTION = re.compile(
+    r"^(?P<label>SUBSEC[\u0162\u0163\u021a\u021bT]IUNEA\s+\d+)"
+    r"(?::\s*(?P<title>.*))?$",
+    re.IGNORECASE,
+)
+PROCEDURE_CIVIL_ARTICLE = re.compile(
+    r"^Art\.\s*(?P<number>\d+(?:\^\d+)?)\s*:\s*(?P<title>.*)$"
+)
+PROCEDURE_CIVIL_MARKDOWN_ARTICLE = re.compile(
+    r"(?m)^###### Articolul (?P<number>\d+(?:\^\d+)?)"
+    r"(?: — .+)?$"
+)
+PROCEDURE_CIVIL_EXTRACT_ARTICLE = re.compile(
+    r"^- Art\.\s*(?P<number>[IVXLCDM]+|\d+)(?:\s|$)"
+)
+
 PAGE_FOOTER = re.compile(
     r"(?m)^Codul Muncii actualizat Legislatie Protectia Muncii\r?\n\d+\r?\n?"
 )
@@ -822,6 +864,155 @@ CONSTITUTION_CHUNKS = (
         "administrația publică, autoritatea judecătorească, economia și finanțele, "
         "Curtea Constituțională, integrarea euroatlantică, revizuirea și "
         "dispozițiile finale",
+    ),
+)
+
+
+@dataclass(frozen=True)
+class ProcedureCivilChunk:
+    first_article: int
+    last_article: int
+    description: str
+    includes_application_extracts: bool = False
+
+    @property
+    def filename(self) -> str:
+        return (
+            f"cod_procedura_civila-art{self.first_article:04d}-"
+            f"{self.last_article:04d}.md"
+        )
+
+    @property
+    def range_label(self) -> str:
+        def display(article: int) -> str:
+            return f"{article:,}".replace(",", ".")
+
+        label = f"Art. {display(self.first_article)}-{display(self.last_article)}"
+        if self.first_article <= 471 <= self.last_article:
+            label += ", inclusiv art. 471^1"
+        if self.includes_application_extracts:
+            label += "; extrase de aplicare și tranziție"
+        return label
+
+
+PROCEDURE_CIVIL_CHUNKS = (
+    ProcedureCivilChunk(
+        1,
+        79,
+        "domeniul și principiile procesului civil, aplicarea legii procesuale, "
+        "acțiunea civilă, incompatibilitatea judecătorului și începutul regimului "
+        "părților",
+    ),
+    ProcedureCivilChunk(
+        80,
+        139,
+        "intervenția și reprezentarea părților, asistența judiciară, participarea "
+        "Ministerului Public și competența materială și teritorială",
+    ),
+    ProcedureCivilChunk(
+        140,
+        186,
+        "competența teritorială specială, necompetența, conflictele, "
+        "litispendența, conexitatea, strămutarea și actele de procedură",
+    ),
+    ProcedureCivilChunk(
+        187,
+        236,
+        "citarea și comunicarea actelor, nulitatea, termenele, amenzile judiciare "
+        "și sesizarea și pregătirea judecății în primă instanță",
+    ),
+    ProcedureCivilChunk(
+        237,
+        309,
+        "judecata în primă instanță, cercetarea procesului, excepțiile și regulile "
+        "generale privind probele și înscrisurile",
+    ),
+    ProcedureCivilChunk(
+        310,
+        394,
+        "înscrisurile, martorii, prezumțiile, expertiza, cercetarea la fața "
+        "locului, interogatoriul, asigurarea probelor și dezbaterea fondului",
+    ),
+    ProcedureCivilChunk(
+        395,
+        465,
+        "deliberarea, incidentele procedurale, hotărârile judecătorești, "
+        "executarea provizorie, cheltuielile de judecată și regulile generale "
+        "privind căile de atac",
+    ),
+    ProcedureCivilChunk(
+        466,
+        513,
+        "apelul, recursul, contestația în anulare și începutul revizuirii",
+    ),
+    ProcedureCivilChunk(
+        514,
+        574,
+        "revizuirea, unificarea practicii judiciare, contestația privind "
+        "tergiversarea, procedura necontencioasă și începutul arbitrajului",
+    ),
+    ProcedureCivilChunk(
+        575,
+        643,
+        "procedura și hotărârea arbitrală, arbitrajul instituționalizat și "
+        "începutul executării silite, inclusiv scopul și titlurile executorii",
+    ),
+    ProcedureCivilChunk(
+        644,
+        689,
+        "titlurile executorii, participanții, instanța de executare, "
+        "încuviințarea și efectuarea actelor de executare silită",
+    ),
+    ProcedureCivilChunk(
+        690,
+        730,
+        "executarea împotriva moștenitorilor, intervenția creditorilor, "
+        "perimarea, suspendarea și încetarea executării, prescripția și "
+        "contestația la executare",
+    ),
+    ProcedureCivilChunk(
+        731,
+        780,
+        "urmărirea bunurilor mobile, sechestrarea, valorificarea și vânzarea "
+        "bunurilor urmărite",
+    ),
+    ProcedureCivilChunk(
+        781,
+        828,
+        "poprirea, urmărirea fructelor și veniturilor imobilelor și începutul "
+        "urmăririi imobiliare",
+    ),
+    ProcedureCivilChunk(
+        829,
+        878,
+        "vânzarea imobilelor la licitație, adjudecarea și distribuirea sumelor "
+        "rezultate din urmărirea silită",
+    ),
+    ProcedureCivilChunk(
+        879,
+        951,
+        "distribuirea sumelor, executarea silită directă, predarea bunurilor și "
+        "minorilor și începutul procedurilor speciale, inclusiv divorțul",
+    ),
+    ProcedureCivilChunk(
+        952,
+        1025,
+        "declararea morții, măsurile asigurătorii și provizorii, partajul, "
+        "ordonanța președințială, cererile posesorii, oferta și ordonanța de plată",
+    ),
+    ProcedureCivilChunk(
+        1026,
+        1082,
+        "ordonanța de plată, cererile cu valoare redusă, evacuarea, uzucapiunea, "
+        "refacerea dosarelor, cauțiunea și începutul procesului civil internațional",
+    ),
+    ProcedureCivilChunk(
+        1083,
+        1134,
+        "legea aplicabilă procesului civil internațional, recunoașterea și "
+        "executarea hotărârilor străine, arbitrajul internațional și dispozițiile "
+        "finale și tranzitorii",
+        True,
     ),
 )
 
@@ -2409,6 +2600,373 @@ def build_constitution_document(raw_source: str) -> None:
             legacy_text.unlink()
 
 
+def clean_procedure_civil_source(text: str) -> str:
+    text = text.removeprefix("\ufeff").replace("\r\n", "\n").replace("\r", "\n")
+    if text.startswith("# Codul de procedură civilă\n"):
+        return text.rstrip() + "\n"
+    text = PROCEDURE_CIVIL_FOOTER.sub("", text)
+    text = text.replace(
+        "Codul de Procedura Civila din 2010 - forma sintetica pentru data "
+        "2020-05-25",
+        "",
+    )
+    text = re.sub(
+        r"(?m)^pag\.\s*\d+\s+5/25/2020\s*:\s*lex@snppc\.ro\n?",
+        "",
+        text,
+    )
+    text = text.replace("buna\ncredinţă", "buna-credinţă")
+    text = text.replace("teza a II\na sunt", "teza a II-a sunt")
+    text = re.sub(r"(?m)^Art\. 471\s*\n1:", "Art. 471^1:", text)
+    return text.rstrip() + "\n"
+
+
+def procedure_civil_structure(line: str) -> tuple[str, re.Match[str]] | None:
+    patterns = (
+        ("book", PROCEDURE_CIVIL_BOOK),
+        ("title", PROCEDURE_CIVIL_TITLE),
+        ("chapter", PROCEDURE_CIVIL_CHAPTER),
+        ("section", PROCEDURE_CIVIL_SECTION),
+        ("subsection", PROCEDURE_CIVIL_SUBSECTION),
+        ("article", PROCEDURE_CIVIL_ARTICLE),
+    )
+    for kind, pattern in patterns:
+        match = pattern.fullmatch(line)
+        if match:
+            return kind, match
+    return None
+
+
+def format_procedure_civil_markdown(text: str) -> str:
+    if text.startswith("# Codul de procedură civilă\n"):
+        return normalize_heading_spacing(text)
+
+    lines = text.splitlines()
+    try:
+        first_title = next(
+            index
+            for index, line in enumerate(lines)
+            if PROCEDURE_CIVIL_TITLE.fullmatch(line.strip())
+        )
+    except StopIteration as error:
+        raise RuntimeError("Could not locate Codul de procedură civilă") from error
+
+    rendered = [
+        "# Codul de procedură civilă",
+        "Legea nr. 134/2010, republicată în Monitorul Oficial nr. 247/2015",
+        "Forma consolidată la 25 mai 2020",
+    ]
+    rendered.extend(line.strip() for line in lines[1:first_title] if line.strip())
+    current_article = 0
+    application_extracts = False
+    index = first_title
+
+    while index < len(lines):
+        raw_line = lines[index].rstrip()
+        line = raw_line.strip()
+        structure = procedure_civil_structure(line)
+
+        if structure and structure[0] == "article":
+            article = structure[1]
+            label = article.group("number")
+            base = int(label.split("^", 1)[0])
+            if "^" in label:
+                if base != current_article:
+                    raise RuntimeError(
+                        f"Unexpected inserted article {label} after {current_article}"
+                    )
+            else:
+                if base != current_article + 1:
+                    raise RuntimeError(
+                        f"Unexpected article {label} after {current_article}"
+                    )
+                current_article = base
+            title = article.group("title").strip()
+            suffix = f" — {title}" if title else ""
+            rendered.append(f"###### Articolul {label}{suffix}")
+            index += 1
+            continue
+
+        if structure:
+            kind, match = structure
+            label = match.group("label")
+            title = (
+                (match.group("title") or "").strip()
+                if "title" in match.groupdict()
+                else ""
+            )
+
+            if kind in {"chapter", "section"} and label.endswith(" 0"):
+                index += 1
+                continue
+            if kind == "subsection" and not title:
+                index += 1
+                continue
+            if kind == "chapter" and current_article == 1134 and not title:
+                rendered.append("## Dispoziții de aplicare și tranziție")
+                application_extracts = True
+                index += 1
+                continue
+
+            levels = {
+                "book": 2,
+                "title": 2 if "PRELIMINAR" in label else 3,
+                "chapter": 4,
+                "section": 5,
+                "subsection": 6,
+            }
+            index += 1
+            continuation = []
+            while index < len(lines):
+                candidate = lines[index].strip()
+                if procedure_civil_structure(candidate):
+                    break
+                if candidate.startswith(
+                    ("(la data", "[textul", "NOTĂ:", "___", "*)")
+                ):
+                    break
+                if candidate:
+                    continuation.append(candidate)
+                index += 1
+            full_title = " ".join(
+                part for part in [title, *continuation] if part
+            )
+            if not full_title:
+                raise RuntimeError(f"Missing title after {label}")
+            rendered.append(f"{'#' * levels[kind]} {label} — {full_title}")
+            continue
+
+        if application_extracts:
+            extract = PROCEDURE_CIVIL_EXTRACT_ARTICLE.match(
+                line.lstrip('"«')
+            )
+            if extract:
+                rendered.append(f"#### Extras — Art. {extract.group('number')}")
+                index += 1
+                continue
+
+        rendered.append(raw_line)
+        index += 1
+
+    if current_article != 1134:
+        raise RuntimeError(
+            f"Codul de procedură civilă ended at article {current_article}"
+        )
+    return normalize_heading_spacing("\n".join(rendered))
+
+
+def validate_procedure_civil_document(markdown: str) -> None:
+    labels = [
+        match.group("number")
+        for match in PROCEDURE_CIVIL_MARKDOWN_ARTICLE.finditer(markdown)
+    ]
+    base_articles = [int(label) for label in labels if "^" not in label]
+    inserted_articles = tuple(label for label in labels if "^" in label)
+    if base_articles != list(range(1, 1135)):
+        raise RuntimeError(
+            "Codul de procedură civilă articles are incomplete or reordered"
+        )
+    if inserted_articles != ("471^1",):
+        raise RuntimeError(f"Unexpected inserted articles: {inserted_articles}")
+
+    expected_structure = {
+        r"(?m)^## CARTEA ": 7,
+        r"(?m)^#{2,3} TITLUL ": 41,
+        r"(?m)^#### CAPITOLUL ": 60,
+        r"(?m)^##### SEC": 57,
+        r"(?m)^###### SUBSEC": 19,
+    }
+    for pattern, expected in expected_structure.items():
+        actual = len(re.findall(pattern, markdown))
+        if actual != expected:
+            raise RuntimeError(
+                f"Unexpected civil-procedure structure count for {pattern}: "
+                f"{actual}, expected {expected}"
+            )
+    if "## Dispoziții de aplicare și tranziție" not in markdown:
+        raise RuntimeError("Missing application and transition extracts")
+    for artifact in (
+        "Codul de Procedura Civila din 2010 - forma sintetica",
+        "5/25/2020 : lex@snppc.ro",
+        "SECŢIUNEA 0",
+        "CAPITOLUL 0",
+    ):
+        if artifact in markdown:
+            raise RuntimeError(f"Extraction artifact remains: {artifact}")
+
+
+def procedure_civil_chunk_boundaries(markdown: str) -> list[int]:
+    structural = [
+        (match.start(), len(match.group(1)))
+        for match in re.finditer(r"(?m)^(#{2,5}) .+$", markdown)
+    ]
+    articles = [
+        match.start()
+        for match in PROCEDURE_CIVIL_MARKDOWN_ARTICLE.finditer(markdown)
+        if "^" not in match.group("number")
+    ]
+    if not structural:
+        raise RuntimeError("No civil-procedure structural headings found")
+
+    boundaries = [structural[0][0]]
+    position = boundaries[0]
+    while len(markdown) - position > MAX_CHUNK_CHARACTERS:
+        remaining = len(markdown) - position
+        target = remaining / 2 if remaining <= 2 * MAX_CHUNK_CHARACTERS else 46_000
+        candidates = [
+            heading
+            for heading in structural
+            if position + MIN_CHUNK_CHARACTERS
+            <= heading[0]
+            <= position + MAX_CHUNK_CHARACTERS
+            and (
+                remaining > 2 * MAX_CHUNK_CHARACTERS
+                or len(markdown) - heading[0] >= MIN_CHUNK_CHARACTERS
+            )
+        ]
+        if candidates:
+            next_position, _ = min(
+                candidates,
+                key=lambda heading: abs((heading[0] - position) - target)
+                + (heading[1] - 2) * 900,
+            )
+        else:
+            article_candidates = [
+                article
+                for article in articles
+                if position + MIN_CHUNK_CHARACTERS
+                <= article
+                <= position + MAX_CHUNK_CHARACTERS
+                and (
+                    remaining > 2 * MAX_CHUNK_CHARACTERS
+                    or len(markdown) - article >= MIN_CHUNK_CHARACTERS
+                )
+            ]
+            if not article_candidates:
+                raise RuntimeError(
+                    f"No civil-procedure boundary near character {position:,}"
+                )
+            next_position = min(
+                article_candidates,
+                key=lambda article: abs((article - position) - target),
+            )
+        boundaries.append(next_position)
+        position = next_position
+    boundaries.append(len(markdown))
+    return boundaries
+
+
+def build_procedure_civil_chunks(markdown: str) -> list[Path]:
+    validate_procedure_civil_document(markdown)
+    boundaries = procedure_civil_chunk_boundaries(markdown)
+    if len(boundaries) - 1 != len(PROCEDURE_CIVIL_CHUNKS):
+        raise RuntimeError(
+            f"Expected {len(PROCEDURE_CIVIL_CHUNKS)} civil-procedure chunks, "
+            f"generated {len(boundaries) - 1}"
+        )
+
+    preamble = markdown[: boundaries[0]].rstrip()
+    expected_names = {chunk.filename for chunk in PROCEDURE_CIVIL_CHUNKS}
+    for stale in OUTPUT.glob("cod_procedura_civila-*.md"):
+        if stale.name not in expected_names:
+            stale.unlink()
+
+    built = []
+    for start, end, chunk in zip(
+        boundaries, boundaries[1:], PROCEDURE_CIVIL_CHUNKS
+    ):
+        body = markdown[start:end].strip() + "\n"
+        labels = [
+            match.group("number")
+            for match in PROCEDURE_CIVIL_MARKDOWN_ARTICLE.finditer(body)
+        ]
+        base_articles = [int(label) for label in labels if "^" not in label]
+        if not base_articles or (
+            base_articles[0] != chunk.first_article
+            or base_articles[-1] != chunk.last_article
+        ):
+            found = (
+                f"{base_articles[0]}-{base_articles[-1]}"
+                if base_articles
+                else "none"
+            )
+            raise RuntimeError(
+                f"{chunk.filename} expected {chunk.first_article}-"
+                f"{chunk.last_article}, found {found}"
+            )
+        has_extracts = "## Dispoziții de aplicare și tranziție" in body
+        if has_extracts != chunk.includes_application_extracts:
+            raise RuntimeError(f"Unexpected application extracts in {chunk.filename}")
+
+        content = (
+            f"{preamble}\n"
+            f"**Fragment:** {chunk.range_label}\n"
+            f"**Cuprins:** {chunk.description}.\n\n"
+            f"{body}"
+        )
+        if not MIN_CHUNK_CHARACTERS <= len(content) <= MAX_CHUNK_CHARACTERS:
+            raise RuntimeError(
+                f"{chunk.filename} has {len(content):,} characters; expected "
+                f"{MIN_CHUNK_CHARACTERS:,}-{MAX_CHUNK_CHARACTERS:,}"
+            )
+
+        destination = OUTPUT / chunk.filename
+        destination.write_text(content, encoding="utf-8", newline="\n")
+        built.append(destination)
+        print(f"{destination.name}: {destination.stat().st_size:,} bytes")
+    return built
+
+
+def procedure_civil_catalog_block(built: list[Path]) -> bytes:
+    filenames = {path.name for path in built}
+    entries = []
+    for chunk in PROCEDURE_CIVIL_CHUNKS:
+        if chunk.filename not in filenames:
+            raise RuntimeError(f"Missing generated chunk: {chunk.filename}")
+        entries.append(
+            "- Codul de procedură civilă (Legea nr. 134/2010, republicată în "
+            "M.Of. nr. 247/2015; forma consolidată la 25.05.2020) — "
+            f"{chunk.description}. {chunk.range_label}.\n"
+            f"  {PUBLIC_BASE_URL}/{chunk.filename}\n"
+        )
+    return ("\n".join(entries) + "\n").encode("utf-8")
+
+
+def update_procedure_civil_catalog(built: list[Path]) -> None:
+    data = CATALOG.read_bytes()
+    entry_pattern = re.compile(
+        rb"- Codul de procedur\xc4\x83 civil\xc4\x83[^\r\n]*\r?\n"
+        rb"  https://[^\r\n]*/sources/cod_procedura_civila-[^\r\n]*"
+        rb"\r?\n(?:\r?\n)?"
+    )
+    matches = list(entry_pattern.finditer(data))
+    if not matches:
+        raise RuntimeError("No existing civil-procedure catalog entries found")
+    start, end = matches[0].start(), matches[-1].end()
+    unmatched = entry_pattern.sub(b"", data[start:end])
+    if unmatched.strip():
+        raise RuntimeError("Civil-procedure catalog entries are not contiguous")
+    replacement = procedure_civil_catalog_block(built)
+    CATALOG.write_bytes(data[:start] + replacement + data[end:])
+
+
+def build_procedure_civil_document(raw_source: str) -> None:
+    markdown = format_procedure_civil_markdown(
+        clean_procedure_civil_source(raw_source)
+    )
+    PROCEDURE_CIVIL_SOURCE.write_text(markdown, encoding="utf-8", newline="\n")
+    built = build_procedure_civil_chunks(markdown)
+    update_procedure_civil_catalog(built)
+
+    for legacy_chunk in OUTPUT.glob("cod_procedura_civila-p*.pdf"):
+        legacy_chunk.unlink()
+    if PROCEDURE_CIVIL_LEGACY_SOURCE.exists():
+        PROCEDURE_CIVIL_LEGACY_SOURCE.unlink()
+    for legacy_text in PROCEDURE_CIVIL_LEGACY_TEXT_SOURCES:
+        if legacy_text.exists():
+            legacy_text.unlink()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -2440,6 +2998,11 @@ def parse_args() -> argparse.Namespace:
         "--import-constitution-source",
         type=Path,
         help="import a supplied Romanian Constitution TXT before building",
+    )
+    parser.add_argument(
+        "--import-civil-procedure-source",
+        type=Path,
+        help="import a supplied Codul de procedură civilă TXT before building",
     )
     return parser.parse_args()
 
@@ -2576,6 +3139,34 @@ def main() -> None:
 
     if constitution_raw_source is not None:
         build_constitution_document(constitution_raw_source)
+
+    procedure_civil_raw_source = None
+    if args.import_civil_procedure_source:
+        if not args.import_civil_procedure_source.is_file():
+            raise FileNotFoundError(args.import_civil_procedure_source)
+        procedure_civil_raw_source = args.import_civil_procedure_source.read_text(
+            encoding="utf-8-sig"
+        )
+    elif PROCEDURE_CIVIL_SOURCE.is_file():
+        procedure_civil_raw_source = PROCEDURE_CIVIL_SOURCE.read_text(
+            encoding="utf-8-sig"
+        )
+    else:
+        procedure_civil_legacy = next(
+            (
+                path
+                for path in PROCEDURE_CIVIL_LEGACY_TEXT_SOURCES
+                if path.is_file()
+            ),
+            None,
+        )
+        if procedure_civil_legacy:
+            procedure_civil_raw_source = procedure_civil_legacy.read_text(
+                encoding="utf-8-sig"
+            )
+
+    if procedure_civil_raw_source is not None:
+        build_procedure_civil_document(procedure_civil_raw_source)
 
 
 if __name__ == "__main__":
